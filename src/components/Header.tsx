@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import logo from '@/assets/logo.jpeg';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -19,13 +20,8 @@ const Header = () => {
     >
       <nav className="container mx-auto px-6 lg:px-12 py-5 flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center gap-2 animate-slide-in-left">
-          <div className="flex gap-0.5">
-            <div className="w-2 h-2 rounded-full bg-foreground" />
-            <div className="w-2 h-2 rounded-full bg-foreground" />
-            <div className="w-2 h-2 rounded-full bg-foreground" />
-            <div className="w-2 h-2 rounded-full bg-foreground" />
-          </div>
+        <div className="flex items-center gap-3 animate-slide-in-left">
+          <img src={logo} alt="Otic Group Logo" className="w-10 h-10 object-contain" />
           <span className="font-body font-medium tracking-wide text-sm uppercase">
             Otic Group
           </span>
@@ -34,13 +30,17 @@ const Header = () => {
         {/* Navigation */}
         <div className="hidden md:flex items-center gap-8 text-sm tracking-wide font-body">
           <a
-            href="#research"
+            href="#about"
             className="text-muted-foreground hover:text-foreground transition-colors uppercase"
           >
-            Research Journal
+            About
           </a>
-          <span className="text-muted-foreground/50">Vol. 01</span>
-          <span className="text-muted-foreground/50">2024</span>
+          <a
+            href="#contact"
+            className="text-muted-foreground hover:text-foreground transition-colors uppercase"
+          >
+            Contact
+          </a>
         </div>
       </nav>
     </header>
