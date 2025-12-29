@@ -21,7 +21,9 @@ const Header = () => {
       <nav className="container mx-auto px-6 lg:px-12 py-5 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-3 animate-slide-in-left">
-          <img src={logo} alt="Otic Group Logo" className="w-10 h-10 object-contain" />
+          <div className="w-10 h-10 bg-background rounded-full flex items-center justify-center">
+            <img src={logo} alt="Otic Group Logo" className="w-8 h-8 object-contain" />
+          </div>
           <span className="font-body font-medium tracking-wide text-sm uppercase">
             Otic Group
           </span>
