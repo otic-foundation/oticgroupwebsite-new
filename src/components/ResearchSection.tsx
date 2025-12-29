@@ -1,4 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
+import enterpriseAI from '@/assets/enterprise-ai.jpeg';
+import oticVision from '@/assets/otic-vision.jpeg';
+import workforceTraining from '@/assets/workforce-training.jpeg';
 
 interface ResearchCard {
   number: string;
@@ -10,6 +13,7 @@ interface ResearchCard {
     highlight?: boolean;
   }[];
   insight: string;
+  image?: string;
 }
 
 const researchData: ResearchCard[] = [
@@ -29,7 +33,8 @@ const researchData: ResearchCard[] = [
         highlight: true
       }
     ],
-    insight: "Agentic AI works best as a cognitive layer across enterprise systems — amplifying human decision-making rather than replacing it."
+    insight: "Agentic AI works best as a cognitive layer across enterprise systems — amplifying human decision-making rather than replacing it.",
+    image: enterpriseAI
   },
   {
     number: "02",
@@ -52,7 +57,8 @@ const researchData: ResearchCard[] = [
         highlight: true
       }
     ],
-    insight: "When designed for context, intelligent systems can outperform traditional enterprise tools while remaining accessible and affordable."
+    insight: "When designed for context, intelligent systems can outperform traditional enterprise tools while remaining accessible and affordable.",
+    image: oticVision
   },
   {
     number: "03",
@@ -75,7 +81,8 @@ const researchData: ResearchCard[] = [
         highlight: true
       }
     ],
-    insight: "AI transformation succeeds when people, systems, and strategy evolve together."
+    insight: "AI transformation succeeds when people, systems, and strategy evolve together.",
+    image: workforceTraining
   },
   {
     number: "04",
@@ -135,7 +142,7 @@ const ResearchCard = ({ data, index }: { data: ResearchCard; index: number }) =>
         </div>
 
         {/* Content */}
-        <div className="lg:col-span-11 space-y-6">
+        <div className="lg:col-span-6 space-y-6">
           {/* Title */}
           <h3 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-foreground leading-tight">
             {data.title}
@@ -170,6 +177,19 @@ const ResearchCard = ({ data, index }: { data: ResearchCard; index: number }) =>
             </p>
           </div>
         </div>
+
+        {/* Image */}
+        {data.image && (
+          <div className="lg:col-span-5">
+            <div className="relative overflow-hidden rounded-lg aspect-[4/3]">
+              <img 
+                src={data.image} 
+                alt={data.title}
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
