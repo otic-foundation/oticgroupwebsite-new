@@ -1,6 +1,18 @@
+import { useState, useEffect } from 'react';
 import speakerImage from '@/assets/speaker.jpeg';
 
 const HeroSection = () => {
+  const [isColorized, setIsColorized] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Toggle color when scrolled past 300px
+      setIsColorized(window.scrollY > 300);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <section className="min-h-screen relative overflow-hidden">
       {/* Main content container */}
@@ -10,10 +22,8 @@ const HeroSection = () => {
           <aside className="lg:col-span-2 animate-fade-up-delay-1">
             <div className="border-l-2 border-accent pl-4 py-1">
               <p className="text-xs uppercase tracking-widest text-muted-foreground font-body leading-relaxed">
-                Systems<br />
-                Manifesto<br />
-                <span className="font-medium">V.1.0</span><br />
-                Africa
+                Empowering Africa's future<br />
+                <span className="font-medium">With Artificial Intelligence</span>
               </p>
             </div>
           </aside>
@@ -39,7 +49,7 @@ const HeroSection = () => {
                   <img
                     src={speakerImage}
                     alt="Visionary leader speaking about the future of African enterprise"
-                    className="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                    className={`w-full h-auto object-cover transition-all duration-700 ${isColorized ? '' : 'grayscale'}`}
                   />
                   {/* Subtle overlay gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent pointer-events-none" />
@@ -50,10 +60,16 @@ const HeroSection = () => {
             {/* Description block */}
             <div className="mt-16 lg:mt-20 flex justify-end animate-fade-up-delay-3">
               <div className="max-w-md border-l-2 border-muted-foreground/30 pl-6">
-                <p className="text-base lg:text-lg text-muted-foreground font-body leading-relaxed">
-                  We are architecting the intelligence layer for African enterprise. 
+                <p className="text-base lg:text-lg text-muted-foreground font-body leading-relaxed italic">
+                  "We are architecting the intelligence layer for African enterprise. 
                   By merging rigorous systems thinking with adaptive AI, Otic Group 
-                  is not just predicting what comes next—we are building the framework for it.
+                  is not just predicting what comes next—we are building the framework for it."
+                </p>
+                <p className="mt-4 text-sm text-foreground font-body font-medium">
+                  Nesta Paul Katende
+                </p>
+                <p className="text-xs text-muted-foreground font-body uppercase tracking-wide">
+                  Group CEO & Founder, Otic Group
                 </p>
               </div>
             </div>
