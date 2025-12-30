@@ -48,6 +48,11 @@
     --font-display: 'Playfair Display', Georgia, serif;
     --font-body: 'DM Sans', system-ui, sans-serif;
     
+    /* Brand colors */
+    --navy: 220 60% 20%;
+    --deep-sea-blue: 210 50% 25%;
+    --accent-light: 30 85% 55%;
+    
     /* Spacing */
     --section-padding: clamp(2rem, 5vw, 4rem);
   }
