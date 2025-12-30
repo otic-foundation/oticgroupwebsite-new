@@ -17,7 +17,7 @@ const researchData: ResearchCardData[] = [
     number: "01",
     title: "Agentic AI in Enterprise Operations",
     summary: "Deployed AI systems that execute workflows in minutes, unify enterprise data, and amplify human decision-making.",
-    image: workforceTraining,
+    image: enterpriseAI,
     link: "#",
     linkLabel: "Read more"
   },
@@ -25,7 +25,7 @@ const researchData: ResearchCardData[] = [
     number: "02",
     title: "Otic Vision: Intelligent Systems for SME Operations",
     summary: "AI-powered smartphone system for inventory tracking and real-time insights—designed for African SMEs.",
-    image: enterpriseAI,
+    image: oticVision,
     link: "https://oticvision.com/",
     linkLabel: "Explore Otic Vision"
   },
@@ -33,7 +33,7 @@ const researchData: ResearchCardData[] = [
     number: "03",
     title: "Workforce Readiness & AI Adoption",
     summary: "Training thousands of professionals with workflow-driven AI education that accelerates real transformation.",
-    image: oticVision,
+    image: workforceTraining,
     link: "#",
     linkLabel: "Read more"
   },
