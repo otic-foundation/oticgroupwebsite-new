@@ -3,113 +3,52 @@ import enterpriseAI from '@/assets/enterprise-ai.jpeg';
 import oticVision from '@/assets/otic-vision.jpeg';
 import workforceTraining from '@/assets/workforce-training.jpeg';
 
-interface ResearchCard {
+interface ResearchCardData {
   number: string;
   title: string;
-  context: string;
-  sections: {
-    label: string;
-    content: string;
-    highlight?: boolean;
-  }[];
-  insight: string;
+  summary: string;
   image?: string;
   link?: string;
+  linkLabel?: string;
 }
 
-const researchData: ResearchCard[] = [
+const researchData: ResearchCardData[] = [
   {
     number: "01",
     title: "Agentic AI in Enterprise Operations",
-    context: "Large organizations operate with fragmented data, slow reporting cycles, and siloed decision-making structures.",
-    sections: [
-      {
-        label: "What we did",
-        content: "Designed and deployed an Agentic AI system within a regulated banking environment to support enterprise reporting, analysis, and decision intelligence.",
-        highlight: true
-      },
-      {
-        label: "What we observed",
-        content: "Reporting workflows that previously took days were executed in minutes. Disconnected departmental data became linked into a unified enterprise view.",
-        highlight: true
-      }
-    ],
-    insight: "Agentic AI works best as a cognitive layer across enterprise systems — amplifying human decision-making rather than replacing it.",
-    image: enterpriseAI
+    summary: "Deployed AI systems that execute workflows in minutes, unify enterprise data, and amplify human decision-making.",
+    image: enterpriseAI,
+    link: "#",
+    linkLabel: "Read more"
   },
   {
     number: "02",
     title: "Otic Vision: Intelligent Systems for SME Operations",
-    context: "Most SMEs operate without accurate visibility into inventory, sales, or performance. Operational losses are systemic.",
-    sections: [
-      {
-        label: "What we studied",
-        content: "Retail and trade-based SMEs across East Africa, focusing on inventory behavior, sales recording, and operational decision-making.",
-        highlight: true
-      },
-      {
-        label: "What we discovered",
-        content: "Fewer than 10% of SMEs use analytics tools. Manual stock tracking leads to compounding, invisible losses.",
-        highlight: false
-      },
-      {
-        label: "What we built to test it",
-        content: "Otic Vision — an AI-powered operational system that uses smartphone-based intelligence to track inventory and generate real-time insights.",
-        highlight: true
-      }
-    ],
-    insight: "When designed for context, intelligent systems can outperform traditional enterprise tools while remaining accessible and affordable.",
+    summary: "AI-powered smartphone system for inventory tracking and real-time insights—designed for African SMEs.",
     image: oticVision,
-    link: "https://oticvision.com/"
+    link: "https://oticvision.com/",
+    linkLabel: "Explore Otic Vision"
   },
   {
     number: "03",
     title: "Workforce Readiness & AI Adoption",
-    context: "AI adoption is commonly framed as a technology problem. In practice, it is a human capability challenge.",
-    sections: [
-      {
-        label: "What we explored",
-        content: "AI literacy and workforce readiness across corporates, universities, and public institutions.",
-        highlight: false
-      },
-      {
-        label: "What we learned",
-        content: "Skills gaps delay AI adoption more than cost or infrastructure. Contextual, workflow-driven training accelerates transformation.",
-        highlight: true
-      },
-      {
-        label: "How we validated this",
-        content: "Thousands of professionals and students trained. A growing AI practitioner community matched to real-world work.",
-        highlight: true
-      }
-    ],
-    insight: "AI transformation succeeds when people, systems, and strategy evolve together.",
-    image: workforceTraining
+    summary: "Training thousands of professionals with workflow-driven AI education that accelerates real transformation.",
+    image: workforceTraining,
+    link: "#",
+    linkLabel: "Read more"
   },
   {
     number: "04",
     title: "Systems Thinking in Emerging Markets",
-    context: "AI systems built for mature markets often fail when deployed in emerging economies due to mismatched assumptions.",
-    sections: [
-      {
-        label: "What we investigated",
-        content: "How AI systems behave in environments characterized by informality, rapid growth, and limited digitization.",
-        highlight: false
-      },
-      {
-        label: "What we observed",
-        content: "Adaptive, modular systems outperform rigid architectures. Local context is a strategic advantage, not a constraint.",
-        highlight: true
-      }
-    ],
-    insight: "The future of AI in emerging markets will be shaped by systems designed for adaptability, context-awareness, and human-centered execution."
+    summary: "Building adaptive, context-aware AI architectures that thrive in informal, fast-growing economies.",
+    link: "#",
+    linkLabel: "Read more"
   }
 ];
 
-const ResearchCard = ({ data, index }: { data: ResearchCard; index: number }) => {
+const ResearchCard = ({ data, index }: { data: ResearchCardData; index: number }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
-  const isEven = index % 2 === 0;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -128,6 +67,8 @@ const ResearchCard = ({ data, index }: { data: ResearchCard; index: number }) =>
     return () => observer.disconnect();
   }, []);
 
+  const isExternal = data.link?.startsWith('http');
+
   return (
     <div
       ref={cardRef}
@@ -136,87 +77,48 @@ const ResearchCard = ({ data, index }: { data: ResearchCard; index: number }) =>
       }`}
       style={{ transitionDelay: `${index * 100}ms` }}
     >
-      <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 py-16 lg:py-24 border-t border-white/20">
-        {/* Vertical Label */}
-        <div className="lg:col-span-1 flex lg:flex-col items-start lg:items-center gap-4">
-          <span className="text-[hsl(30,85%,55%)] font-display text-2xl lg:text-3xl font-bold">
-            {data.number}
-          </span>
-          <div className="hidden lg:block w-px h-20 bg-white/30" />
-        </div>
-
-        {/* Content - alternates position */}
-        <div className={`lg:col-span-5 space-y-6 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
-          {/* Title */}
-          <h3 className="font-display text-2xl md:text-3xl font-bold text-white leading-tight">
-            {data.title}
-          </h3>
-
-          {/* Context */}
-          <p className="text-white/80 font-body text-base leading-relaxed">
-            {data.context}
-          </p>
-
-          {/* Sections */}
-          <div className="space-y-5 mt-6">
-            {data.sections.map((section, idx) => (
-              <div key={idx}>
-                <h4 className={`font-body text-sm font-semibold uppercase tracking-wider mb-2 ${
-                  section.highlight ? 'text-[hsl(30,85%,55%)]' : 'text-white'
-                }`}>
-                  {section.label}
-                </h4>
-                <p className="text-white/70 font-body text-sm leading-relaxed">
-                  {section.content}
-                </p>
-              </div>
-            ))}
+      <div className="flex flex-col h-full">
+        {/* Image with 4:5 aspect ratio */}
+        {data.image ? (
+          <div className="relative overflow-hidden aspect-[4/5] mb-6 bg-white/5">
+            <img 
+              src={data.image} 
+              alt={data.title}
+              className="w-full h-full object-contain bg-[hsl(210,50%,20%)]"
+            />
           </div>
-
-          {/* Insight */}
-          <div className="mt-6 pt-4 border-t border-white/20">
-            <p className="font-body text-base text-white/90 leading-relaxed italic">
-              <span className="text-[hsl(30,85%,55%)] font-semibold not-italic">↳</span>{' '}
-              {data.insight}
-            </p>
-          </div>
-
-          {/* Link Button */}
-          {data.link && (
-            <a
-              href={data.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 mt-4 px-6 py-3 bg-[hsl(30,85%,55%)] text-white font-body font-medium text-sm uppercase tracking-wider hover:bg-[hsl(30,85%,45%)] transition-colors duration-300 rounded"
-            >
-              Explore Otic Vision
-              <span>→</span>
-            </a>
-          )}
-        </div>
-
-        {/* Image - alternates position */}
-        {data.image && (
-          <div className={`lg:col-span-6 ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
-            <div className="relative overflow-hidden aspect-[4/3] shadow-2xl">
-              <img 
-                src={data.image} 
-                alt={data.title}
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-              />
-              {/* Decorative frame */}
-              <div className="absolute inset-0 border border-white/10 pointer-events-none" />
-            </div>
+        ) : (
+          <div className="relative overflow-hidden aspect-[4/5] mb-6 bg-white/5 flex items-center justify-center border border-white/10">
+            <span className="text-white/20 font-display text-8xl font-bold">{data.number}</span>
           </div>
         )}
 
-        {/* For cards without images, span full width */}
-        {!data.image && (
-          <div className="lg:col-span-6 lg:order-2 flex items-center justify-center">
-            <div className="w-full h-full min-h-[200px] bg-white/5 border border-white/10 flex items-center justify-center">
-              <span className="text-white/30 font-display text-6xl">{data.number}</span>
-            </div>
-          </div>
+        {/* Number */}
+        <span className="text-[hsl(30,85%,55%)] font-display text-sm font-bold tracking-wider mb-2">
+          {data.number}
+        </span>
+
+        {/* Title */}
+        <h3 className="font-display text-xl md:text-2xl font-bold text-white leading-tight mb-3">
+          {data.title}
+        </h3>
+
+        {/* Summary - max 2 lines */}
+        <p className="text-white/70 font-body text-base leading-relaxed mb-4 line-clamp-2">
+          {data.summary}
+        </p>
+
+        {/* Link */}
+        {data.link && (
+          <a
+            href={data.link}
+            target={isExternal ? "_blank" : undefined}
+            rel={isExternal ? "noopener noreferrer" : undefined}
+            className="inline-flex items-center gap-2 text-[hsl(30,85%,55%)] font-body font-medium text-sm hover:text-[hsl(30,85%,65%)] transition-colors duration-300 group mt-auto"
+          >
+            {data.linkLabel}
+            <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+          </a>
         )}
       </div>
     </div>
@@ -269,8 +171,8 @@ const ResearchSection = () => {
           </div>
         </div>
 
-        {/* Research Cards */}
-        <div>
+        {/* Research Cards Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
           {researchData.map((item, index) => (
             <ResearchCard key={item.number} data={item} index={index} />
           ))}
