@@ -147,8 +147,12 @@ const ResearchSection = () => {
   }, []);
 
   return (
-    <section id="research" className="py-20 lg:py-32 bg-[hsl(210,50%,25%)]">
-      <div className="container mx-auto px-6 lg:px-12">
+    <section id="research" className="py-20 lg:py-32 bg-[hsl(210,50%,25%)] relative overflow-hidden">
+      {/* Parallax decorative shapes */}
+      <div className="absolute top-20 right-0 w-96 h-96 border border-white/5 rounded-full -z-0 opacity-30" />
+      <div className="absolute bottom-20 left-0 w-64 h-64 border border-[hsl(30,85%,55%)]/10 -z-0 opacity-20" style={{ transform: 'rotate(12deg)' }} />
+      
+      <div className="container mx-auto px-6 lg:px-12 relative z-10">
         {/* Header */}
         <div
           ref={headerRef}
