@@ -1,20 +1,35 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import speakerImage from '@/assets/speaker.jpeg';
 
 const HeroSection = () => {
   const [isColorized, setIsColorized] = useState(false);
+  const parallaxRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
       // Toggle color when scrolled past 300px
       setIsColorized(window.scrollY > 300);
+      
+      // Parallax effect for decorative elements
+      if (parallaxRef.current) {
+        const scrolled = window.scrollY;
+        parallaxRef.current.style.transform = `translateY(${scrolled * 0.3}px)`;
+      }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <section className="min-h-screen relative overflow-hidden">
+      {/* Parallax decorative background */}
+      <div 
+        ref={parallaxRef}
+        className="absolute top-20 right-10 w-64 h-64 border border-accent/10 rounded-full -z-10 opacity-50"
+      />
+      <div className="absolute bottom-40 left-10 w-32 h-32 border border-muted-foreground/10 -z-10 opacity-30" style={{ transform: 'rotate(45deg)' }} />
+      
+      {/* Main content container */}
       {/* Main content container */}
       <div className="container mx-auto px-6 lg:px-12 pt-28 lg:pt-32">
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
