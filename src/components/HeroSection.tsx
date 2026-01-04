@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 import speakerImage from '@/assets/speaker.jpeg';
 
 const HeroSection = () => {
@@ -7,10 +9,8 @@ const HeroSection = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Toggle color when scrolled past 300px
       setIsColorized(window.scrollY > 300);
       
-      // Parallax effect for decorative elements
       if (parallaxRef.current) {
         const scrolled = window.scrollY;
         parallaxRef.current.style.transform = `translateY(${scrolled * 0.3}px)`;
@@ -21,24 +21,30 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="min-h-screen relative overflow-hidden">
-      {/* Parallax decorative background */}
+    <section className="min-h-screen relative overflow-hidden grid-bg">
+      {/* Animated orb decorations */}
+      <div className="orb orb-accent w-96 h-96 -top-48 -right-48 animate-float" />
+      <div className="orb orb-cyan w-64 h-64 top-1/3 -left-32 animate-glow-pulse" style={{ animationDelay: '1s' }} />
+      <div className="orb orb-accent w-48 h-48 bottom-20 right-1/4 animate-float" style={{ animationDelay: '2s' }} />
+      
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background pointer-events-none" />
+      
+      {/* Parallax decorative elements */}
       <div 
         ref={parallaxRef}
-        className="absolute top-20 right-10 w-64 h-64 border border-accent/10 rounded-full -z-10 opacity-50"
+        className="absolute top-40 right-20 w-72 h-72 border border-accent/20 rounded-full -z-10 opacity-30"
       />
-      <div className="absolute bottom-40 left-10 w-32 h-32 border border-muted-foreground/10 -z-10 opacity-30" style={{ transform: 'rotate(45deg)' }} />
       
-      {/* Main content container */}
-      {/* Main content container */}
-      <div className="container mx-auto px-6 lg:px-12 pt-28 lg:pt-32">
+      {/* Main content */}
+      <div className="container mx-auto px-6 lg:px-12 pt-28 lg:pt-32 relative z-10">
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
           {/* Left sidebar */}
           <aside className="lg:col-span-2 animate-fade-up-delay-1">
-            <div className="border-l-2 border-accent pl-4 py-1">
+            <div className="glass-card p-4 rounded-lg border-l-2 border-accent">
               <p className="text-xs uppercase tracking-widest text-muted-foreground font-body leading-relaxed">
                 Empowering Africa's future<br />
-                <span className="font-medium">With Artificial Intelligence</span>
+                <span className="text-gradient font-medium">With Artificial Intelligence</span>
               </p>
             </div>
           </aside>
@@ -48,56 +54,69 @@ const HeroSection = () => {
             {/* Headline */}
             <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold leading-[0.95] tracking-tight animate-fade-up">
               <span className="block">The Future</span>
-              <span className="block text-accent italic">Reimagined</span>
+              <span className="block text-gradient italic">Reimagined</span>
               <span className="text-accent">.</span>
             </h1>
 
             {/* Speaker image - centered below headline */}
             <div className="mt-12 lg:mt-16 flex justify-center animate-fade-up-delay-2">
               <div className="relative w-full max-w-md lg:max-w-lg">
-                {/* Decorative frame */}
-                <div className="absolute -inset-3 border border-accent/20 -z-10" />
-                <div className="absolute -inset-6 border border-border -z-20" />
+                {/* Glass frame */}
+                <div className="absolute -inset-4 glass-card rounded-2xl -z-10" />
+                <div className="absolute -inset-8 border border-accent/10 rounded-3xl -z-20" />
                 
                 {/* Image */}
-                <div className="relative overflow-hidden">
+                <div className="relative overflow-hidden rounded-xl">
                   <img
                     src={speakerImage}
                     alt="Visionary leader speaking about the future of African enterprise"
                     className={`w-full h-auto object-cover transition-all duration-700 ${isColorized ? '' : 'grayscale'}`}
                   />
-                  {/* Subtle overlay gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent pointer-events-none" />
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-accent/10 pointer-events-none" />
                 </div>
               </div>
             </div>
 
             {/* Description block */}
             <div className="mt-16 lg:mt-20 flex justify-end animate-fade-up-delay-3">
-              <div className="max-w-md border-l-2 border-muted-foreground/30 pl-6">
+              <div className="max-w-lg glass-card p-6 rounded-xl border-l-2 border-accent/50">
                 <p className="text-base lg:text-lg text-muted-foreground font-body leading-relaxed italic">
                   "We are architecting the intelligence layer for African enterprise. 
                   By merging rigorous systems thinking with adaptive AI, Otic Group 
                   is not just predicting what comes next—we are building the framework for it."
                 </p>
-                <p className="mt-4 text-sm text-foreground font-body font-medium">
-                  Nesta Paul Katende
-                </p>
-                <p className="text-xs text-muted-foreground font-body uppercase tracking-wide">
-                  Group CEO & Founder, Otic Group
-                </p>
+                <div className="mt-4 flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center">
+                    <span className="text-accent font-display font-bold text-lg">N</span>
+                  </div>
+                  <div>
+                    <p className="text-sm text-foreground font-body font-medium">
+                      Nesta Paul Katende
+                    </p>
+                    <p className="text-xs text-muted-foreground font-body uppercase tracking-wide">
+                      Group CEO & Founder
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* Scroll indicator */}
-            <div className="mt-12 flex justify-end animate-fade-up-delay-4">
-              <a
-                href="#explore"
-                className="group flex items-center gap-2 text-xs uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors font-body"
+            {/* CTA buttons */}
+            <div className="mt-12 flex flex-wrap gap-4 justify-center lg:justify-start animate-fade-up-delay-4">
+              <Link 
+                to="/services" 
+                className="btn-glow px-8 py-4 rounded-lg text-foreground uppercase font-medium flex items-center gap-2 group"
               >
-                <span className="animate-pulse-subtle">↓</span>
-                <span>Scroll to explore</span>
-              </a>
+                Explore Our Services
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link 
+                to="/about" 
+                className="glass-card-hover px-8 py-4 rounded-lg text-foreground uppercase font-medium"
+              >
+                Learn More
+              </Link>
             </div>
           </div>
         </div>

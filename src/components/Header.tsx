@@ -26,15 +26,17 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled || mobileMenuOpen ? 'bg-background/95 backdrop-blur-sm border-b border-border' : ''
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled || mobileMenuOpen 
+          ? 'glass-card border-b border-border/50' 
+          : 'bg-transparent'
       }`}
     >
-      <nav className="container mx-auto px-6 lg:px-12 py-5 flex items-center justify-between">
+      <nav className="container mx-auto px-6 lg:px-12 py-4 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-background rounded-full flex items-center justify-center">
-            <img src={logo} alt="Otic Group Logo" className="w-8 h-8 object-contain" />
+        <Link to="/" className="flex items-center gap-3 group">
+          <div className="w-10 h-10 rounded-full overflow-hidden border border-border/50 group-hover:border-accent/50 transition-colors">
+            <img src={logo} alt="Otic Group Logo" className="w-full h-full object-cover" />
           </div>
           <span className="font-body font-bold tracking-wide text-sm uppercase text-foreground">
             Otic Group
@@ -43,76 +45,79 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-8 text-sm tracking-wide font-body">
-          <Link to="/otic-vision" className="text-muted-foreground hover:text-foreground transition-colors uppercase">
+          <Link to="/otic-vision" className="text-muted-foreground hover:text-foreground transition-colors uppercase relative group">
             Otic Vision
+            <span className="absolute -bottom-1 left-0 w-0 h-px bg-accent group-hover:w-full transition-all duration-300" />
           </Link>
-          <Link to="/otic-learn" className="text-muted-foreground hover:text-foreground transition-colors uppercase">
+          <Link to="/otic-learn" className="text-muted-foreground hover:text-foreground transition-colors uppercase relative group">
             Otic Learn
+            <span className="absolute -bottom-1 left-0 w-0 h-px bg-accent group-hover:w-full transition-all duration-300" />
           </Link>
-          <Link to="/research" className="text-muted-foreground hover:text-foreground transition-colors uppercase">
+          <Link to="/research" className="text-muted-foreground hover:text-foreground transition-colors uppercase relative group">
             Research
+            <span className="absolute -bottom-1 left-0 w-0 h-px bg-accent group-hover:w-full transition-all duration-300" />
           </Link>
           
           {/* Expertise Dropdown */}
           <div className="relative" onMouseEnter={() => setExpertiseOpen(true)} onMouseLeave={() => setExpertiseOpen(false)}>
-            <button className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors uppercase">
-              Expertise <ChevronDown className="w-3 h-3" />
+            <button className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors uppercase group">
+              Expertise <ChevronDown className={`w-3 h-3 transition-transform ${expertiseOpen ? 'rotate-180' : ''}`} />
             </button>
-            {expertiseOpen && (
-              <div className="absolute top-full left-0 mt-2 w-48 bg-background border border-border shadow-lg py-2">
-                <Link to="/services" className="block px-4 py-2 text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors">
-                  Services
-                </Link>
-                <Link to="/industries" className="block px-4 py-2 text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors">
-                  Industries
-                </Link>
-              </div>
-            )}
+            <div className={`absolute top-full left-0 mt-4 w-48 glass-card rounded-lg overflow-hidden transition-all duration-300 ${
+              expertiseOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none'
+            }`}>
+              <Link to="/services" className="block px-4 py-3 text-muted-foreground hover:text-foreground hover:bg-accent/10 transition-colors border-b border-border/30">
+                Services
+              </Link>
+              <Link to="/industries" className="block px-4 py-3 text-muted-foreground hover:text-foreground hover:bg-accent/10 transition-colors">
+                Industries
+              </Link>
+            </div>
           </div>
 
           {/* Company Dropdown */}
           <div className="relative" onMouseEnter={() => setCompanyOpen(true)} onMouseLeave={() => setCompanyOpen(false)}>
-            <button className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors uppercase">
-              Company <ChevronDown className="w-3 h-3" />
+            <button className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors uppercase group">
+              Company <ChevronDown className={`w-3 h-3 transition-transform ${companyOpen ? 'rotate-180' : ''}`} />
             </button>
-            {companyOpen && (
-              <div className="absolute top-full left-0 mt-2 w-48 bg-background border border-border shadow-lg py-2">
-                <Link to="/about" className="block px-4 py-2 text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors">
-                  Who We Are
-                </Link>
-                <Link to="/partners" className="block px-4 py-2 text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors">
-                  Partners
-                </Link>
-              </div>
-            )}
+            <div className={`absolute top-full left-0 mt-4 w-48 glass-card rounded-lg overflow-hidden transition-all duration-300 ${
+              companyOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none'
+            }`}>
+              <Link to="/about" className="block px-4 py-3 text-muted-foreground hover:text-foreground hover:bg-accent/10 transition-colors border-b border-border/30">
+                Who We Are
+              </Link>
+              <Link to="/partners" className="block px-4 py-3 text-muted-foreground hover:text-foreground hover:bg-accent/10 transition-colors">
+                Partners
+              </Link>
+            </div>
           </div>
 
-          <Link to="/contact" className="px-6 py-2 bg-accent text-accent-foreground uppercase hover:bg-accent/90 transition-colors">
+          <Link to="/contact" className="btn-glow px-6 py-2.5 rounded-lg text-foreground uppercase font-medium">
             Contact
           </Link>
         </div>
 
         {/* Mobile Menu Button */}
-        <button className="lg:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+        <button className="lg:hidden p-2 rounded-lg hover:bg-secondary/50 transition-colors" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
           {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </nav>
 
       {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden bg-background border-t border-border">
-          <div className="container mx-auto px-6 py-6 space-y-4">
-            <Link to="/otic-vision" className="block py-2 text-foreground font-body">Otic Vision</Link>
-            <Link to="/otic-learn" className="block py-2 text-foreground font-body">Otic Learn</Link>
-            <Link to="/research" className="block py-2 text-foreground font-body">Research</Link>
-            <Link to="/services" className="block py-2 text-foreground font-body">Services</Link>
-            <Link to="/industries" className="block py-2 text-foreground font-body">Industries</Link>
-            <Link to="/about" className="block py-2 text-foreground font-body">Who We Are</Link>
-            <Link to="/partners" className="block py-2 text-foreground font-body">Partners</Link>
-            <Link to="/contact" className="block py-2 text-accent font-body font-medium">Contact</Link>
-          </div>
+      <div className={`lg:hidden transition-all duration-300 overflow-hidden ${
+        mobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
+      }`}>
+        <div className="container mx-auto px-6 py-6 space-y-1 border-t border-border/30">
+          <Link to="/otic-vision" className="block py-3 px-4 text-foreground font-body rounded-lg hover:bg-secondary/50 transition-colors">Otic Vision</Link>
+          <Link to="/otic-learn" className="block py-3 px-4 text-foreground font-body rounded-lg hover:bg-secondary/50 transition-colors">Otic Learn</Link>
+          <Link to="/research" className="block py-3 px-4 text-foreground font-body rounded-lg hover:bg-secondary/50 transition-colors">Research</Link>
+          <Link to="/services" className="block py-3 px-4 text-foreground font-body rounded-lg hover:bg-secondary/50 transition-colors">Services</Link>
+          <Link to="/industries" className="block py-3 px-4 text-foreground font-body rounded-lg hover:bg-secondary/50 transition-colors">Industries</Link>
+          <Link to="/about" className="block py-3 px-4 text-foreground font-body rounded-lg hover:bg-secondary/50 transition-colors">Who We Are</Link>
+          <Link to="/partners" className="block py-3 px-4 text-foreground font-body rounded-lg hover:bg-secondary/50 transition-colors">Partners</Link>
+          <Link to="/contact" className="block py-3 px-4 text-accent font-body font-medium rounded-lg hover:bg-accent/10 transition-colors">Contact</Link>
         </div>
-      )}
+      </div>
     </header>
   );
 };
