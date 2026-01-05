@@ -25,9 +25,13 @@
     --primary: 210 20% 95%;
     --primary-foreground: 220 20% 6%;
 
-    /* Electric purple accent for AI feel */
-    --accent: 270 70% 60%;
+    /* Otic Blue accent - authoritative AI consulting */
+    --accent: 223 63% 28%;
     --accent-foreground: 210 20% 98%;
+    
+    /* Otic Orange - sparingly for CTAs */
+    --cta: 30 75% 52%;
+    --cta-foreground: 220 20% 6%;
 
     --secondary: 220 20% 12%;
     --secondary-foreground: 210 20% 90%;
@@ -40,7 +44,7 @@
 
     --border: 220 15% 18%;
     --input: 220 15% 18%;
-    --ring: 270 70% 60%;
+    --ring: 223 63% 28%;
 
     --radius: 0.5rem;
 
@@ -53,13 +57,13 @@
     --glass-border: 210 20% 95% / 0.1;
     --glass-blur: 20px;
     
-    /* Glow effects */
-    --glow-accent: 270 70% 60%;
-    --glow-cyan: 185 70% 50%;
+    /* Glow effects - Otic Blue */
+    --glow-accent: 223 63% 28%;
+    --glow-blue: 223 70% 40%;
     
     /* Gradient overlays */
     --gradient-dark: linear-gradient(180deg, hsl(220 20% 6%) 0%, hsl(220 25% 3%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(270 70% 60%) 0%, hsl(200 70% 50%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(223 63% 35%) 0%, hsl(223 70% 25%) 100%);
     --gradient-glass: linear-gradient(135deg, hsl(var(--glass-bg)) 0%, hsl(220 25% 8% / 0.4) 100%);
     
     /* Grid pattern */
@@ -116,24 +120,25 @@
 
   .glass-card-hover:hover {
     background: hsl(220 25% 14% / 0.7);
-    border-color: hsl(270 70% 60% / 0.3);
+    border-color: hsl(223 63% 35% / 0.4);
     box-shadow: 
       0 8px 32px hsl(220 30% 5% / 0.4),
-      0 0 30px hsl(270 70% 60% / 0.1),
+      0 0 30px hsl(223 63% 35% / 0.15),
       inset 0 1px 0 hsl(210 20% 95% / 0.08);
     transform: translateY(-2px);
   }
 
-  /* Accent glow button */
+  /* CTA glow button - Otic Orange */
   .btn-glow {
     @apply relative overflow-hidden;
-    background: linear-gradient(135deg, hsl(270 70% 60%) 0%, hsl(200 70% 50%) 100%);
-    box-shadow: 0 0 20px hsl(270 70% 60% / 0.4);
+    background: hsl(30 75% 52%);
+    box-shadow: 0 0 20px hsl(30 75% 52% / 0.35);
     transition: all 0.3s ease;
   }
 
   .btn-glow:hover {
-    box-shadow: 0 0 30px hsl(270 70% 60% / 0.6), 0 0 60px hsl(200 70% 50% / 0.3);
+    background: hsl(30 80% 48%);
+    box-shadow: 0 0 25px hsl(30 75% 52% / 0.5);
     transform: translateY(-2px);
   }
 
@@ -160,7 +165,7 @@
     background-size: 60px 60px;
   }
 
-  /* Animated gradient border */
+  /* Animated gradient border - Otic Blue */
   .gradient-border {
     position: relative;
     background: hsl(var(--card));
@@ -171,7 +176,7 @@
     position: absolute;
     inset: 0;
     padding: 1px;
-    background: linear-gradient(135deg, hsl(270 70% 60%) 0%, hsl(200 70% 50%) 50%, hsl(270 70% 60%) 100%);
+    background: linear-gradient(135deg, hsl(223 63% 35%) 0%, hsl(223 70% 45%) 50%, hsl(223 63% 35%) 100%);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
@@ -179,34 +184,34 @@
     border-radius: inherit;
   }
 
-  /* Text gradient */
+  /* Text gradient - Otic Blue */
   .text-gradient {
-    background: linear-gradient(135deg, hsl(270 70% 65%) 0%, hsl(200 70% 55%) 100%);
+    background: linear-gradient(135deg, hsl(223 70% 50%) 0%, hsl(223 60% 40%) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  /* Glow text */
+  /* Glow text - Otic Blue */
   .text-glow {
-    text-shadow: 0 0 20px hsl(270 70% 60% / 0.5), 0 0 40px hsl(270 70% 60% / 0.3);
+    text-shadow: 0 0 20px hsl(223 63% 35% / 0.5), 0 0 40px hsl(223 63% 35% / 0.3);
   }
 
-  /* Floating orb decoration */
+  /* Floating orb decoration - Otic Blue */
   .orb {
     position: absolute;
     border-radius: 50%;
     filter: blur(60px);
-    opacity: 0.4;
+    opacity: 0.3;
     pointer-events: none;
   }
 
   .orb-accent {
-    background: hsl(270 70% 50%);
+    background: hsl(223 63% 35%);
   }
 
-  .orb-cyan {
-    background: hsl(185 70% 50%);
+  .orb-blue {
+    background: hsl(223 70% 45%);
   }
 }
 

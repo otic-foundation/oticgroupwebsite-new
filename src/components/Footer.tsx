@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="relative overflow-hidden border-t border-border/30">
       {/* Background effects */}
       <div className="orb orb-accent w-64 h-64 -bottom-32 -left-32 opacity-20" />
-      <div className="orb orb-cyan w-48 h-48 -bottom-24 right-1/4 opacity-15" />
+      <div className="orb orb-blue w-48 h-48 -bottom-24 right-1/4 opacity-15" />
       
       <div className="container mx-auto px-6 lg:px-12 py-16 relative z-10">
         <div className="grid lg:grid-cols-4 gap-12">

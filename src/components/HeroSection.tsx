@@ -24,7 +24,7 @@ const HeroSection = () => {
     <section className="min-h-screen relative overflow-hidden grid-bg">
       {/* Animated orb decorations */}
       <div className="orb orb-accent w-96 h-96 -top-48 -right-48 animate-float" />
-      <div className="orb orb-cyan w-64 h-64 top-1/3 -left-32 animate-glow-pulse" style={{ animationDelay: '1s' }} />
+      <div className="orb orb-blue w-64 h-64 top-1/3 -left-32 animate-glow-pulse" style={{ animationDelay: '1s' }} />
       <div className="orb orb-accent w-48 h-48 bottom-20 right-1/4 animate-float" style={{ animationDelay: '2s' }} />
       
       {/* Gradient overlay */}

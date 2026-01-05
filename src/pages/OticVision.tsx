@@ -39,7 +39,7 @@ const OticVision = () => {
         <section className="pt-32 pb-20 relative overflow-hidden grid-bg">
           {/* Orb decorations */}
           <div className="orb orb-accent w-80 h-80 -top-40 -right-40 opacity-30" />
-          <div className="orb orb-cyan w-64 h-64 bottom-0 -left-32 opacity-20" />
+          <div className="orb orb-blue w-64 h-64 bottom-0 -left-32 opacity-20" />
           
           <div className="container mx-auto px-6 lg:px-12 relative z-10">
             <div className="max-w-4xl">
@@ -141,8 +141,8 @@ const OticVision = () => {
         {/* CTA */}
         <section className="py-20 relative overflow-hidden">
           {/* Background gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-background to-background" />
-          <div className="orb orb-accent w-96 h-96 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20" />
+          <div className="absolute inset-0 bg-gradient-to-br from-accent/15 via-background to-background" />
+          <div className="orb orb-blue w-96 h-96 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20" />
           
           <div className="container mx-auto px-6 lg:px-12 text-center relative z-10">
             <div className="glass-card max-w-3xl mx-auto p-12 rounded-2xl">
