@@ -13,38 +13,41 @@
   :root {
     /* Dark futuristic theme - default */
     --background: 220 20% 6%;
-    --foreground: 210 20% 95%;
+    --foreground: 210 25% 98%;
 
     --card: 220 25% 10%;
-    --card-foreground: 210 20% 95%;
+    --card-foreground: 210 25% 98%;
 
     --popover: 220 25% 8%;
-    --popover-foreground: 210 20% 95%;
+    --popover-foreground: 210 25% 98%;
 
     /* Light text on dark */
-    --primary: 210 20% 95%;
+    --primary: 210 25% 98%;
     --primary-foreground: 220 20% 6%;
 
-    /* Otic Blue accent - authoritative AI consulting */
-    --accent: 223 63% 28%;
-    --accent-foreground: 210 20% 98%;
+    /* Otic Blue Base - authoritative AI consulting */
+    --accent: 223 63% 33%;
+    --accent-foreground: 210 25% 98%;
+    
+    /* Otic Blue Luminous - for glows and emphasis */
+    --accent-luminous: 223 100% 65%;
     
     /* Otic Orange - sparingly for CTAs */
-    --cta: 30 75% 52%;
-    --cta-foreground: 220 20% 6%;
+    --cta: 30 88% 55%;
+    --cta-foreground: 220 20% 8%;
 
     --secondary: 220 20% 12%;
     --secondary-foreground: 210 20% 90%;
 
     --muted: 220 15% 15%;
-    --muted-foreground: 220 10% 55%;
+    --muted-foreground: 220 15% 60%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 210 20% 98%;
 
-    --border: 220 15% 18%;
+    --border: 220 20% 20%;
     --input: 220 15% 18%;
-    --ring: 223 63% 28%;
+    --ring: 223 100% 65%;
 
     --radius: 0.5rem;
 
@@ -52,22 +55,26 @@
     --font-display: 'Playfair Display', Georgia, serif;
     --font-body: 'DM Sans', system-ui, sans-serif;
     
-    /* Glassmorphism */
-    --glass-bg: 220 25% 12% / 0.6;
-    --glass-border: 210 20% 95% / 0.1;
+    /* Glassmorphism - enhanced */
+    --glass-bg: 220 25% 12% / 0.7;
+    --glass-border: 210 25% 98% / 0.08;
     --glass-blur: 20px;
     
-    /* Glow effects - Otic Blue */
-    --glow-accent: 223 63% 28%;
-    --glow-blue: 223 70% 40%;
+    /* Surface layers for depth */
+    --surface-elevated: 220 25% 11%;
+    --surface-overlay: 0 0% 100% / 0.04;
+    
+    /* Glow effects - Luminous Blue */
+    --glow-accent: 223 100% 65%;
+    --glow-blue: 223 100% 60%;
     
     /* Gradient overlays */
     --gradient-dark: linear-gradient(180deg, hsl(220 20% 6%) 0%, hsl(220 25% 3%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(223 63% 35%) 0%, hsl(223 70% 25%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(223 100% 65%) 0%, hsl(223 63% 33%) 100%);
     --gradient-glass: linear-gradient(135deg, hsl(var(--glass-bg)) 0%, hsl(220 25% 8% / 0.4) 100%);
     
-    /* Grid pattern */
-    --grid-color: 210 20% 95% / 0.03;
+    /* Grid pattern - slightly more visible */
+    --grid-color: 210 20% 95% / 0.04;
   }
 
   .dark {
@@ -103,15 +110,24 @@
     font-family: var(--font-body);
   }
 
-  /* Glassmorphism card */
+  /* Surface panel for depth */
+  .surface-elevated {
+    background: hsl(var(--surface-elevated));
+  }
+
+  .surface-overlay {
+    background: hsl(var(--surface-overlay));
+  }
+
+  /* Glassmorphism card - enhanced */
   .glass-card {
     background: hsl(var(--glass-bg));
     backdrop-filter: blur(var(--glass-blur));
     -webkit-backdrop-filter: blur(var(--glass-blur));
     border: 1px solid hsl(var(--glass-border));
     box-shadow: 
-      0 8px 32px hsl(220 30% 5% / 0.4),
-      inset 0 1px 0 hsl(210 20% 95% / 0.05);
+      0 8px 32px hsl(220 30% 5% / 0.5),
+      inset 0 1px 0 hsl(210 20% 95% / 0.06);
   }
 
   .glass-card-hover {
@@ -119,26 +135,30 @@
   }
 
   .glass-card-hover:hover {
-    background: hsl(220 25% 14% / 0.7);
-    border-color: hsl(223 63% 35% / 0.4);
+    background: hsl(220 25% 14% / 0.8);
+    border-color: hsl(223 100% 65% / 0.3);
     box-shadow: 
-      0 8px 32px hsl(220 30% 5% / 0.4),
-      0 0 30px hsl(223 63% 35% / 0.15),
-      inset 0 1px 0 hsl(210 20% 95% / 0.08);
-    transform: translateY(-2px);
+      0 12px 40px hsl(220 30% 5% / 0.5),
+      0 0 40px hsl(223 100% 65% / 0.12),
+      inset 0 1px 0 hsl(210 20% 95% / 0.1);
+    transform: translateY(-3px);
   }
 
-  /* CTA glow button - Otic Orange */
+  /* CTA glow button - Otic Orange, more vibrant */
   .btn-glow {
-    @apply relative overflow-hidden;
-    background: hsl(30 75% 52%);
-    box-shadow: 0 0 20px hsl(30 75% 52% / 0.35);
+    @apply relative overflow-hidden font-semibold;
+    background: linear-gradient(135deg, hsl(30 90% 55%) 0%, hsl(25 85% 48%) 100%);
+    box-shadow: 
+      0 0 24px hsl(30 88% 55% / 0.4),
+      0 4px 16px hsl(30 88% 45% / 0.3);
     transition: all 0.3s ease;
   }
 
   .btn-glow:hover {
-    background: hsl(30 80% 48%);
-    box-shadow: 0 0 25px hsl(30 75% 52% / 0.5);
+    background: linear-gradient(135deg, hsl(30 95% 58%) 0%, hsl(25 90% 52%) 100%);
+    box-shadow: 
+      0 0 32px hsl(30 88% 55% / 0.55),
+      0 6px 24px hsl(30 88% 45% / 0.4);
     transform: translateY(-2px);
   }
 
@@ -149,7 +169,7 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, hsl(210 20% 95% / 0.2), transparent);
+    background: linear-gradient(90deg, transparent, hsl(0 0% 100% / 0.25), transparent);
     transition: left 0.5s ease;
   }
 
@@ -165,7 +185,7 @@
     background-size: 60px 60px;
   }
 
-  /* Animated gradient border - Otic Blue */
+  /* Animated gradient border - Luminous Blue */
   .gradient-border {
     position: relative;
     background: hsl(var(--card));
@@ -176,7 +196,7 @@
     position: absolute;
     inset: 0;
     padding: 1px;
-    background: linear-gradient(135deg, hsl(223 63% 35%) 0%, hsl(223 70% 45%) 50%, hsl(223 63% 35%) 100%);
+    background: linear-gradient(135deg, hsl(223 100% 65%) 0%, hsl(223 63% 45%) 50%, hsl(223 100% 65%) 100%);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
@@ -184,34 +204,91 @@
     border-radius: inherit;
   }
 
-  /* Text gradient - Otic Blue */
+  /* Text gradient - Luminous Blue */
   .text-gradient {
-    background: linear-gradient(135deg, hsl(223 70% 50%) 0%, hsl(223 60% 40%) 100%);
+    background: linear-gradient(135deg, hsl(223 100% 70%) 0%, hsl(223 80% 55%) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  /* Glow text - Otic Blue */
+  /* Glow text - Luminous Blue */
   .text-glow {
-    text-shadow: 0 0 20px hsl(223 63% 35% / 0.5), 0 0 40px hsl(223 63% 35% / 0.3);
+    text-shadow: 0 0 30px hsl(223 100% 65% / 0.6), 0 0 60px hsl(223 100% 65% / 0.3);
   }
 
-  /* Floating orb decoration - Otic Blue */
+  /* Section title with glow backdrop */
+  .title-glow {
+    position: relative;
+  }
+
+  .title-glow::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 200%;
+    background: radial-gradient(ellipse at center, hsl(223 100% 65% / 0.15) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* Orange accent divider */
+  .divider-accent {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, hsl(30 88% 55% / 0.6), transparent);
+  }
+
+  /* Orange dot marker */
+  .marker-orange {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: hsl(30 88% 55%);
+    border-radius: 50%;
+    box-shadow: 0 0 12px hsl(30 88% 55% / 0.5);
+  }
+
+  /* Floating orb decoration - Enhanced */
   .orb {
     position: absolute;
     border-radius: 50%;
-    filter: blur(60px);
-    opacity: 0.3;
+    filter: blur(80px);
+    opacity: 0.35;
     pointer-events: none;
   }
 
   .orb-accent {
-    background: hsl(223 63% 35%);
+    background: hsl(223 80% 45%);
   }
 
   .orb-blue {
-    background: hsl(223 70% 45%);
+    background: hsl(223 100% 60%);
+  }
+
+  .orb-luminous {
+    background: hsl(223 100% 65%);
+    filter: blur(100px);
+    opacity: 0.25;
+  }
+
+  /* Section panel with subtle elevation */
+  .section-panel {
+    position: relative;
+    background: hsl(220 25% 8% / 0.6);
+    border: 1px solid hsl(var(--border) / 0.5);
+    border-radius: 1.5rem;
+  }
+
+  .section-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: hsl(0 0% 100% / 0.02);
+    border-radius: inherit;
+    pointer-events: none;
   }
 }
 

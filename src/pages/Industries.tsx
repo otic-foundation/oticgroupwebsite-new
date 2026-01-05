@@ -65,30 +65,35 @@ const Industries = () => {
       <main className="flex-1">
         {/* Hero Section */}
         <section className="pt-32 pb-20 relative overflow-hidden grid-bg">
-          <div className="orb orb-accent w-80 h-80 -top-40 -right-40 opacity-30" />
-          <div className="orb orb-blue w-64 h-64 bottom-0 -left-32 opacity-20" />
+          <div className="orb orb-luminous w-[500px] h-[500px] -top-64 -right-64 animate-glow-pulse" />
+          <div className="orb orb-blue w-80 h-80 top-1/3 -left-40 opacity-25" />
+          <div className="orb orb-accent w-64 h-64 bottom-0 right-1/4 opacity-20" />
           
           <div className="container mx-auto px-6 lg:px-12 relative z-10">
             <div className="max-w-4xl">
-              <p className="text-xs uppercase tracking-widest text-accent font-body mb-4">
-                Our Expertise
-              </p>
-              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8">
-                <span className="text-gradient">Industries</span>
+              <div className="flex items-center gap-3 mb-6">
+                <span className="marker-orange" />
+                <p className="text-xs uppercase tracking-widest text-accent-luminous font-body">
+                  Our Expertise
+                </p>
+              </div>
+              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8 title-glow">
+                <span className="text-gradient text-glow">Industries</span>
               </h1>
               <p className="text-xl lg:text-2xl text-muted-foreground font-body leading-relaxed">
                 AI impacts every sector differently. We bring deep domain expertise and 
                 proven frameworks tailored to your industry's unique challenges.
               </p>
+              <div className="divider-accent w-32 mt-8" />
             </div>
           </div>
         </section>
 
         {/* Industries Grid - Image Cards */}
-        <section className="py-20">
+        <section className="py-20 relative">
           <div className="container mx-auto px-6 lg:px-12">
-            <div className="grid md:grid-cols-2 gap-6">
-              {industries.map((industry) => (
+            <div className="grid md:grid-cols-2 gap-8">
+              {industries.map((industry, index) => (
                 <div 
                   key={industry.name} 
                   className="group relative rounded-2xl overflow-hidden glass-card-hover"
@@ -101,14 +106,16 @@ const Industries = () => {
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     {/* Gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/85 to-background/20" />
+                    {/* Luminous glow on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-accent-luminous/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
                   
                   {/* Content */}
                   <div className="absolute inset-0 p-6 flex flex-col justify-end">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center">
-                        <industry.icon className="w-6 h-6 text-accent" />
+                      <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-accent-luminous/20 group-hover:border-accent-luminous/40 transition-colors">
+                        <industry.icon className="w-6 h-6 text-accent-luminous" />
                       </div>
                       <h2 className="font-display text-xl lg:text-2xl font-bold text-foreground">
                         {industry.name}
@@ -125,7 +132,7 @@ const Industries = () => {
                         {industry.capabilities.slice(0, 3).map((cap) => (
                           <span 
                             key={cap} 
-                            className="px-3 py-1 text-xs font-body bg-accent/20 text-accent rounded-full"
+                            className="px-3 py-1 text-xs font-body bg-accent-luminous/15 text-accent-luminous border border-accent-luminous/20 rounded-full"
                           >
                             {cap}
                           </span>
@@ -135,8 +142,9 @@ const Industries = () => {
                     
                     <Link
                       to="/contact"
-                      className="inline-flex items-center gap-2 text-accent font-body font-medium text-sm hover:text-accent/80 transition-colors"
+                      className="inline-flex items-center gap-2 text-cta font-body font-medium text-sm hover:text-cta/80 transition-colors"
                     >
+                      <span className="marker-orange w-1.5 h-1.5" />
                       Learn more
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </Link>
@@ -148,14 +156,15 @@ const Industries = () => {
         </section>
 
         {/* CTA */}
-        <section className="py-20 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-accent/15 via-background to-background" />
-          <div className="orb orb-blue w-96 h-96 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20" />
+        <section className="py-24 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-background to-background" />
+          <div className="orb orb-luminous w-[600px] h-[600px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20" />
           
           <div className="container mx-auto px-6 lg:px-12 text-center relative z-10">
-            <div className="glass-card max-w-3xl mx-auto p-12 rounded-2xl">
-              <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">
-                Don't See Your Industry?
+            <div className="section-panel max-w-3xl mx-auto p-12">
+              <div className="divider-accent w-16 mx-auto mb-8" />
+              <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 title-glow">
+                <span className="text-gradient">Don't See Your Industry?</span>
               </h2>
               <p className="text-muted-foreground font-body text-lg mb-8 max-w-2xl mx-auto">
                 Our frameworks are adaptable across sectors. Let's discuss how we can 
@@ -163,7 +172,7 @@ const Industries = () => {
               </p>
               <Link
                 to="/contact"
-                className="btn-glow inline-flex items-center gap-2 px-8 py-4 rounded-lg font-body font-medium text-sm uppercase tracking-wider text-foreground"
+                className="btn-glow inline-flex items-center gap-2 px-8 py-4 rounded-lg font-body font-medium text-sm uppercase tracking-wider text-cta-foreground"
               >
                 Contact Us
                 <ArrowRight className="w-4 h-4" />

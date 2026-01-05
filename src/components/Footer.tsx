@@ -5,16 +5,17 @@ import logo from '@/assets/logo.jpeg';
 const Footer = () => {
   return (
     <footer className="relative overflow-hidden border-t border-border/30">
-      {/* Background effects */}
-      <div className="orb orb-accent w-64 h-64 -bottom-32 -left-32 opacity-20" />
-      <div className="orb orb-blue w-48 h-48 -bottom-24 right-1/4 opacity-15" />
+      {/* Background effects - enhanced */}
+      <div className="orb orb-accent w-80 h-80 -bottom-40 -left-40 opacity-20" />
+      <div className="orb orb-luminous w-64 h-64 -bottom-32 right-1/4 opacity-15" />
       
       <div className="container mx-auto px-6 lg:px-12 py-16 relative z-10">
+        <div className="divider-accent w-full mb-12" />
         <div className="grid lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-full overflow-hidden border border-border/50">
+              <div className="w-10 h-10 rounded-full overflow-hidden border border-accent-luminous/30">
                 <img src={logo} alt="Otic Group Logo" className="w-full h-full object-cover" />
               </div>
               <span className="font-body font-bold tracking-wide text-sm uppercase">
@@ -81,12 +82,13 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h4 className="font-body font-semibold text-sm uppercase tracking-wide mb-6 text-foreground">
+            <h4 className="font-body font-semibold text-sm uppercase tracking-wide mb-6 text-foreground flex items-center gap-2">
+              <span className="marker-orange" />
               Get in Touch
             </h4>
             <Link 
               to="/contact" 
-              className="btn-glow inline-block px-6 py-3 rounded-lg text-foreground uppercase text-sm font-medium mb-6"
+              className="btn-glow inline-block px-6 py-3 rounded-lg text-cta-foreground uppercase text-sm font-medium mb-6"
             >
               Contact Us
             </Link>
@@ -97,7 +99,7 @@ const Footer = () => {
                 href="https://linkedin.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg glass-card flex items-center justify-center text-muted-foreground hover:text-accent hover:border-accent/30 transition-all"
+                className="w-10 h-10 rounded-lg glass-card flex items-center justify-center text-muted-foreground hover:text-accent-luminous hover:border-accent-luminous/30 transition-all"
               >
                 <Linkedin className="w-4 h-4" />
               </a>
@@ -105,7 +107,7 @@ const Footer = () => {
                 href="https://twitter.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg glass-card flex items-center justify-center text-muted-foreground hover:text-accent hover:border-accent/30 transition-all"
+                className="w-10 h-10 rounded-lg glass-card flex items-center justify-center text-muted-foreground hover:text-accent-luminous hover:border-accent-luminous/30 transition-all"
               >
                 <Twitter className="w-4 h-4" />
               </a>
@@ -113,7 +115,7 @@ const Footer = () => {
                 href="https://facebook.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg glass-card flex items-center justify-center text-muted-foreground hover:text-accent hover:border-accent/30 transition-all"
+                className="w-10 h-10 rounded-lg glass-card flex items-center justify-center text-muted-foreground hover:text-accent-luminous hover:border-accent-luminous/30 transition-all"
               >
                 <Facebook className="w-4 h-4" />
               </a>
