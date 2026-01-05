@@ -22,10 +22,10 @@ const HeroSection = () => {
 
   return (
     <section className="min-h-screen relative overflow-hidden grid-bg">
-      {/* Animated orb decorations */}
-      <div className="orb orb-accent w-96 h-96 -top-48 -right-48 animate-float" />
-      <div className="orb orb-blue w-64 h-64 top-1/3 -left-32 animate-glow-pulse" style={{ animationDelay: '1s' }} />
-      <div className="orb orb-accent w-48 h-48 bottom-20 right-1/4 animate-float" style={{ animationDelay: '2s' }} />
+      {/* Animated orb decorations - enhanced */}
+      <div className="orb orb-luminous w-[500px] h-[500px] -top-64 -right-64 animate-glow-pulse" />
+      <div className="orb orb-blue w-80 h-80 top-1/3 -left-40 animate-float" style={{ animationDelay: '1s' }} />
+      <div className="orb orb-accent w-64 h-64 bottom-20 right-1/4 animate-float" style={{ animationDelay: '2s' }} />
       
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background pointer-events-none" />
@@ -33,7 +33,7 @@ const HeroSection = () => {
       {/* Parallax decorative elements */}
       <div 
         ref={parallaxRef}
-        className="absolute top-40 right-20 w-72 h-72 border border-accent/20 rounded-full -z-10 opacity-30"
+        className="absolute top-40 right-20 w-72 h-72 border border-accent-luminous/15 rounded-full -z-10 opacity-40"
       />
       
       {/* Main content */}
@@ -41,7 +41,7 @@ const HeroSection = () => {
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
           {/* Left sidebar */}
           <aside className="lg:col-span-2 animate-fade-up-delay-1">
-            <div className="glass-card p-4 rounded-lg border-l-2 border-accent">
+            <div className="glass-card p-4 rounded-lg border-l-2 border-accent-luminous/50">
               <p className="text-xs uppercase tracking-widest text-muted-foreground font-body leading-relaxed">
                 Empowering Africa's future<br />
                 <span className="text-gradient font-medium">With Artificial Intelligence</span>
@@ -52,18 +52,18 @@ const HeroSection = () => {
           {/* Main headline area */}
           <div className="lg:col-span-10">
             {/* Headline */}
-            <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold leading-[0.95] tracking-tight animate-fade-up">
+            <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold leading-[0.95] tracking-tight animate-fade-up title-glow">
               <span className="block">The Future</span>
-              <span className="block text-gradient italic">Reimagined</span>
-              <span className="text-accent">.</span>
+              <span className="block text-gradient text-glow italic">Reimagined</span>
+              <span className="text-cta">.</span>
             </h1>
 
             {/* Speaker image - centered below headline */}
             <div className="mt-12 lg:mt-16 flex justify-center animate-fade-up-delay-2">
               <div className="relative w-full max-w-md lg:max-w-lg">
-                {/* Glass frame */}
-                <div className="absolute -inset-4 glass-card rounded-2xl -z-10" />
-                <div className="absolute -inset-8 border border-accent/10 rounded-3xl -z-20" />
+                {/* Glass frame with luminous border */}
+                <div className="absolute -inset-4 glass-card rounded-2xl -z-10 border border-accent-luminous/10" />
+                <div className="absolute -inset-8 border border-accent-luminous/5 rounded-3xl -z-20" />
                 
                 {/* Image */}
                 <div className="relative overflow-hidden rounded-xl">
@@ -72,23 +72,23 @@ const HeroSection = () => {
                     alt="Visionary leader speaking about the future of African enterprise"
                     className={`w-full h-auto object-cover transition-all duration-700 ${isColorized ? '' : 'grayscale'}`}
                   />
-                  {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-accent/10 pointer-events-none" />
+                  {/* Gradient overlay with blue tint */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-accent-luminous/5 pointer-events-none" />
                 </div>
               </div>
             </div>
 
             {/* Description block */}
             <div className="mt-16 lg:mt-20 flex justify-end animate-fade-up-delay-3">
-              <div className="max-w-lg glass-card p-6 rounded-xl border-l-2 border-accent/50">
+              <div className="max-w-lg section-panel p-6 rounded-xl border-l-2 border-cta/50">
                 <p className="text-base lg:text-lg text-muted-foreground font-body leading-relaxed italic">
                   "We are architecting the intelligence layer for African enterprise. 
                   By merging rigorous systems thinking with adaptive AI, Otic Group 
                   is not just predicting what comes next—we are building the framework for it."
                 </p>
                 <div className="mt-4 flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center">
-                    <span className="text-accent font-display font-bold text-lg">N</span>
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent-luminous/30 to-accent/20 flex items-center justify-center border border-accent-luminous/20">
+                    <span className="text-accent-luminous font-display font-bold text-lg">N</span>
                   </div>
                   <div>
                     <p className="text-sm text-foreground font-body font-medium">
@@ -106,14 +106,14 @@ const HeroSection = () => {
             <div className="mt-12 flex flex-wrap gap-4 justify-center lg:justify-start animate-fade-up-delay-4">
               <Link 
                 to="/services" 
-                className="btn-glow px-8 py-4 rounded-lg text-foreground uppercase font-medium flex items-center gap-2 group"
+                className="btn-glow px-8 py-4 rounded-lg text-cta-foreground uppercase font-medium flex items-center gap-2 group"
               >
                 Explore Our Services
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link 
                 to="/about" 
-                className="glass-card-hover px-8 py-4 rounded-lg text-foreground uppercase font-medium"
+                className="glass-card-hover px-8 py-4 rounded-lg text-foreground uppercase font-medium border border-accent-luminous/20 hover:border-accent-luminous/40"
               >
                 Learn More
               </Link>

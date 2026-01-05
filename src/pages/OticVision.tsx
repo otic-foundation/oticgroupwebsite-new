@@ -37,17 +37,20 @@ const OticVision = () => {
       <main className="flex-1">
         {/* Hero Section */}
         <section className="pt-32 pb-20 relative overflow-hidden grid-bg">
-          {/* Orb decorations */}
-          <div className="orb orb-accent w-80 h-80 -top-40 -right-40 opacity-30" />
-          <div className="orb orb-blue w-64 h-64 bottom-0 -left-32 opacity-20" />
+          {/* Orb decorations - enhanced */}
+          <div className="orb orb-luminous w-[500px] h-[500px] -top-64 -right-64 animate-glow-pulse" />
+          <div className="orb orb-blue w-80 h-80 bottom-0 -left-40 opacity-25" />
           
           <div className="container mx-auto px-6 lg:px-12 relative z-10">
             <div className="max-w-4xl">
-              <p className="text-xs uppercase tracking-widest text-accent font-body mb-4">
-                Product
-              </p>
-              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8">
-                <span className="text-gradient">Otic Vision</span>
+              <div className="flex items-center gap-3 mb-6">
+                <span className="marker-orange" />
+                <p className="text-xs uppercase tracking-widest text-accent-luminous font-body">
+                  Product
+                </p>
+              </div>
+              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8 title-glow">
+                <span className="text-gradient text-glow">Otic Vision</span>
               </h1>
               <p className="text-xl lg:text-2xl text-muted-foreground font-body leading-relaxed mb-8">
                 The first intelligent eye for your business. Transform everyday operations 
@@ -57,11 +60,12 @@ const OticVision = () => {
                 href="https://oticvision.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-glow inline-flex items-center gap-2 px-8 py-4 rounded-lg font-body font-medium text-sm uppercase tracking-wider text-foreground"
+                className="btn-glow inline-flex items-center gap-2 px-8 py-4 rounded-lg font-body font-medium text-sm uppercase tracking-wider text-cta-foreground"
               >
                 Explore Otic Vision
                 <ArrowRight className="w-4 h-4" />
               </a>
+              <div className="divider-accent w-32 mt-8" />
             </div>
           </div>
         </section>
@@ -70,8 +74,8 @@ const OticVision = () => {
         <section className="py-20 relative overflow-hidden">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <div className="glass-card p-8 rounded-2xl">
-                <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">
+              <div className="section-panel p-8">
+                <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 text-gradient">
                   AI-Powered Business Platform
                 </h2>
                 <p className="text-lg text-muted-foreground font-body leading-relaxed mb-8">
@@ -80,13 +84,13 @@ const OticVision = () => {
                   SMEs to operate smarter.
                 </p>
               </div>
-              <div className="relative aspect-video rounded-2xl overflow-hidden">
+              <div className="relative aspect-video rounded-2xl overflow-hidden border border-accent-luminous/10">
                 <img
                   src="https://images.unsplash.com/photo-1556740758-90de374c12ad?w=800&q=80"
                   alt="Point of Sale System"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-accent/10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-accent-luminous/5" />
               </div>
             </div>
           </div>
@@ -95,14 +99,15 @@ const OticVision = () => {
         {/* Features - Image-heavy cards */}
         <section className="py-20 relative">
           <div className="container mx-auto px-6 lg:px-12">
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-4 text-center">
-              Key Capabilities
+            <h2 className="font-display text-3xl md:text-4xl font-bold mb-4 text-center title-glow">
+              <span className="text-gradient">Key Capabilities</span>
             </h2>
-            <p className="text-muted-foreground text-center font-body mb-16 max-w-2xl mx-auto">
+            <p className="text-muted-foreground text-center font-body mb-6 max-w-2xl mx-auto">
               Powerful features designed to transform how SMEs operate across Africa
             </p>
+            <div className="divider-accent w-24 mx-auto mb-16" />
             
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-8">
               {features.map((feature, index) => (
                 <div 
                   key={index} 
@@ -116,13 +121,15 @@ const OticVision = () => {
                   />
                   
                   {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/75 to-transparent" />
+                  {/* Luminous glow on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-accent-luminous/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
                   {/* Content */}
                   <div className="absolute inset-0 p-6 flex flex-col justify-end">
                     <div className="flex items-center gap-3 mb-3">
-                      <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center">
-                        <feature.icon className="w-6 h-6 text-accent" />
+                      <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-accent-luminous/20 group-hover:border-accent-luminous/40 transition-colors">
+                        <feature.icon className="w-6 h-6 text-accent-luminous" />
                       </div>
                     </div>
                     <h3 className="font-display text-2xl font-bold mb-2 text-foreground">
@@ -139,22 +146,23 @@ const OticVision = () => {
         </section>
 
         {/* CTA */}
-        <section className="py-20 relative overflow-hidden">
+        <section className="py-24 relative overflow-hidden">
           {/* Background gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-accent/15 via-background to-background" />
-          <div className="orb orb-blue w-96 h-96 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20" />
+          <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-background to-background" />
+          <div className="orb orb-luminous w-[600px] h-[600px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20" />
           
           <div className="container mx-auto px-6 lg:px-12 text-center relative z-10">
-            <div className="glass-card max-w-3xl mx-auto p-12 rounded-2xl">
-              <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">
-                Ready to Transform Your Business?
+            <div className="section-panel max-w-3xl mx-auto p-12">
+              <div className="divider-accent w-16 mx-auto mb-8" />
+              <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 title-glow">
+                <span className="text-gradient">Ready to Transform Your Business?</span>
               </h2>
               <p className="text-muted-foreground font-body text-lg mb-8 max-w-2xl mx-auto">
                 Join thousands of SMEs across Africa using Otic Vision to streamline operations.
               </p>
               <Link
                 to="/contact"
-                className="btn-glow inline-flex items-center gap-2 px-8 py-4 rounded-lg font-body font-medium text-sm uppercase tracking-wider text-foreground"
+                className="btn-glow inline-flex items-center gap-2 px-8 py-4 rounded-lg font-body font-medium text-sm uppercase tracking-wider text-cta-foreground"
               >
                 Get Started
                 <ArrowRight className="w-4 h-4" />
