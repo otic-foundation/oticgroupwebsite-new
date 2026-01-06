@@ -47,7 +47,7 @@ const Contact = () => {
               <p className="text-xs uppercase tracking-widest text-accent font-body mb-4">
                 Get in Touch
               </p>
-              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8">
+              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8 text-white">
                 Contact Us
               </h1>
               <p className="text-xl lg:text-2xl text-muted-foreground font-body leading-relaxed">
@@ -64,7 +64,7 @@ const Contact = () => {
               {/* Contact Info */}
               <div className="space-y-8">
                 <div>
-                  <h2 className="font-display text-2xl font-bold mb-6">Get in Touch</h2>
+                  <h2 className="font-display text-2xl font-bold mb-6 text-white">Get in Touch</h2>
                   <p className="text-muted-foreground font-body">
                     Have a question or want to work together? Reach out to us.
                   </p>
@@ -72,7 +72,9 @@ const Contact = () => {
 
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
-                    <Mail className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
+                    <div className="w-10 h-10 rounded-xl glass-card flex items-center justify-center border border-white/20 flex-shrink-0">
+                      <Mail className="w-5 h-5 text-white" />
+                    </div>
                     <div>
                       <p className="font-body font-medium mb-1">Email</p>
                       <a 
@@ -85,7 +87,9 @@ const Contact = () => {
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <Phone className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
+                    <div className="w-10 h-10 rounded-xl glass-card flex items-center justify-center border border-white/20 flex-shrink-0">
+                      <Phone className="w-5 h-5 text-white" />
+                    </div>
                     <div>
                       <p className="font-body font-medium mb-1">Phone</p>
                       <a 
@@ -98,7 +102,9 @@ const Contact = () => {
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <MapPin className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
+                    <div className="w-10 h-10 rounded-xl glass-card flex items-center justify-center border border-white/20 flex-shrink-0">
+                      <MapPin className="w-5 h-5 text-white" />
+                    </div>
                     <div>
                       <p className="font-body font-medium mb-1">Locations</p>
                       <p className="text-muted-foreground font-body">
@@ -124,7 +130,7 @@ const Contact = () => {
               {/* Contact Form */}
               <div className="lg:col-span-2">
                 <div className="p-8 bg-secondary/30 border border-border">
-                  <h3 className="font-display text-2xl font-bold mb-6">Send a Message</h3>
+                  <h3 className="font-display text-2xl font-bold mb-6 text-white">Send a Message</h3>
                   
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-6">

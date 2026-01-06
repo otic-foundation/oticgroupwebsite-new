@@ -77,8 +77,8 @@ const Industries = () => {
                   Our Expertise
                 </p>
               </div>
-              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8 title-glow">
-                <span className="text-gradient text-glow">Industries</span>
+              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8">
+                <span className="text-white">Industries</span>
               </h1>
               <p className="text-xl lg:text-2xl text-muted-foreground font-body leading-relaxed">
                 AI impacts every sector differently. We bring deep domain expertise and 
@@ -107,17 +107,16 @@ const Industries = () => {
                     />
                     {/* Gradient overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-background/85 to-background/20" />
-                    {/* Luminous glow on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-accent-luminous/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    {/* Orange glow on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-cta/15 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
                   
-                  {/* Content */}
                   <div className="absolute inset-0 p-6 flex flex-col justify-end">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-accent-luminous/20 group-hover:border-accent-luminous/40 transition-colors">
-                        <industry.icon className="w-6 h-6 text-accent-luminous" />
+                      <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors">
+                        <industry.icon className="w-6 h-6 text-white" />
                       </div>
-                      <h2 className="font-display text-xl lg:text-2xl font-bold text-foreground">
+                      <h2 className="font-display text-xl lg:text-2xl font-bold text-white">
                         {industry.name}
                       </h2>
                     </div>
@@ -132,7 +131,7 @@ const Industries = () => {
                         {industry.capabilities.slice(0, 3).map((cap) => (
                           <span 
                             key={cap} 
-                            className="px-3 py-1 text-xs font-body bg-accent-luminous/15 text-accent-luminous border border-accent-luminous/20 rounded-full"
+                            className="px-3 py-1 text-xs font-body bg-white/10 text-white border border-white/20 rounded-full"
                           >
                             {cap}
                           </span>
@@ -163,8 +162,8 @@ const Industries = () => {
           <div className="container mx-auto px-6 lg:px-12 text-center relative z-10">
             <div className="section-panel max-w-3xl mx-auto p-12">
               <div className="divider-accent w-16 mx-auto mb-8" />
-              <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 title-glow">
-                <span className="text-gradient">Don't See Your Industry?</span>
+              <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">
+                <span className="text-white">Don't See Your Industry?</span>
               </h2>
               <p className="text-muted-foreground font-body text-lg mb-8 max-w-2xl mx-auto">
                 Our frameworks are adaptable across sectors. Let's discuss how we can 
