@@ -1,16 +1,13 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import speakerImage from '@/assets/speaker.jpeg';
 
 const HeroSection = () => {
-  const [isColorized, setIsColorized] = useState(false);
   const parallaxRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsColorized(window.scrollY > 300);
-      
       if (parallaxRef.current) {
         const scrolled = window.scrollY;
         parallaxRef.current.style.transform = `translateY(${scrolled * 0.3}px)`;
@@ -52,9 +49,9 @@ const HeroSection = () => {
           {/* Main headline area */}
           <div className="lg:col-span-10">
             {/* Headline */}
-            <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold leading-[0.95] tracking-tight animate-fade-up title-glow">
-              <span className="block">The Future</span>
-              <span className="block text-gradient text-glow italic">Reimagined</span>
+            <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold leading-[0.95] tracking-tight animate-fade-up">
+              <span className="block text-white">The Future</span>
+              <span className="block text-cta italic">Reimagined</span>
               <span className="text-cta">.</span>
             </h1>
 
@@ -70,7 +67,7 @@ const HeroSection = () => {
                   <img
                     src={speakerImage}
                     alt="Visionary leader speaking about the future of African enterprise"
-                    className={`w-full h-auto object-cover transition-all duration-700 ${isColorized ? '' : 'grayscale'}`}
+                    className="w-full h-auto object-cover"
                   />
                   {/* Gradient overlay with blue tint */}
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-accent-luminous/5 pointer-events-none" />
