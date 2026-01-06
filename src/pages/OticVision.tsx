@@ -49,8 +49,8 @@ const OticVision = () => {
                   Product
                 </p>
               </div>
-              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8 title-glow">
-                <span className="text-gradient text-glow">Otic Vision</span>
+              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8">
+                <span className="text-white">OticVision</span>
               </h1>
               <p className="text-xl lg:text-2xl text-muted-foreground font-body leading-relaxed mb-8">
                 The first intelligent eye for your business. Transform everyday operations 
@@ -75,7 +75,7 @@ const OticVision = () => {
           <div className="container mx-auto px-6 lg:px-12">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div className="section-panel p-8">
-                <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 text-gradient">
+                <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 text-white">
                   AI-Powered Business Platform
                 </h2>
                 <p className="text-lg text-muted-foreground font-body leading-relaxed mb-8">
@@ -99,8 +99,8 @@ const OticVision = () => {
         {/* Features - Image-heavy cards */}
         <section className="py-20 relative">
           <div className="container mx-auto px-6 lg:px-12">
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-4 text-center title-glow">
-              <span className="text-gradient">Key Capabilities</span>
+            <h2 className="font-display text-3xl md:text-4xl font-bold mb-4 text-center">
+              <span className="text-white">Key Capabilities</span>
             </h2>
             <p className="text-muted-foreground text-center font-body mb-6 max-w-2xl mx-auto">
               Powerful features designed to transform how SMEs operate across Africa
@@ -132,7 +132,7 @@ const OticVision = () => {
                         <feature.icon className="w-6 h-6 text-accent-luminous" />
                       </div>
                     </div>
-                    <h3 className="font-display text-2xl font-bold mb-2 text-foreground">
+                    <h3 className="font-display text-2xl font-bold mb-2 text-white">
                       {feature.title}
                     </h3>
                     <p className="text-muted-foreground font-body">
@@ -154,8 +154,8 @@ const OticVision = () => {
           <div className="container mx-auto px-6 lg:px-12 text-center relative z-10">
             <div className="section-panel max-w-3xl mx-auto p-12">
               <div className="divider-accent w-16 mx-auto mb-8" />
-              <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 title-glow">
-                <span className="text-gradient">Ready to Transform Your Business?</span>
+              <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">
+                <span className="text-white">Ready to Transform Your Business?</span>
               </h2>
               <p className="text-muted-foreground font-body text-lg mb-8 max-w-2xl mx-auto">
                 Join thousands of SMEs across Africa using Otic Vision to streamline operations.
