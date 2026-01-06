@@ -15,7 +15,7 @@ const Services = () => {
               <p className="text-xs uppercase tracking-widest text-accent font-body mb-4">
                 Our Expertise
               </p>
-              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8">
+              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8 text-white">
                 Services
               </h1>
               <p className="text-xl lg:text-2xl text-muted-foreground font-body leading-relaxed">
@@ -75,14 +75,16 @@ const Services = () => {
         {/* Service Categories */}
         <section className="py-20">
           <div className="container mx-auto px-6 lg:px-12">
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-16 text-center">
+            <h2 className="font-display text-3xl md:text-4xl font-bold mb-16 text-center text-white">
               Our Service Categories
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
               {/* Agents & Automation */}
-              <div className="p-8 border border-border hover:border-accent transition-colors group">
-                <Bot className="w-12 h-12 text-accent mb-6" />
-                <h3 className="font-display text-2xl font-bold mb-4">
+              <div className="p-8 border border-border hover:border-cta/50 transition-colors group">
+                <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors mb-6">
+                  <Bot className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="font-display text-2xl font-bold mb-4 text-white">
                   Agents & Automation
                 </h3>
                 <p className="text-muted-foreground font-body mb-6">
@@ -98,9 +100,11 @@ const Services = () => {
               </div>
 
               {/* Digital Process Automation */}
-              <div className="p-8 border border-border hover:border-accent transition-colors group">
-                <Workflow className="w-12 h-12 text-accent mb-6" />
-                <h3 className="font-display text-2xl font-bold mb-4">
+              <div className="p-8 border border-border hover:border-cta/50 transition-colors group">
+                <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors mb-6">
+                  <Workflow className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="font-display text-2xl font-bold mb-4 text-white">
                   Digital Process Automation
                 </h3>
                 <p className="text-muted-foreground font-body mb-6">
@@ -116,9 +120,11 @@ const Services = () => {
               </div>
 
               {/* AI Talent Outsourcing */}
-              <div className="p-8 border border-border hover:border-accent transition-colors group">
-                <Users className="w-12 h-12 text-accent mb-6" />
-                <h3 className="font-display text-2xl font-bold mb-4">
+              <div className="p-8 border border-border hover:border-cta/50 transition-colors group">
+                <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors mb-6">
+                  <Users className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="font-display text-2xl font-bold mb-4 text-white">
                   AI Talent Outsourcing
                 </h3>
                 <p className="text-muted-foreground font-body mb-6">
@@ -139,7 +145,7 @@ const Services = () => {
         {/* Transformation Programmes */}
         <section className="py-20 bg-secondary/50">
           <div className="container mx-auto px-6 lg:px-12">
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 text-center">
+            <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 text-center text-white">
               Transformation Programmes
             </h2>
             <p className="text-center text-muted-foreground font-body mb-16 max-w-3xl mx-auto">
@@ -168,11 +174,13 @@ const Services = () => {
                   icon: Code
                 }
               ].map((programme, index) => (
-                <div key={index} className="p-8 bg-background border border-border">
-                  <programme.icon className="w-10 h-10 text-accent mb-4" />
-                  <h3 className="font-display text-xl font-bold mb-3">{programme.title}</h3>
+                <div key={index} className="p-8 bg-background border border-border group hover:border-cta/50 transition-colors">
+                  <div className="w-10 h-10 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors mb-4">
+                    <programme.icon className="w-5 h-5 text-white" />
+                  </div>
+                  <h3 className="font-display text-xl font-bold mb-3 text-white">{programme.title}</h3>
                   <p className="text-muted-foreground font-body text-sm">
-                    Economic Impact: <span className="text-accent">{programme.impact}</span>
+                    Economic Impact: <span className="text-cta">{programme.impact}</span>
                   </p>
                 </div>
               ))}
@@ -183,7 +191,7 @@ const Services = () => {
         {/* CTA */}
         <section className="py-20">
           <div className="container mx-auto px-6 lg:px-12 text-center">
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 text-white">
               Ready to Transform Your Enterprise?
             </h2>
             <p className="text-muted-foreground font-body text-lg mb-8 max-w-2xl mx-auto">

@@ -48,7 +48,7 @@ const Research = () => {
               <p className="text-xs uppercase tracking-widest text-accent font-body mb-4">
                 Insights
               </p>
-              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8">
+              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8 text-white">
                 Research
               </h1>
               <p className="text-xl lg:text-2xl text-muted-foreground font-body leading-relaxed">
@@ -104,7 +104,7 @@ const Research = () => {
         {/* CTA */}
         <section className="py-20">
           <div className="container mx-auto px-6 lg:px-12 text-center">
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 text-white">
               Partner With Us on Research
             </h2>
             <p className="text-muted-foreground font-body text-lg mb-8 max-w-2xl mx-auto">

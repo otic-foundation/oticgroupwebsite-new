@@ -16,7 +16,7 @@ const About = () => {
               <p className="text-xs uppercase tracking-widest text-accent font-body mb-4">
                 Company
               </p>
-              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8">
+              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8 text-white">
                 Who We Are
               </h1>
               <p className="text-xl lg:text-2xl text-muted-foreground font-body leading-relaxed">
@@ -32,17 +32,21 @@ const About = () => {
         <section className="py-20 bg-secondary/50">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="grid lg:grid-cols-2 gap-12">
-              <div className="p-8 border-l-4 border-accent bg-background">
-                <Target className="w-10 h-10 text-accent mb-6" />
-                <h2 className="font-display text-2xl font-bold mb-4">Our Vision</h2>
+              <div className="p-8 border-l-4 border-cta bg-background group">
+                <div className="w-10 h-10 rounded-xl glass-card flex items-center justify-center border border-white/20 mb-6">
+                  <Target className="w-5 h-5 text-white" />
+                </div>
+                <h2 className="font-display text-2xl font-bold mb-4 text-white">Our Vision</h2>
                 <p className="text-muted-foreground font-body text-lg">
                   A thriving AI ecosystem in Uganda and across Africa — building a globally 
                   competitive, inclusive AI ecosystem from Uganda for the African continent.
                 </p>
               </div>
-              <div className="p-8 border-l-4 border-muted-foreground bg-background">
-                <Globe className="w-10 h-10 text-accent mb-6" />
-                <h2 className="font-display text-2xl font-bold mb-4">Our Mission</h2>
+              <div className="p-8 border-l-4 border-muted-foreground bg-background group">
+                <div className="w-10 h-10 rounded-xl glass-card flex items-center justify-center border border-white/20 mb-6">
+                  <Globe className="w-5 h-5 text-white" />
+                </div>
+                <h2 className="font-display text-2xl font-bold mb-4 text-white">Our Mission</h2>
                 <p className="text-muted-foreground font-body text-lg">
                   To cultivate an inclusive, innovation-led AI ecosystem — laying the foundation 
                   for Uganda's digital economy and equipping the workforce for the future of work and industry.
@@ -68,7 +72,7 @@ const About = () => {
                 <p className="text-xs uppercase tracking-widest text-accent font-body mb-4">
                   Leadership
                 </p>
-                <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">
+                <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 text-white">
                   Nesta Paul Katende
                 </h2>
                 <p className="text-lg text-muted-foreground font-body mb-4">
@@ -97,10 +101,12 @@ const About = () => {
                 { icon: Globe, stat: "15,000+", label: "Community Members", desc: "AI talent, tech leaders, and enthusiasts" },
                 { icon: Target, stat: "2", label: "Countries", desc: "Operations in Uganda and Rwanda" }
               ].map((item, index) => (
-                <div key={index} className="text-center p-8 border border-white/20">
-                  <item.icon className="w-10 h-10 text-accent mx-auto mb-4" />
+                <div key={index} className="text-center p-8 border border-white/20 group hover:border-cta/40 transition-colors">
+                  <div className="w-10 h-10 rounded-xl glass-card flex items-center justify-center border border-white/20 mx-auto mb-4">
+                    <item.icon className="w-5 h-5 text-white" />
+                  </div>
                   <p className="font-display text-4xl font-bold text-white mb-2">{item.stat}</p>
-                  <p className="text-accent font-body font-medium mb-2">{item.label}</p>
+                  <p className="text-cta font-body font-medium mb-2">{item.label}</p>
                   <p className="text-white/60 font-body text-sm">{item.desc}</p>
                 </div>
               ))}
@@ -112,8 +118,10 @@ const About = () => {
         <section className="py-20">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-3xl mx-auto text-center">
-              <Award className="w-16 h-16 text-accent mx-auto mb-8" />
-              <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">
+              <div className="w-16 h-16 rounded-xl glass-card flex items-center justify-center border border-white/20 mx-auto mb-8">
+                <Award className="w-8 h-8 text-white" />
+              </div>
+              <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 text-white">
                 Government Endorsed
               </h2>
               <p className="text-muted-foreground font-body text-lg mb-8">
@@ -135,7 +143,7 @@ const About = () => {
         {/* CTA */}
         <section className="py-20 bg-secondary/50">
           <div className="container mx-auto px-6 lg:px-12 text-center">
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 text-white">
               Let's Work Together
             </h2>
             <p className="text-muted-foreground font-body text-lg mb-8 max-w-2xl mx-auto">

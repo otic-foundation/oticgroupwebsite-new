@@ -15,8 +15,8 @@ const OticLearn = () => {
               <p className="text-xs uppercase tracking-widest text-accent font-body mb-4">
                 Education
               </p>
-              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8">
-                Otic Learn
+              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8 text-white">
+                OticLearn
               </h1>
               <p className="text-xl lg:text-2xl text-muted-foreground font-body leading-relaxed mb-8">
                 Otic Institute of Emerging Technologies — A center for advanced learning and research 
@@ -31,9 +31,11 @@ const OticLearn = () => {
           <div className="container mx-auto px-6 lg:px-12">
             <div className="grid lg:grid-cols-2 gap-8">
               {/* Corporate Training */}
-              <div className="p-8 border border-border bg-background">
-                <Building2 className="w-12 h-12 text-accent mb-6" />
-                <h3 className="font-display text-2xl font-bold mb-4">
+              <div className="p-8 border border-border bg-background group hover:border-cta/50 transition-colors">
+                <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors mb-6">
+                  <Building2 className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="font-display text-2xl font-bold mb-4 text-white">
                   Corporate AI Consultancy & Training
                 </h3>
                 <p className="text-muted-foreground font-body mb-6">
@@ -42,24 +44,26 @@ const OticLearn = () => {
                 </p>
                 <ul className="space-y-3 text-muted-foreground font-body">
                   <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-accent rounded-full" />
+                    <span className="w-1.5 h-1.5 bg-cta rounded-full" />
                     Customized AI strategies and use cases
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-accent rounded-full" />
+                    <span className="w-1.5 h-1.5 bg-cta rounded-full" />
                     Workforce upskilling in AI and data literacy
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-accent rounded-full" />
+                    <span className="w-1.5 h-1.5 bg-cta rounded-full" />
                     AI agent building and deployment
                   </li>
                 </ul>
               </div>
 
               {/* NFASI */}
-              <div className="p-8 border border-border bg-background">
-                <Users className="w-12 h-12 text-accent mb-6" />
-                <h3 className="font-display text-2xl font-bold mb-4">
+              <div className="p-8 border border-border bg-background group hover:border-cta/50 transition-colors">
+                <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors mb-6">
+                  <Users className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="font-display text-2xl font-bold mb-4 text-white">
                   National Free AI Skilling Initiative
                 </h3>
                 <p className="text-muted-foreground font-body mb-6">
@@ -68,20 +72,22 @@ const OticLearn = () => {
                 </p>
                 <div className="flex items-center gap-4 pt-4 border-t border-border">
                   <div>
-                    <p className="font-display text-3xl font-bold text-accent">5500+</p>
+                    <p className="font-display text-3xl font-bold text-cta">5500+</p>
                     <p className="text-sm text-muted-foreground">Trained Learners</p>
                   </div>
                   <div>
-                    <p className="font-display text-3xl font-bold text-accent">15K+</p>
+                    <p className="font-display text-3xl font-bold text-cta">15K+</p>
                     <p className="text-sm text-muted-foreground">Community Members</p>
                   </div>
                 </div>
               </div>
 
               {/* University Programs */}
-              <div className="p-8 border border-border bg-background">
-                <GraduationCap className="w-12 h-12 text-accent mb-6" />
-                <h3 className="font-display text-2xl font-bold mb-4">
+              <div className="p-8 border border-border bg-background group hover:border-cta/50 transition-colors">
+                <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors mb-6">
+                  <GraduationCap className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="font-display text-2xl font-bold mb-4 text-white">
                   University AI Programs
                 </h3>
                 <p className="text-muted-foreground font-body mb-6">
@@ -94,9 +100,11 @@ const OticLearn = () => {
               </div>
 
               {/* Rwanda Expansion */}
-              <div className="p-8 border border-border bg-background">
-                <Globe className="w-12 h-12 text-accent mb-6" />
-                <h3 className="font-display text-2xl font-bold mb-4">
+              <div className="p-8 border border-border bg-background group hover:border-cta/50 transition-colors">
+                <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors mb-6">
+                  <Globe className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="font-display text-2xl font-bold mb-4 text-white">
                   Otic Rwanda
                 </h3>
                 <p className="text-muted-foreground font-body mb-6">
@@ -105,15 +113,15 @@ const OticLearn = () => {
                 </p>
                 <ul className="space-y-3 text-muted-foreground font-body">
                   <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-accent rounded-full" />
+                    <span className="w-1.5 h-1.5 bg-cta rounded-full" />
                     Enterprise Skilling
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-accent rounded-full" />
+                    <span className="w-1.5 h-1.5 bg-cta rounded-full" />
                     Grassroots AI Literacy
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-accent rounded-full" />
+                    <span className="w-1.5 h-1.5 bg-cta rounded-full" />
                     Sector-specific certifications
                   </li>
                 </ul>
@@ -125,7 +133,7 @@ const OticLearn = () => {
         {/* CTA */}
         <section className="py-20">
           <div className="container mx-auto px-6 lg:px-12 text-center">
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 text-white">
               Start Your AI Learning Journey
             </h2>
             <p className="text-muted-foreground font-body text-lg mb-8 max-w-2xl mx-auto">
