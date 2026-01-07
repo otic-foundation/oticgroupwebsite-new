@@ -16,16 +16,18 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Create mailto link with form data
+    const subject = encodeURIComponent(`[Website Inquiry] ${formData.subject || 'General Inquiry'}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company || 'N/A'}\nSubject: ${formData.subject}\n\nMessage:\n${formData.message}`
+    );
+    
+    window.location.href = `mailto:info@oticgroup.net?subject=${subject}&body=${body}`;
+    
     toast({
-      title: "Message Sent",
-      description: "Thank you for reaching out. We'll respond within 24-48 hours.",
-    });
-    setFormData({
-      name: '',
-      email: '',
-      company: '',
-      subject: '',
-      message: ''
+      title: "Opening Email Client",
+      description: "Your email client will open with the message. If it doesn't, please email us directly at info@oticgroup.net",
     });
   };
 
@@ -93,10 +95,10 @@ const Contact = () => {
                     <div>
                       <p className="font-body font-medium mb-1">Phone</p>
                       <a 
-                        href="tel:+256756722263" 
+                        href="tel:+256780176805" 
                         className="text-muted-foreground font-body hover:text-accent transition-colors"
                       >
-                        +256 756 722 263
+                        +256 780 176 805
                       </a>
                     </div>
                   </div>

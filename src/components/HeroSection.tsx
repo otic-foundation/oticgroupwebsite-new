@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import speakerImage from '@/assets/speaker.jpeg';
+import speakerImage from '@/assets/hero-speaker.jpeg';
 
 const HeroSection = () => {
   const parallaxRef = useRef<HTMLDivElement>(null);
@@ -52,7 +52,6 @@ const HeroSection = () => {
             <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold leading-[0.95] tracking-tight animate-fade-up">
               <span className="block text-white">The Future</span>
               <span className="block text-cta italic">Reimagined</span>
-              <span className="text-cta">.</span>
             </h1>
 
             {/* Speaker image - centered below headline */}
