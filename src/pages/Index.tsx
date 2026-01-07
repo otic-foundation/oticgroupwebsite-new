@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import Footer from '@/components/Footer';
+import Chatbot from '@/components/Chatbot';
 
 const Index = () => {
   return (
@@ -10,6 +11,7 @@ const Index = () => {
         <HeroSection />
       </main>
       <Footer />
+      <Chatbot />
     </div>
   );
 };
