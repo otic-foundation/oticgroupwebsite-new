@@ -173,7 +173,7 @@ const Industries = () => {
                 to="/contact"
                 className="btn-glow inline-flex items-center gap-2 px-8 py-4 rounded-lg font-body font-medium text-sm uppercase tracking-wider text-cta-foreground"
               >
-                Contact Us
+                Talk to Sales
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
