@@ -33,14 +33,11 @@ const Header = () => {
       }`}
     >
       <nav className="container mx-auto px-6 lg:px-12 py-4 flex items-center justify-between">
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-full overflow-hidden border border-border/50 group-hover:border-accent-luminous/50 transition-colors">
-            <img src={logo} alt="Otic Group Logo" className="w-full h-full object-cover" />
+        {/* Logo - no circular boundary, just the logo */}
+        <Link to="/" className="flex items-center group">
+          <div className="w-12 h-12 overflow-hidden group-hover:scale-105 transition-transform">
+            <img src={logo} alt="Otic Group Logo" className="w-full h-full object-contain" />
           </div>
-          <span className="font-body font-bold tracking-wide text-sm uppercase text-foreground">
-            Otic Group
-          </span>
         </Link>
 
         {/* Desktop Navigation */}

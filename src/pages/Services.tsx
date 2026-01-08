@@ -199,9 +199,9 @@ const Services = () => {
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-accent-foreground font-body font-medium text-sm uppercase tracking-wider hover:bg-accent/90 transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-accent-foreground font-body font-medium text-sm uppercase tracking-wider hover:bg-accent/90 transition-colors rounded-lg"
             >
-              Start Your Transformation
+              Talk to Sales
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

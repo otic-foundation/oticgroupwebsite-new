@@ -1,37 +1,39 @@
 import { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { ArrowRight, Handshake, Building2, GraduationCap, Globe } from 'lucide-react';
+import { ArrowRight, Handshake } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
-const partnerCategories = [
-  {
-    icon: Building2,
-    title: "Government Partners",
-    partners: [
-      "Ministry of ICT & National Guidance",
-      "National Information Technology Authority (NITA)",
-      "Uganda Communications Commission"
-    ]
-  },
-  {
-    icon: GraduationCap,
-    title: "Academic Partners",
-    partners: [
-      "Kyambogo University",
-      "International American University",
-      "Datamine Strategy"
-    ]
-  },
-  {
-    icon: Globe,
-    title: "Industry Partners",
-    partners: [
-      "ISACA Kampala Chapter",
-      "National ICT Innovation Hub",
-      "Association for Women Journalists"
-    ]
-  }
+// Import partner logos
+import ecobank from '@/assets/partners/ecobank.png';
+import ucc from '@/assets/partners/ucc.png';
+import isaca from '@/assets/partners/isaca.png';
+import stanfield from '@/assets/partners/stanfield.png';
+import kyambogo from '@/assets/partners/kyambogo.png';
+import datamine from '@/assets/partners/datamine.png';
+import centenary from '@/assets/partners/centenary.png';
+import ministryIct from '@/assets/partners/ministry-ict.png';
+import nita from '@/assets/partners/nita.png';
+import innovationHub from '@/assets/partners/innovation-hub.png';
+import iau from '@/assets/partners/iau.png';
+import acwj from '@/assets/partners/acwj.png';
+
+const clients = [
+  { name: "Ecobank", logo: ecobank },
+  { name: "Uganda Communications Commission", logo: ucc },
+  { name: "ISACA Kampala Chapter", logo: isaca },
+  { name: "Stanfield", logo: stanfield },
+  { name: "Kyambogo University", logo: kyambogo },
+  { name: "Datamine Strategy", logo: datamine },
+  { name: "Centenary Bank", logo: centenary },
+];
+
+const partners = [
+  { name: "Ministry of ICT & National Guidance", logo: ministryIct },
+  { name: "NITA Uganda", logo: nita },
+  { name: "National ICT Innovation Hub", logo: innovationHub },
+  { name: "International American University", logo: iau },
+  { name: "Association for Women Journalists", logo: acwj },
 ];
 
 const Partners = () => {
@@ -79,7 +81,7 @@ const Partners = () => {
               <p className="text-xs uppercase tracking-widest text-accent font-body mb-4">
                 Company
               </p>
-              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8">
+              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8 text-white">
                 Partners
               </h1>
               <p className="text-xl lg:text-2xl text-muted-foreground font-body leading-relaxed">
@@ -90,25 +92,46 @@ const Partners = () => {
           </div>
         </section>
 
-        {/* Current Partners */}
+        {/* Clients Section */}
         <section className="py-20 bg-secondary/50">
           <div className="container mx-auto px-6 lg:px-12">
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-16 text-center">
+            <h2 className="font-display text-3xl md:text-4xl font-bold mb-16 text-center text-white">
+              Our Clients
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 items-center justify-items-center">
+              {clients.map((client) => (
+                <div 
+                  key={client.name} 
+                  className="p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/10 hover:border-cta/30 transition-all duration-300 w-full max-w-[200px] aspect-square flex items-center justify-center group"
+                >
+                  <img 
+                    src={client.logo} 
+                    alt={client.name}
+                    className="max-w-full max-h-full object-contain filter brightness-0 invert opacity-70 group-hover:opacity-100 transition-opacity"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Partners Section */}
+        <section className="py-20">
+          <div className="container mx-auto px-6 lg:px-12">
+            <h2 className="font-display text-3xl md:text-4xl font-bold mb-16 text-center text-white">
               Our Partners
             </h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              {partnerCategories.map((category) => (
-                <div key={category.title} className="p-8 bg-background border border-border">
-                  <category.icon className="w-10 h-10 text-accent mb-6" />
-                  <h3 className="font-display text-xl font-bold mb-6">{category.title}</h3>
-                  <ul className="space-y-4">
-                    {category.partners.map((partner) => (
-                      <li key={partner} className="flex items-center gap-3 text-muted-foreground font-body">
-                        <span className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0" />
-                        {partner}
-                      </li>
-                    ))}
-                  </ul>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center justify-items-center">
+              {partners.map((partner) => (
+                <div 
+                  key={partner.name} 
+                  className="p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/10 hover:border-cta/30 transition-all duration-300 w-full max-w-[180px] aspect-square flex items-center justify-center group"
+                >
+                  <img 
+                    src={partner.logo} 
+                    alt={partner.name}
+                    className="max-w-full max-h-full object-contain filter brightness-0 invert opacity-70 group-hover:opacity-100 transition-opacity"
+                  />
                 </div>
               ))}
             </div>
@@ -116,12 +139,12 @@ const Partners = () => {
         </section>
 
         {/* Partnership Form */}
-        <section className="py-20">
+        <section className="py-20 bg-secondary/30">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-3xl mx-auto">
               <div className="text-center mb-12">
                 <Handshake className="w-16 h-16 text-accent mx-auto mb-6" />
-                <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
+                <h2 className="font-display text-3xl md:text-4xl font-bold mb-4 text-white">
                   Become a Partner
                 </h2>
                 <p className="text-muted-foreground font-body text-lg">
@@ -143,7 +166,7 @@ const Partners = () => {
                       value={formData.companyName}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-border bg-background font-body focus:outline-none focus:border-accent transition-colors"
+                      className="w-full px-4 py-3 border border-border bg-background font-body focus:outline-none focus:border-accent transition-colors rounded-lg"
                       placeholder="Your organization"
                     />
                   </div>
@@ -158,7 +181,7 @@ const Partners = () => {
                       value={formData.contactName}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-border bg-background font-body focus:outline-none focus:border-accent transition-colors"
+                      className="w-full px-4 py-3 border border-border bg-background font-body focus:outline-none focus:border-accent transition-colors rounded-lg"
                       placeholder="Your name"
                     />
                   </div>
@@ -176,7 +199,7 @@ const Partners = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-border bg-background font-body focus:outline-none focus:border-accent transition-colors"
+                      className="w-full px-4 py-3 border border-border bg-background font-body focus:outline-none focus:border-accent transition-colors rounded-lg"
                       placeholder="you@company.com"
                     />
                   </div>
@@ -190,7 +213,7 @@ const Partners = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-border bg-background font-body focus:outline-none focus:border-accent transition-colors"
+                      className="w-full px-4 py-3 border border-border bg-background font-body focus:outline-none focus:border-accent transition-colors rounded-lg"
                       placeholder="+256 XXX XXX XXX"
                     />
                   </div>
@@ -206,7 +229,7 @@ const Partners = () => {
                     value={formData.partnershipType}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-border bg-background font-body focus:outline-none focus:border-accent transition-colors"
+                    className="w-full px-4 py-3 border border-border bg-background font-body focus:outline-none focus:border-accent transition-colors rounded-lg"
                   >
                     <option value="">Select partnership type</option>
                     <option value="technology">Technology Partner</option>
@@ -229,14 +252,14 @@ const Partners = () => {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full px-4 py-3 border border-border bg-background font-body focus:outline-none focus:border-accent transition-colors resize-none"
+                    className="w-full px-4 py-3 border border-border bg-background font-body focus:outline-none focus:border-accent transition-colors resize-none rounded-lg"
                     placeholder="Describe how you'd like to partner with Otic Group..."
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent text-accent-foreground font-body font-medium text-sm uppercase tracking-wider hover:bg-accent/90 transition-colors"
+                  className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent text-accent-foreground font-body font-medium text-sm uppercase tracking-wider hover:bg-accent/90 transition-colors rounded-lg"
                 >
                   Submit Partnership Request
                   <ArrowRight className="w-4 h-4" />
