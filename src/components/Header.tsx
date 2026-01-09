@@ -35,7 +35,7 @@ const Header = () => {
       <nav className="container mx-auto px-6 lg:px-12 py-4 flex items-center justify-between">
         {/* Logo - no circular boundary, just the logo */}
         <Link to="/" className="flex items-center group">
-          <div className="w-12 h-12 overflow-hidden group-hover:scale-105 transition-transform">
+          <div className="w-20 h-20 overflow-hidden group-hover:scale-105 transition-transform">
             <img src={logo} alt="Otic Group Logo" className="w-full h-full object-contain" />
           </div>
         </Link>

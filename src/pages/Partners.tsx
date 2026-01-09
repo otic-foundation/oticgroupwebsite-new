@@ -18,7 +18,12 @@ import innovationHub from '@/assets/partners/innovation-hub.png';
 import iau from '@/assets/partners/iau.png';
 import acwj from '@/assets/partners/acwj.png';
 
-const clients = [
+const partners = [
+  { name: "Ministry of ICT & National Guidance", logo: ministryIct },
+  { name: "NITA Uganda", logo: nita },
+  { name: "National ICT Innovation Hub", logo: innovationHub },
+  { name: "International American University", logo: iau },
+  { name: "Association for Women Journalists", logo: acwj },
   { name: "Ecobank", logo: ecobank },
   { name: "Uganda Communications Commission", logo: ucc },
   { name: "ISACA Kampala Chapter", logo: isaca },
@@ -26,14 +31,6 @@ const clients = [
   { name: "Kyambogo University", logo: kyambogo },
   { name: "Datamine Strategy", logo: datamine },
   { name: "Centenary Bank", logo: centenary },
-];
-
-const partners = [
-  { name: "Ministry of ICT & National Guidance", logo: ministryIct },
-  { name: "NITA Uganda", logo: nita },
-  { name: "National ICT Innovation Hub", logo: innovationHub },
-  { name: "International American University", logo: iau },
-  { name: "Association for Women Journalists", logo: acwj },
 ];
 
 const Partners = () => {
@@ -49,17 +46,16 @@ const Partners = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    // Send to email via mailto
+    const subject = encodeURIComponent('Partnership Request from ' + formData.companyName);
+    const body = encodeURIComponent(
+      `Company: ${formData.companyName}\nContact: ${formData.contactName}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nPartnership Type: ${formData.partnershipType}\n\nMessage:\n${formData.message}`
+    );
+    window.location.href = `mailto:info@oticgroup.net?subject=${subject}&body=${body}`;
+    
     toast({
-      title: "Partnership Request Submitted",
-      description: "Thank you for your interest. Our team will contact you within 48 hours.",
-    });
-    setFormData({
-      companyName: '',
-      contactName: '',
-      email: '',
-      phone: '',
-      partnershipType: '',
-      message: ''
+      title: "Partnership Request",
+      description: "Your email client will open to send the partnership request.",
     });
   };
 
@@ -92,45 +88,22 @@ const Partners = () => {
           </div>
         </section>
 
-        {/* Clients Section */}
-        <section className="py-20 bg-secondary/50">
-          <div className="container mx-auto px-6 lg:px-12">
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-16 text-center text-white">
-              Our Clients
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 items-center justify-items-center">
-              {clients.map((client) => (
-                <div 
-                  key={client.name} 
-                  className="p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/10 hover:border-cta/30 transition-all duration-300 w-full max-w-[200px] aspect-square flex items-center justify-center group"
-                >
-                  <img 
-                    src={client.logo} 
-                    alt={client.name}
-                    className="max-w-full max-h-full object-contain filter brightness-0 invert opacity-70 group-hover:opacity-100 transition-opacity"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Partners Section */}
         <section className="py-20">
           <div className="container mx-auto px-6 lg:px-12">
             <h2 className="font-display text-3xl md:text-4xl font-bold mb-16 text-center text-white">
               Our Partners
             </h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center justify-items-center">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 items-center justify-items-center">
               {partners.map((partner) => (
                 <div 
                   key={partner.name} 
-                  className="p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/10 hover:border-cta/30 transition-all duration-300 w-full max-w-[180px] aspect-square flex items-center justify-center group"
+                  className="p-6 bg-white rounded-xl border border-border/30 hover:border-cta/30 transition-all duration-300 w-full max-w-[200px] aspect-square flex items-center justify-center group shadow-lg"
                 >
                   <img 
                     src={partner.logo} 
                     alt={partner.name}
-                    className="max-w-full max-h-full object-contain filter brightness-0 invert opacity-70 group-hover:opacity-100 transition-opacity"
+                    className="max-w-[80%] max-h-[80%] object-contain"
                   />
                 </div>
               ))}

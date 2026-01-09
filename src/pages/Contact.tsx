@@ -198,7 +198,7 @@ const Contact = () => {
 
               {/* Zoho CRM Form */}
               <div className="lg:col-span-2" ref={formRef}>
-                <div className="p-8 bg-secondary/30 border border-border rounded-xl">
+                <div className="p-4 md:p-8 bg-secondary/30 border border-border rounded-xl">
                   <style dangerouslySetInnerHTML={{__html: `
                     .zcwf_lblLeft .zcwf_title{ 
                       word-wrap: break-word; 
@@ -219,6 +219,7 @@ const Contact = () => {
                       color: hsl(var(--foreground));
                       padding: 0.75rem 1rem;
                       font-family: var(--font-body);
+                      font-size: 16px;
                     }
                     .zcwf_lblLeft .zcwf_col_fld input[type=text]:focus,
                     .zcwf_lblLeft .zcwf_col_fld textarea:focus {
@@ -244,7 +245,7 @@ const Contact = () => {
                       margin-top: 5px; 
                     }
                     .zcwf_lblLeft .zcwf_row { 
-                      margin: 15px 0px; 
+                      margin: 12px 0px; 
                     }
                     .zcwf_lblLeft .formsubmit { 
                       cursor: pointer; 
@@ -258,6 +259,12 @@ const Contact = () => {
                       text-transform: uppercase;
                       letter-spacing: 0.05em;
                       transition: all 0.3s;
+                      width: 100%;
+                    }
+                    @media (min-width: 768px) {
+                      .zcwf_lblLeft .formsubmit {
+                        width: auto;
+                      }
                     }
                     .zcwf_lblLeft .formsubmit:hover {
                       opacity: 0.9;
@@ -271,7 +278,16 @@ const Contact = () => {
                       cursor: pointer;
                       background: transparent;
                       color: hsl(var(--foreground));
-                      margin-left: 0.5rem;
+                      margin-left: 0;
+                      margin-top: 0.5rem;
+                      width: 100%;
+                    }
+                    @media (min-width: 768px) {
+                      .zcwf_lblLeft .zcwf_button {
+                        width: auto;
+                        margin-left: 0.5rem;
+                        margin-top: 0;
+                      }
                     }
                     .zcwf_lblLeft .zcwf_privacy_txt { 
                       color: hsl(var(--muted-foreground)); 
@@ -311,11 +327,25 @@ const Contact = () => {
                     .zcwf_lblLeft .zcwf_privacy input[type=checkbox] {
                       accent-color: hsl(var(--accent));
                     }
-                    @media all and (max-width: 600px) { 
-                      .zcwf_lblLeft .zcwf_col_lab, .zcwf_lblLeft .zcwf_col_fld { 
-                        width: auto; 
-                        float: none !important; 
-                      } 
+                    .mobile-grid {
+                      display: grid;
+                      grid-template-columns: 1fr;
+                      gap: 0;
+                    }
+                    @media (min-width: 768px) {
+                      .mobile-grid {
+                        grid-template-columns: 1fr 1fr;
+                        gap: 1rem;
+                      }
+                    }
+                    .submit-buttons {
+                      display: flex;
+                      flex-direction: column;
+                    }
+                    @media (min-width: 768px) {
+                      .submit-buttons {
+                        flex-direction: row;
+                      }
                     }
                   `}} />
                   
@@ -339,7 +369,7 @@ const Contact = () => {
                     
                     <div className="zcwf_title">Get in touch!</div>
                     
-                    <div className="grid md:grid-cols-2 gap-4">
+                    <div className="mobile-grid">
                       <div className="zcwf_row">
                         <div className="zcwf_col_lab"><label htmlFor="First_Name">First Name <span style={{color: 'hsl(var(--cta))'}}>*</span></label></div>
                         <div className="zcwf_col_fld"><input type="text" id="First_Name" name="First Name" maxLength={40} /></div>
@@ -350,7 +380,7 @@ const Contact = () => {
                       </div>
                     </div>
                     
-                    <div className="grid md:grid-cols-2 gap-4">
+                    <div className="mobile-grid">
                       <div className="zcwf_row">
                         <div className="zcwf_col_lab"><label htmlFor="Company">Company <span style={{color: 'hsl(var(--cta))'}}>*</span></label></div>
                         <div className="zcwf_col_fld"><input type="text" id="Company" name="Company" maxLength={200} /></div>
@@ -361,7 +391,7 @@ const Contact = () => {
                       </div>
                     </div>
                     
-                    <div className="grid md:grid-cols-2 gap-4">
+                    <div className="mobile-grid">
                       <div className="zcwf_row">
                         <div className="zcwf_col_lab"><label htmlFor="Email">Work Email <span style={{color: 'hsl(var(--cta))'}}>*</span></label></div>
                         <div className="zcwf_col_fld">
@@ -384,7 +414,7 @@ const Contact = () => {
                       <div className="zcwf_col_fld"><textarea id="Description" name="Description" rows={4} /></div>
                     </div>
                     
-                    <div className="grid md:grid-cols-2 gap-4">
+                    <div className="mobile-grid">
                       <div className="zcwf_row">
                         <div className="zcwf_col_lab"><label htmlFor="City">City <span style={{color: 'hsl(var(--cta))'}}>*</span></label></div>
                         <div className="zcwf_col_fld"><input type="text" id="City" name="City" maxLength={100} /></div>
@@ -419,7 +449,7 @@ const Contact = () => {
                     
                     <input type="text" style={{display: 'none'}} name="aG9uZXlwb3Q" defaultValue="" />
                     
-                    <div className="zcwf_row flex gap-4 mt-8">
+                    <div className="zcwf_row submit-buttons mt-8">
                       <input type="submit" id="formsubmit" className="formsubmit zcwf_button" value="Submit" title="Submit" />
                       <input type="reset" className="zcwf_button" name="reset" value="Reset" title="Reset" />
                     </div>
