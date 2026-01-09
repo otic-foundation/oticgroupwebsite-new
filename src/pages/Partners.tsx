@@ -4,34 +4,8 @@ import Footer from '@/components/Footer';
 import { ArrowRight, Handshake } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
-// Import partner logos
-import ecobank from '@/assets/partners/ecobank.png';
-import ucc from '@/assets/partners/ucc.png';
-import isaca from '@/assets/partners/isaca.png';
-import stanfield from '@/assets/partners/stanfield.png';
-import kyambogo from '@/assets/partners/kyambogo.png';
-import datamine from '@/assets/partners/datamine.png';
-import centenary from '@/assets/partners/centenary.png';
-import ministryIct from '@/assets/partners/ministry-ict.png';
-import nita from '@/assets/partners/nita.png';
-import innovationHub from '@/assets/partners/innovation-hub.png';
-import iau from '@/assets/partners/iau.png';
-import acwj from '@/assets/partners/acwj.png';
-
-const partners = [
-  { name: "Ministry of ICT & National Guidance", logo: ministryIct },
-  { name: "NITA Uganda", logo: nita },
-  { name: "National ICT Innovation Hub", logo: innovationHub },
-  { name: "International American University", logo: iau },
-  { name: "Association for Women Journalists", logo: acwj },
-  { name: "Ecobank", logo: ecobank },
-  { name: "Uganda Communications Commission", logo: ucc },
-  { name: "ISACA Kampala Chapter", logo: isaca },
-  { name: "Stanfield", logo: stanfield },
-  { name: "Kyambogo University", logo: kyambogo },
-  { name: "Datamine Strategy", logo: datamine },
-  { name: "Centenary Bank", logo: centenary },
-];
+// Import partners image
+import ourPartnersImage from '@/assets/partners/our-partners.jpeg';
 
 const Partners = () => {
   const { toast } = useToast();
@@ -89,35 +63,25 @@ const Partners = () => {
         </section>
 
         {/* Partners Section */}
-        <section className="py-20">
+        <section className="py-20 bg-white">
           <div className="container mx-auto px-6 lg:px-12">
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-16 text-center text-white">
-              Our Partners
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 items-center justify-items-center">
-              {partners.map((partner) => (
-                <div 
-                  key={partner.name} 
-                  className="p-6 bg-white rounded-xl border border-border/30 hover:border-cta/30 transition-all duration-300 w-full max-w-[200px] aspect-square flex items-center justify-center group shadow-lg"
-                >
-                  <img 
-                    src={partner.logo} 
-                    alt={partner.name}
-                    className="max-w-[80%] max-h-[80%] object-contain"
-                  />
-                </div>
-              ))}
+            <div className="max-w-5xl mx-auto">
+              <img 
+                src={ourPartnersImage} 
+                alt="Our Partners"
+                className="w-full h-auto rounded-xl"
+              />
             </div>
           </div>
         </section>
 
         {/* Partnership Form */}
-        <section className="py-20 bg-secondary/30">
+        <section className="py-20 bg-white">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-3xl mx-auto">
               <div className="text-center mb-12">
                 <Handshake className="w-16 h-16 text-accent mx-auto mb-6" />
-                <h2 className="font-display text-3xl md:text-4xl font-bold mb-4 text-white">
+                <h2 className="font-display text-3xl md:text-4xl font-bold mb-4 text-foreground">
                   Become a Partner
                 </h2>
                 <p className="text-muted-foreground font-body text-lg">

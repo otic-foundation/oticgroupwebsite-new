@@ -328,23 +328,35 @@ const Contact = () => {
                       accent-color: hsl(var(--accent));
                     }
                     .mobile-grid {
-                      display: grid;
-                      grid-template-columns: 1fr;
-                      gap: 0;
+                      display: block;
                     }
                     @media (min-width: 768px) {
                       .mobile-grid {
+                        display: grid;
                         grid-template-columns: 1fr 1fr;
                         gap: 1rem;
                       }
                     }
+                    .zcwf_row {
+                      width: 100% !important;
+                    }
+                    .zcwf_col_fld {
+                      width: 100% !important;
+                    }
+                    .zcwf_col_fld input[type=text],
+                    .zcwf_col_fld textarea {
+                      width: 100% !important;
+                      box-sizing: border-box !important;
+                    }
                     .submit-buttons {
                       display: flex;
                       flex-direction: column;
+                      gap: 0.5rem;
                     }
                     @media (min-width: 768px) {
                       .submit-buttons {
                         flex-direction: row;
+                        gap: 0;
                       }
                     }
                   `}} />
