@@ -80,11 +80,11 @@ const Partners = () => {
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-3xl mx-auto">
               <div className="text-center mb-12">
-                <Handshake className="w-16 h-16 text-accent mx-auto mb-6" />
-                <h2 className="font-display text-3xl md:text-4xl font-bold mb-4 text-foreground">
+                <Handshake className="w-16 h-16 text-[#1a365d] mx-auto mb-6" />
+                <h2 className="font-display text-3xl md:text-4xl font-bold mb-4 text-[#1a365d]">
                   Become a Partner
                 </h2>
-                <p className="text-muted-foreground font-body text-lg">
+                <p className="text-gray-600 font-body text-lg">
                   Interested in partnering with Otic Group? Fill out the form below and our 
                   partnership team will get in touch.
                 </p>
@@ -93,7 +93,7 @@ const Partners = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="companyName" className="block text-sm font-body font-medium mb-2">
+                    <label htmlFor="companyName" className="block text-sm font-body font-medium mb-2 text-[#1a365d]">
                       Company / Organization Name *
                     </label>
                     <input
@@ -103,12 +103,12 @@ const Partners = () => {
                       value={formData.companyName}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-border bg-background font-body focus:outline-none focus:border-accent transition-colors rounded-lg"
+                      className="w-full px-4 py-3 border border-[#1a365d]/20 bg-[#f5f0e8] text-[#1a365d] font-body focus:outline-none focus:border-[#1a365d] transition-colors rounded-lg placeholder:text-[#1a365d]/50"
                       placeholder="Your organization"
                     />
                   </div>
                   <div>
-                    <label htmlFor="contactName" className="block text-sm font-body font-medium mb-2">
+                    <label htmlFor="contactName" className="block text-sm font-body font-medium mb-2 text-[#1a365d]">
                       Contact Name *
                     </label>
                     <input
@@ -118,7 +118,7 @@ const Partners = () => {
                       value={formData.contactName}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-border bg-background font-body focus:outline-none focus:border-accent transition-colors rounded-lg"
+                      className="w-full px-4 py-3 border border-[#1a365d]/20 bg-[#f5f0e8] text-[#1a365d] font-body focus:outline-none focus:border-[#1a365d] transition-colors rounded-lg placeholder:text-[#1a365d]/50"
                       placeholder="Your name"
                     />
                   </div>
@@ -126,7 +126,7 @@ const Partners = () => {
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="email" className="block text-sm font-body font-medium mb-2">
+                    <label htmlFor="email" className="block text-sm font-body font-medium mb-2 text-[#1a365d]">
                       Email Address *
                     </label>
                     <input
@@ -136,12 +136,12 @@ const Partners = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-border bg-background font-body focus:outline-none focus:border-accent transition-colors rounded-lg"
+                      className="w-full px-4 py-3 border border-[#1a365d]/20 bg-[#f5f0e8] text-[#1a365d] font-body focus:outline-none focus:border-[#1a365d] transition-colors rounded-lg placeholder:text-[#1a365d]/50"
                       placeholder="you@company.com"
                     />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-body font-medium mb-2">
+                    <label htmlFor="phone" className="block text-sm font-body font-medium mb-2 text-[#1a365d]">
                       Phone Number
                     </label>
                     <input
@@ -150,14 +150,14 @@ const Partners = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-border bg-background font-body focus:outline-none focus:border-accent transition-colors rounded-lg"
+                      className="w-full px-4 py-3 border border-[#1a365d]/20 bg-[#f5f0e8] text-[#1a365d] font-body focus:outline-none focus:border-[#1a365d] transition-colors rounded-lg placeholder:text-[#1a365d]/50"
                       placeholder="+256 XXX XXX XXX"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="partnershipType" className="block text-sm font-body font-medium mb-2">
+                  <label htmlFor="partnershipType" className="block text-sm font-body font-medium mb-2 text-[#1a365d]">
                     Partnership Type *
                   </label>
                   <select
@@ -166,7 +166,7 @@ const Partners = () => {
                     value={formData.partnershipType}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-border bg-background font-body focus:outline-none focus:border-accent transition-colors rounded-lg"
+                    className="w-full px-4 py-3 border border-[#1a365d]/20 bg-[#f5f0e8] text-[#1a365d] font-body focus:outline-none focus:border-[#1a365d] transition-colors rounded-lg"
                   >
                     <option value="">Select partnership type</option>
                     <option value="technology">Technology Partner</option>
@@ -179,7 +179,7 @@ const Partners = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-body font-medium mb-2">
+                  <label htmlFor="message" className="block text-sm font-body font-medium mb-2 text-[#1a365d]">
                     Tell us about your partnership interest *
                   </label>
                   <textarea
@@ -189,14 +189,14 @@ const Partners = () => {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full px-4 py-3 border border-border bg-background font-body focus:outline-none focus:border-accent transition-colors resize-none rounded-lg"
+                    className="w-full px-4 py-3 border border-[#1a365d]/20 bg-[#f5f0e8] text-[#1a365d] font-body focus:outline-none focus:border-[#1a365d] transition-colors resize-none rounded-lg placeholder:text-[#1a365d]/50"
                     placeholder="Describe how you'd like to partner with Otic Group..."
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent text-accent-foreground font-body font-medium text-sm uppercase tracking-wider hover:bg-accent/90 transition-colors rounded-lg"
+                  className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#1a365d] text-white font-body font-medium text-sm uppercase tracking-wider hover:bg-[#1a365d]/90 transition-colors rounded-lg"
                 >
                   Submit Partnership Request
                   <ArrowRight className="w-4 h-4" />
