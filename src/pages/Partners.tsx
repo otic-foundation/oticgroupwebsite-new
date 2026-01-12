@@ -3,9 +3,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { ArrowRight, Handshake } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-
-// Import partners image
-import ourPartnersImage from '@/assets/partners/our-partners.jpeg';
+import PartnerCarousel from '@/components/PartnerCarousel';
 
 const Partners = () => {
   const { toast } = useToast();
@@ -62,16 +60,13 @@ const Partners = () => {
           </div>
         </section>
 
-        {/* Partners Section */}
+        {/* Partners Carousel Section */}
         <section className="py-20 bg-white">
           <div className="container mx-auto px-6 lg:px-12">
-            <div className="max-w-5xl mx-auto">
-              <img 
-                src={ourPartnersImage} 
-                alt="Our Partners"
-                className="w-full h-auto rounded-xl"
-              />
-            </div>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-12 text-[#1a365d]">
+              Our Partners
+            </h2>
+            <PartnerCarousel />
           </div>
         </section>
 
