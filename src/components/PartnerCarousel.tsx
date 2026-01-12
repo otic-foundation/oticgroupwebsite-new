@@ -1,6 +1,9 @@
 import { useEffect, useRef } from 'react';
 
 // Import partner logos
+import innovationHub from '@/assets/partners/innovation-hub.png';
+import ministryIct from '@/assets/partners/ministry-ict.png';
+import americanCenter from '@/assets/partners/american-center.jpeg';
 import w3schools from '@/assets/partners/w3schools.jpeg';
 import acwj from '@/assets/partners/acwj-new.jpeg';
 import datamine from '@/assets/partners/datamine-new.jpeg';
@@ -9,12 +12,14 @@ import uict from '@/assets/partners/uict.jpeg';
 import ecobank from '@/assets/partners/ecobank.png';
 import nita from '@/assets/partners/nita.png';
 import ucc from '@/assets/partners/ucc.png';
-import ministryIct from '@/assets/partners/ministry-ict.png';
 import isaca from '@/assets/partners/isaca.png';
 import kyambogo from '@/assets/partners/kyambogo.png';
 import centenary from '@/assets/partners/centenary.png';
 
 const partners = [
+  { name: 'National ICT Innovation Hub', logo: innovationHub },
+  { name: 'Ministry of ICT & National Guidance', logo: ministryIct },
+  { name: 'American Center Kampala', logo: americanCenter },
   { name: 'W3Schools', logo: w3schools },
   { name: 'ACWJ', logo: acwj },
   { name: 'Datamine', logo: datamine },
@@ -23,7 +28,6 @@ const partners = [
   { name: 'Ecobank', logo: ecobank },
   { name: 'NITA', logo: nita },
   { name: 'UCC', logo: ucc },
-  { name: 'Ministry of ICT', logo: ministryIct },
   { name: 'ISACA', logo: isaca },
   { name: 'Kyambogo University', logo: kyambogo },
   { name: 'Centenary Bank', logo: centenary },
