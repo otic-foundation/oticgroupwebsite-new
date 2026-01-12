@@ -442,7 +442,14 @@ const Contact = () => {
                       <div className="zcwf_col_fld"><input type="text" id="Annual_Revenue" name="Annual Revenue" maxLength={16} placeholder="Yes / No" /></div>
                     </div>
                     
-                    <div className="zcwf_row">
+                    <input type="text" style={{display: 'none'}} name="aG9uZXlwb3Q" defaultValue="" />
+                    
+                    <div className="zcwf_row submit-buttons mt-8">
+                      <input type="submit" id="formsubmit" className="formsubmit zcwf_button" value="Submit" title="Submit" />
+                      <input type="reset" className="zcwf_button" name="reset" value="Reset" title="Reset" />
+                    </div>
+                    
+                    <div className="zcwf_row mt-6">
                       <div className="zcwf_privacy flex items-start gap-3">
                         <input 
                           autoComplete="off" 
@@ -450,20 +457,13 @@ const Contact = () => {
                           type="checkbox" 
                           name="" 
                           onClick={() => (window as any).disableErr7179876000000615004 && (window as any).disableErr7179876000000615004()}
-                          className="mt-1"
+                          className="mt-1 flex-shrink-0"
                         />
                         <div className="zcwf_privacy_txt">
                           I agree to be contacted for consultation calls and product presentations.
                         </div>
                       </div>
                       <div id="privacyErr7179876000000615004" style={{fontSize: '12px', color: 'hsl(var(--cta))', paddingLeft: '5px', visibility: 'hidden'}}>Please accept this</div>
-                    </div>
-                    
-                    <input type="text" style={{display: 'none'}} name="aG9uZXlwb3Q" defaultValue="" />
-                    
-                    <div className="zcwf_row submit-buttons mt-8">
-                      <input type="submit" id="formsubmit" className="formsubmit zcwf_button" value="Submit" title="Submit" />
-                      <input type="reset" className="zcwf_button" name="reset" value="Reset" title="Reset" />
                     </div>
                   </form>
                   

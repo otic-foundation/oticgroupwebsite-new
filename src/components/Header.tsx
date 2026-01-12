@@ -35,7 +35,7 @@ const Header = () => {
       <nav className="container mx-auto px-6 lg:px-12 py-4 flex items-center justify-between">
         {/* Logo - no circular boundary, just the logo */}
         <Link to="/" className="flex items-center group">
-          <div className="w-20 h-20 overflow-hidden group-hover:scale-105 transition-transform">
+          <div className="w-24 h-24 md:w-28 md:h-28 overflow-hidden group-hover:scale-105 transition-transform">
             <img src={logo} alt="Otic Group Logo" className="w-full h-full object-contain" />
           </div>
         </Link>
@@ -96,7 +96,7 @@ const Header = () => {
 
         {/* Mobile Menu Button */}
         <button className="lg:hidden p-2 rounded-lg hover:bg-secondary/50 transition-colors" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          {mobileMenuOpen ? <X className="w-7 h-7 text-foreground" /> : <Menu className="w-7 h-7 text-foreground" />}
         </button>
       </nav>
 
