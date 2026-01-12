@@ -13,12 +13,11 @@ import ecobank from '@/assets/partners/ecobank.png';
 import nita from '@/assets/partners/nita.png';
 import ucc from '@/assets/partners/ucc.png';
 import isaca from '@/assets/partners/isaca.png';
-import kyambogo from '@/assets/partners/kyambogo.png';
 import centenary from '@/assets/partners/centenary.png';
 
 const partners = [
   { name: 'National ICT Innovation Hub', logo: innovationHub },
-  { name: 'Ministry of ICT & National Guidance', logo: ministryIct },
+  { name: 'Ministry of ICT & National Guidance', logo: ministryIct, large: true },
   { name: 'American Center Kampala', logo: americanCenter },
   { name: 'W3Schools', logo: w3schools },
   { name: 'ACWJ', logo: acwj },
@@ -29,7 +28,6 @@ const partners = [
   { name: 'NITA', logo: nita },
   { name: 'UCC', logo: ucc },
   { name: 'ISACA', logo: isaca },
-  { name: 'Kyambogo University', logo: kyambogo },
   { name: 'Centenary Bank', logo: centenary },
 ];
 
@@ -70,7 +68,9 @@ const PartnerCarousel = () => {
         {[...partners, ...partners].map((partner, index) => (
           <div
             key={`${partner.name}-${index}`}
-            className="flex-shrink-0 w-24 h-24 md:w-32 md:h-32 flex items-center justify-center p-2 bg-white rounded-lg"
+            className={`flex-shrink-0 flex items-center justify-center p-2 bg-white rounded-lg ${
+              partner.large ? 'w-36 h-36 md:w-48 md:h-48' : 'w-24 h-24 md:w-32 md:h-32'
+            }`}
           >
             <img
               src={partner.logo}
