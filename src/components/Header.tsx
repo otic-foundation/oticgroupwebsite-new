@@ -84,7 +84,7 @@ const Header = () => {
                 Who We Are
               </Link>
               <Link to="/partners" className="block px-4 py-3 text-muted-foreground hover:text-foreground hover:bg-accent-luminous/10 transition-colors">
-                Partners
+                Partner with us
               </Link>
             </div>
           </div>
@@ -111,7 +111,7 @@ const Header = () => {
           <Link to="/services" className="block py-3 px-4 text-foreground font-body rounded-lg hover:bg-secondary/50 transition-colors">Services</Link>
           <Link to="/industries" className="block py-3 px-4 text-foreground font-body rounded-lg hover:bg-secondary/50 transition-colors">Industries</Link>
           <Link to="/about" className="block py-3 px-4 text-foreground font-body rounded-lg hover:bg-secondary/50 transition-colors">Who We Are</Link>
-          <Link to="/partners" className="block py-3 px-4 text-foreground font-body rounded-lg hover:bg-secondary/50 transition-colors">Partners</Link>
+          <Link to="/partners" className="block py-3 px-4 text-foreground font-body rounded-lg hover:bg-secondary/50 transition-colors">Partner with us</Link>
           <Link to="/contact" className="block py-3 px-4 text-cta font-body font-medium rounded-lg hover:bg-cta/10 transition-colors">Contact</Link>
         </div>
       </div>

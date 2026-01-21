@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { ArrowRight, Bot, Workflow, Users, Database, Code, LineChart } from 'lucide-react';
+import { ArrowRight, Bot, Workflow, Users, LineChart, Shield, Briefcase, Target, BookOpen, Calendar } from 'lucide-react';
 
 const Services = () => {
   return (
@@ -18,188 +18,349 @@ const Services = () => {
               <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8 text-white">
                 Services
               </h1>
+              <h2 className="font-display text-2xl md:text-3xl font-bold text-accent mb-6">
+                Built for Measurable ROI
+              </h2>
               <p className="text-xl lg:text-2xl text-muted-foreground font-body leading-relaxed">
-                Otic Technologies is the innovation engine of Otic Group, delivering AI training 
-                solutions and outsourcing services that enhance workforce capabilities and drive 
-                digital efficiency.
+                Our services are designed to move organizations from experimentation to enterprise 
+                scale value. We focus on productivity gains, cost optimization, revenue growth, 
+                and risk reduction while ensuring responsible and sustainable AI adoption.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Agentic AI Section */}
-        <section className="py-20 bg-[hsl(var(--deep-sea-blue))]">
+        {/* 1. Agentic AI Enterprise Transformation */}
+        <section className="py-20 bg-[hsl(var(--deep-sea-blue))]" id="agentic-ai">
           <div className="container mx-auto px-6 lg:px-12">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <div>
-                <p className="text-accent font-body text-sm uppercase tracking-widest mb-4">
-                  Flagship Offering
+            <div className="max-w-4xl mb-16">
+              <span className="text-accent font-body text-sm uppercase tracking-widest mb-4 block">
+                01 — Flagship Offering
+              </span>
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6">
+                Agentic AI Enterprise Transformation
+              </h2>
+              <p className="text-white/80 font-body text-lg">
+                This is our flagship, end to end transformation engagement. We work with leadership 
+                to reimagine how the entire organization operates when autonomous AI agents are 
+                embedded across functions, workflows, and decision making. The objective is not 
+                automation for its own sake. It is to redesign the enterprise for speed, intelligence, 
+                and resilience.
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Customer Growth */}
+              <article className="p-8 border border-white/20 group hover:border-cta/40 transition-colors">
+                <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors mb-6">
+                  <LineChart className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="font-display text-xl font-bold text-white mb-4">
+                  Customer Growth and Acquisition Intelligence
+                </h3>
+                <p className="text-white/70 font-body mb-6">
+                  We deploy agentic systems that continuously analyze customer data, market signals, 
+                  and behavioral patterns to drive smarter acquisition and retention.
                 </p>
-                <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6">
-                  Agentic AI Enterprise Transformation
-                </h2>
-                <p className="text-white/80 font-body text-lg mb-8">
-                  Our Agentic AI Enterprise Framework is a comprehensive organizational operating 
-                  system for the Cognitive Age. Partner with Otic Group to architect and execute 
-                  a transformation that yields measurable results.
-                </p>
-                <div className="grid grid-cols-2 gap-6 mb-8">
-                  <div className="p-4 border border-white/20">
-                    <p className="font-display text-3xl font-bold text-accent">40-300%</p>
-                    <p className="text-white/60 text-sm">ROI Across Functions</p>
-                  </div>
-                  <div className="p-4 border border-white/20">
-                    <p className="font-display text-3xl font-bold text-accent">3.2x</p>
-                    <p className="text-white/60 text-sm">Decision Cycle Acceleration</p>
-                  </div>
+                <div className="space-y-2 text-sm text-white/60 font-body mb-6">
+                  <p>• Higher conversion rates through intelligent targeting</p>
+                  <p>• Faster response to market changes and customer needs</p>
+                  <p>• Improved lifetime value through proactive engagement</p>
                 </div>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-white text-[hsl(var(--deep-sea-blue))] font-body font-medium text-sm uppercase tracking-wider hover:bg-accent hover:text-white transition-colors"
+                  className="inline-flex items-center gap-2 text-accent font-body font-medium text-sm hover:text-accent/80 transition-colors"
                 >
-                  Request Proposal
-                  <ArrowRight className="w-4 h-4" />
+                  Talk to Sales <ArrowRight className="w-4 h-4" />
                 </Link>
-              </div>
-              <div className="relative aspect-square">
-                <img
-                  src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80"
-                  alt="Enterprise AI Transformation"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
+              </article>
 
-        {/* Service Categories */}
-        <section className="py-20">
-          <div className="container mx-auto px-6 lg:px-12">
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-16 text-center text-white">
-              Our Service Categories
-            </h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              {/* Agents & Automation */}
-              <div className="p-8 border border-border hover:border-cta/50 transition-colors group">
-                <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors mb-6">
-                  <Bot className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="font-display text-2xl font-bold mb-4 text-white">
-                  Agents & Automation
-                </h3>
-                <p className="text-muted-foreground font-body mb-6">
-                  Deploy AI agents that execute workflows, automate processes, and amplify 
-                  human decision-making across your organization.
-                </p>
-                <ul className="space-y-3 text-sm text-muted-foreground font-body">
-                  <li>• Multi-agent workflow design</li>
-                  <li>• Process automation</li>
-                  <li>• Decision intelligence systems</li>
-                  <li>• Customer journey orchestration</li>
-                </ul>
-              </div>
-
-              {/* Digital Process Automation */}
-              <div className="p-8 border border-border hover:border-cta/50 transition-colors group">
+              {/* Operational Excellence */}
+              <article className="p-8 border border-white/20 group hover:border-cta/40 transition-colors">
                 <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors mb-6">
                   <Workflow className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="font-display text-2xl font-bold mb-4 text-white">
-                  Digital Process Automation
+                <h3 className="font-display text-xl font-bold text-white mb-4">
+                  Operational Excellence and Decision Velocity
                 </h3>
-                <p className="text-muted-foreground font-body mb-6">
-                  Transform operations through intelligent automation and data-driven 
-                  efficiency for measurable business impact.
+                <p className="text-white/70 font-body mb-6">
+                  We embed agents into core operational workflows to reduce manual effort, 
+                  eliminate bottlenecks, and accelerate decision cycles.
                 </p>
-                <ul className="space-y-3 text-sm text-muted-foreground font-body">
-                  <li>• Data Digitization & ETL</li>
-                  <li>• Data Analytics & Insights</li>
-                  <li>• AI-Driven Optimization</li>
-                  <li>• Software Development</li>
-                </ul>
-              </div>
-
-              {/* AI Talent Outsourcing */}
-              <div className="p-8 border border-border hover:border-cta/50 transition-colors group">
-                <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors mb-6">
-                  <Users className="w-6 h-6 text-white" />
+                <div className="space-y-2 text-sm text-white/60 font-body mb-6">
+                  <p>• Reduced operational costs through intelligent automation</p>
+                  <p>• Faster and better informed decisions across teams</p>
+                  <p>• Improved service delivery and internal efficiency</p>
                 </div>
-                <h3 className="font-display text-2xl font-bold mb-4 text-white">
-                  AI Talent Outsourcing
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-2 text-accent font-body font-medium text-sm hover:text-accent/80 transition-colors"
+                >
+                  Talk to Sales <ArrowRight className="w-4 h-4" />
+                </Link>
+              </article>
+
+              {/* Governance Risk Compliance */}
+              <article className="p-8 border border-white/20 group hover:border-cta/40 transition-colors">
+                <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors mb-6">
+                  <Shield className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="font-display text-xl font-bold text-white mb-4">
+                  Governance, Risk, and Compliance Intelligence
                 </h3>
-                <p className="text-muted-foreground font-body mb-6">
-                  Connect with vetted AI and technology professionals to scale innovation 
-                  faster and build your AI capabilities.
+                <p className="text-white/70 font-body mb-6">
+                  We design agentic oversight systems that continuously monitor risk, compliance, 
+                  and regulatory obligations across the enterprise.
                 </p>
-                <ul className="space-y-3 text-sm text-muted-foreground font-body">
-                  <li>• AI Engineers & Data Scientists</li>
-                  <li>• ML Operations Specialists</li>
-                  <li>• AI Project Managers</li>
-                  <li>• Technical Consultants</li>
-                </ul>
+                <div className="space-y-2 text-sm text-white/60 font-body mb-6">
+                  <p>• Proactive risk detection and mitigation</p>
+                  <p>• Stronger compliance posture with reduced audit effort</p>
+                  <p>• Increased confidence for executives and boards</p>
+                </div>
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-2 text-accent font-body font-medium text-sm hover:text-accent/80 transition-colors"
+                >
+                  Talk to Sales <ArrowRight className="w-4 h-4" />
+                </Link>
+              </article>
+
+              {/* Enterprise Leadership */}
+              <article className="p-8 border border-white/20 group hover:border-cta/40 transition-colors">
+                <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors mb-6">
+                  <Briefcase className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="font-display text-xl font-bold text-white mb-4">
+                  Enterprise Leadership and Organisational Design
+                </h3>
+                <p className="text-white/70 font-body mb-6">
+                  We help leadership teams adapt structures, roles, and decision models for an 
+                  AI enabled organization.
+                </p>
+                <div className="space-y-2 text-sm text-white/60 font-body mb-6">
+                  <p>• Clear accountability between humans and AI agents</p>
+                  <p>• Leadership alignment on AI driven operating models</p>
+                  <p>• Sustainable change management and adoption</p>
+                </div>
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-2 text-accent font-body font-medium text-sm hover:text-accent/80 transition-colors"
+                >
+                  Talk to Sales <ArrowRight className="w-4 h-4" />
+                </Link>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        {/* 2. AI Agents */}
+        <section className="py-20" id="ai-agents">
+          <div className="container mx-auto px-6 lg:px-12">
+            <div className="grid lg:grid-cols-2 gap-16 items-start">
+              <div>
+                <span className="text-accent font-body text-sm uppercase tracking-widest mb-4 block">
+                  02 — Targeted Solutions
+                </span>
+                <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6">
+                  AI Agents
+                </h2>
+                <p className="text-muted-foreground font-body text-lg mb-8">
+                  Not every organization is ready for a full transformation at once. Some teams need 
+                  targeted, high impact agents for specific workflows. We design and deploy individual 
+                  AI agents tailored to a single function or process across departments such as HR, 
+                  Finance, Operations, Customer Support, Marketing, and more.
+                </p>
+                <p className="text-muted-foreground font-body text-lg mb-8">
+                  These agents integrate into existing systems and workflows, delivering value quickly 
+                  without disrupting the broader organization.
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  <Link
+                    to="/industries"
+                    className="inline-flex items-center gap-2 px-6 py-3 border border-border font-body font-medium text-sm uppercase tracking-wider hover:bg-secondary transition-colors"
+                  >
+                    Explore Industries
+                  </Link>
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-accent-foreground font-body font-medium text-sm uppercase tracking-wider hover:bg-accent/90 transition-colors"
+                  >
+                    Talk to Sales <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+              
+              <div className="space-y-6">
+                <div className="p-6 border border-border group hover:border-cta/50 transition-colors">
+                  <h4 className="font-display text-lg font-bold text-white mb-2">Typical Use Cases</h4>
+                  <ul className="space-y-3 text-muted-foreground font-body">
+                    <li className="flex items-start gap-2">
+                      <span className="w-1.5 h-1.5 bg-cta rounded-full mt-2 flex-shrink-0" />
+                      HR agents for recruitment screening, policy queries, and performance insights
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="w-1.5 h-1.5 bg-cta rounded-full mt-2 flex-shrink-0" />
+                      Finance agents for reporting, forecasting, and anomaly detection
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="w-1.5 h-1.5 bg-cta rounded-full mt-2 flex-shrink-0" />
+                      Operations agents for scheduling, monitoring, and process optimization
+                    </li>
+                  </ul>
+                </div>
+                
+                <div className="p-6 border border-border group hover:border-cta/50 transition-colors">
+                  <h4 className="font-display text-lg font-bold text-white mb-2">Business Value</h4>
+                  <ul className="space-y-3 text-muted-foreground font-body">
+                    <li className="flex items-start gap-2">
+                      <span className="w-1.5 h-1.5 bg-cta rounded-full mt-2 flex-shrink-0" />
+                      Faster task completion and reduced workload
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="w-1.5 h-1.5 bg-cta rounded-full mt-2 flex-shrink-0" />
+                      Lower operational costs with minimal implementation effort
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="w-1.5 h-1.5 bg-cta rounded-full mt-2 flex-shrink-0" />
+                      Clear ROI from a single, well defined workflow
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Transformation Programmes */}
-        <section className="py-20 bg-secondary/50">
+        {/* 3. AI Strategy Roadmaps */}
+        <section className="py-20 bg-secondary/50" id="strategy">
           <div className="container mx-auto px-6 lg:px-12">
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 text-center text-white">
-              Transformation Programmes
-            </h2>
-            <p className="text-center text-muted-foreground font-body mb-16 max-w-3xl mx-auto">
-              Each programme is a 5-week intensive sprint, combining strategy, design, build, and deployment.
-            </p>
-            <div className="grid md:grid-cols-2 gap-8">
-              {[
-                {
-                  title: "Customer Growth & Acquisition Intelligence",
-                  impact: "25-40% revenue growth in targeted segments",
-                  icon: LineChart
-                },
-                {
-                  title: "Operational Excellence & Decision Velocity",
-                  impact: "40-60% reduction in decision cycle times",
-                  icon: Workflow
-                },
-                {
-                  title: "Risk, Governance & Compliance Automation",
-                  impact: "50-80% reduction in compliance cost",
-                  icon: Database
-                },
-                {
-                  title: "Enterprise Leadership & Organizational Design",
-                  impact: "50-70% improvement in strategic initiative success",
-                  icon: Code
-                }
-              ].map((programme, index) => (
-                <div key={index} className="p-8 bg-background border border-border group hover:border-cta/50 transition-colors">
-                  <div className="w-10 h-10 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors mb-4">
-                    <programme.icon className="w-5 h-5 text-white" />
+            <div className="max-w-4xl">
+              <span className="text-accent font-body text-sm uppercase tracking-widest mb-4 block">
+                03 — Strategic Planning
+              </span>
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6">
+                AI Strategy Roadmaps
+              </h2>
+              <p className="text-muted-foreground font-body text-lg mb-8">
+                AI success requires clarity before execution. Our AI strategy roadmap service provides 
+                executive level guidance on how to deploy AI across the enterprise in a structured, 
+                phased, and value driven way.
+              </p>
+              <p className="text-muted-foreground font-body text-lg mb-12">
+                We assess your organization's readiness, identify priority use cases, define governance 
+                structures, and outline a practical implementation plan aligned to business objectives.
+              </p>
+              
+              <div className="grid md:grid-cols-2 gap-6 mb-12">
+                {[
+                  "A clear enterprise wide AI vision and operating model",
+                  "Prioritized use cases with expected ROI",
+                  "Implementation timelines and investment guidance",
+                  "Alignment between leadership, technology, and business units"
+                ].map((item, index) => (
+                  <div key={index} className="flex items-start gap-4 p-4 border border-border">
+                    <Target className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
+                    <p className="text-muted-foreground font-body">{item}</p>
                   </div>
-                  <h3 className="font-display text-xl font-bold mb-3 text-white">{programme.title}</h3>
-                  <p className="text-muted-foreground font-body text-sm">
-                    Economic Impact: <span className="text-cta">{programme.impact}</span>
-                  </p>
+                ))}
+              </div>
+              
+              <p className="text-muted-foreground font-body italic mb-8">
+                This service is ideal for organizations that want to invest in AI with confidence 
+                and avoid fragmented or ad hoc adoption.
+              </p>
+              
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-accent-foreground font-body font-medium text-sm uppercase tracking-wider hover:bg-accent/90 transition-colors"
+              >
+                Book an Assessment <Calendar className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* 4. Workforce Enablement */}
+        <section className="py-20" id="workforce">
+          <div className="container mx-auto px-6 lg:px-12">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              <div className="relative aspect-square rounded-2xl overflow-hidden border border-accent/10">
+                <img
+                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80"
+                  alt="Team training session"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-accent/5" />
+              </div>
+              
+              <div>
+                <span className="text-accent font-body text-sm uppercase tracking-widest mb-4 block">
+                  04 — People Development
+                </span>
+                <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6">
+                  Workforce Enablement
+                </h2>
+                <p className="text-muted-foreground font-body text-lg mb-8">
+                  AI delivers value only when people know how to use it effectively. Our workforce 
+                  enablement programs are designed around real job roles, real workflows, and real tools. 
+                  We train teams across departments to integrate AI into their daily work, improving 
+                  productivity without replacing human judgment.
+                </p>
+                
+                <div className="space-y-4 mb-8">
+                  <h4 className="font-display text-lg font-bold text-white">How We Approach It</h4>
+                  <ul className="space-y-3 text-muted-foreground font-body">
+                    <li className="flex items-start gap-3">
+                      <BookOpen className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
+                      Role specific training tailored to each team's workflows
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <Bot className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
+                      Practical use of AI tools relevant to daily tasks
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <Shield className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
+                      Responsible AI usage, ethics, and governance awareness
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <Users className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
+                      Change management support to drive adoption
+                    </li>
+                  </ul>
                 </div>
-              ))}
+                
+                <div className="p-6 border border-cta/30 bg-cta/5 rounded-lg mb-8">
+                  <h4 className="font-display text-lg font-bold text-white mb-3">Outcomes</h4>
+                  <ul className="space-y-2 text-muted-foreground font-body">
+                    <li>• Increased employee productivity and confidence</li>
+                    <li>• Faster adoption of AI initiatives</li>
+                    <li>• Stronger alignment between strategy and execution</li>
+                  </ul>
+                </div>
+                
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-accent-foreground font-body font-medium text-sm uppercase tracking-wider hover:bg-accent/90 transition-colors"
+                >
+                  Talk to Sales <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
             </div>
           </div>
         </section>
 
         {/* CTA */}
-        <section className="py-20">
+        <section className="py-20 bg-[hsl(var(--deep-sea-blue))]">
           <div className="container mx-auto px-6 lg:px-12 text-center">
             <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 text-white">
               Ready to Transform Your Enterprise?
             </h2>
-            <p className="text-muted-foreground font-body text-lg mb-8 max-w-2xl mx-auto">
+            <p className="text-white/80 font-body text-lg mb-8 max-w-2xl mx-auto">
               The cognitive era rewards the bold, the strategic, and the architecturally deliberate.
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-accent-foreground font-body font-medium text-sm uppercase tracking-wider hover:bg-accent/90 transition-colors rounded-lg"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-[hsl(var(--deep-sea-blue))] font-body font-medium text-sm uppercase tracking-wider hover:bg-accent hover:text-white transition-colors rounded-lg"
             >
               Talk to Sales
               <ArrowRight className="w-4 h-4" />

@@ -1,7 +1,6 @@
-import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { ArrowRight, GraduationCap, Users, Building2, Globe } from 'lucide-react';
+import { ArrowRight, BookOpen, Award, Clock, Briefcase, GraduationCap, Target } from 'lucide-react';
 
 const OticLearn = () => {
   return (
@@ -18,113 +17,122 @@ const OticLearn = () => {
               <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8 text-white">
                 OticLearn
               </h1>
-              <p className="text-xl lg:text-2xl text-muted-foreground font-body leading-relaxed mb-8">
-                Otic Institute of Emerging Technologies — A center for advanced learning and research 
-                in AI, data science, and frontier tech for the future of work.
+              <p className="text-xl lg:text-2xl text-muted-foreground font-body leading-relaxed">
+                At a time when AI is no longer a future concept but a present reality, Otic Learn 
+                bridges the gap between curiosity and career readiness through curated, practical, 
+                and industry relevant courses.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Programs Grid */}
+        {/* Platform Overview */}
         <section className="py-20 bg-secondary/50">
           <div className="container mx-auto px-6 lg:px-12">
-            <div className="grid lg:grid-cols-2 gap-8">
-              {/* Corporate Training */}
-              <div className="p-8 border border-border bg-background group hover:border-cta/50 transition-colors">
-                <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors mb-6">
-                  <Building2 className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="font-display text-2xl font-bold mb-4 text-white">
-                  Corporate AI Consultancy & Training
-                </h3>
-                <p className="text-muted-foreground font-body mb-6">
-                  Empowering corporate organizations and the public sector to adopt and leverage 
-                  AI for improved efficiency, decision-making, and innovation.
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              <div>
+                <p className="text-accent font-body text-sm uppercase tracking-widest mb-4">
+                  Digital Learning Environment
                 </p>
-                <ul className="space-y-3 text-muted-foreground font-body">
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-cta rounded-full" />
-                    Customized AI strategies and use cases
+                <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-6">
+                  A Comprehensive Learning Platform
+                </h2>
+                <p className="text-muted-foreground font-body text-lg mb-8">
+                  The platform supports learners at every stage, from beginners taking their first 
+                  steps in AI to professionals seeking advanced applied expertise.
+                </p>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-xl glass-card flex items-center justify-center border border-white/20 flex-shrink-0">
+                      <BookOpen className="w-5 h-5 text-accent" />
+                    </div>
+                    <p className="text-muted-foreground font-body">
+                      Access structured, expert created AI and data science courses
+                    </p>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-cta rounded-full" />
-                    Workforce upskilling in AI and data literacy
+                  <li className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-xl glass-card flex items-center justify-center border border-white/20 flex-shrink-0">
+                      <Clock className="w-5 h-5 text-accent" />
+                    </div>
+                    <p className="text-muted-foreground font-body">
+                      Learn at your own pace, on your own schedule
+                    </p>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-cta rounded-full" />
-                    AI agent building and deployment
+                  <li className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-xl glass-card flex items-center justify-center border border-white/20 flex-shrink-0">
+                      <Award className="w-5 h-5 text-accent" />
+                    </div>
+                    <p className="text-muted-foreground font-body">
+                      Gain certifications that validate your skills and enhance career competitiveness
+                    </p>
                   </li>
                 </ul>
               </div>
-
-              {/* NFASI */}
-              <div className="p-8 border border-border bg-background group hover:border-cta/50 transition-colors">
-                <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors mb-6">
-                  <Users className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="font-display text-2xl font-bold mb-4 text-white">
-                  National Free AI Skilling Initiative
-                </h3>
-                <p className="text-muted-foreground font-body mb-6">
-                  Free AI Skilling program across different regions in Uganda, equipping learners 
-                  with foundational AI skills for the evolving world.
-                </p>
-                <div className="flex items-center gap-4 pt-4 border-t border-border">
-                  <div>
-                    <p className="font-display text-3xl font-bold text-cta">5500+</p>
-                    <p className="text-sm text-muted-foreground">Trained Learners</p>
-                  </div>
-                  <div>
-                    <p className="font-display text-3xl font-bold text-cta">15K+</p>
-                    <p className="text-sm text-muted-foreground">Community Members</p>
-                  </div>
-                </div>
+              <div className="relative aspect-square rounded-2xl overflow-hidden border border-accent/10">
+                <img
+                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80"
+                  alt="Collaborative learning environment"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-accent/5" />
               </div>
+            </div>
+          </div>
+        </section>
 
-              {/* University Programs */}
-              <div className="p-8 border border-border bg-background group hover:border-cta/50 transition-colors">
+        {/* Why OticLearn */}
+        <section className="py-20 bg-[hsl(var(--deep-sea-blue))]">
+          <div className="container mx-auto px-6 lg:px-12">
+            <div className="max-w-3xl mx-auto text-center mb-16">
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-6">
+                Why OticLearn Matters
+              </h2>
+              <p className="text-white/80 font-body text-lg">
+                The world is rapidly adopting AI, and demand for relevant skills is outstripping supply. 
+                Organizations no longer hire for titles alone — they hire for capability. Otic Learn 
+                answers that need by equipping individuals with skills that employers are actively seeking, 
+                translating digital learning into real world advantage.
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="p-8 border border-white/20 group hover:border-cta/40 transition-colors">
+                <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors mb-6">
+                  <Target className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="font-display text-xl font-bold text-white mb-4">
+                  Structured Learning Pathways
+                </h3>
+                <p className="text-white/70 font-body">
+                  Designed for both foundational understanding and advanced mastery, guiding you 
+                  step by step through your AI journey.
+                </p>
+              </div>
+              
+              <div className="p-8 border border-white/20 group hover:border-cta/40 transition-colors">
+                <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors mb-6">
+                  <Briefcase className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="font-display text-xl font-bold text-white mb-4">
+                  Practical Labs & Exercises
+                </h3>
+                <p className="text-white/70 font-body">
+                  Applied exercises that translate theory into real world problem solving, 
+                  preparing you for actual workplace challenges.
+                </p>
+              </div>
+              
+              <div className="p-8 border border-white/20 group hover:border-cta/40 transition-colors">
                 <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors mb-6">
                   <GraduationCap className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="font-display text-2xl font-bold mb-4 text-white">
-                  University AI Programs
+                <h3 className="font-display text-xl font-bold text-white mb-4">
+                  Recognized Certifications
                 </h3>
-                <p className="text-muted-foreground font-body mb-6">
-                  Free AI Skilling for students in universities across Uganda, equipping them 
-                  with specific AI skills shaping their career choices.
+                <p className="text-white/70 font-body">
+                  Globally recognized certification options that support career advancement 
+                  and professional credibility.
                 </p>
-                <p className="text-sm text-muted-foreground font-body">
-                  Practical agentic AI tools in Finance, Marketing, Engineering, Legal, and more.
-                </p>
-              </div>
-
-              {/* Rwanda Expansion */}
-              <div className="p-8 border border-border bg-background group hover:border-cta/50 transition-colors">
-                <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors mb-6">
-                  <Globe className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="font-display text-2xl font-bold mb-4 text-white">
-                  Otic Rwanda
-                </h3>
-                <p className="text-muted-foreground font-body mb-6">
-                  Strategic expansion into Rwanda, delivering Enterprise Skilling and AI Business 
-                  Process Outsourcing aligned with Rwanda's NST2 strategy.
-                </p>
-                <ul className="space-y-3 text-muted-foreground font-body">
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-cta rounded-full" />
-                    Enterprise Skilling
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-cta rounded-full" />
-                    Grassroots AI Literacy
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-cta rounded-full" />
-                    Sector-specific certifications
-                  </li>
-                </ul>
               </div>
             </div>
           </div>
@@ -137,15 +145,18 @@ const OticLearn = () => {
               Start Your AI Learning Journey
             </h2>
             <p className="text-muted-foreground font-body text-lg mb-8 max-w-2xl mx-auto">
-              Whether you're an individual, corporation, or institution, we have a program for you.
+              Whether you want to launch a career in AI or accelerate your professional impact, 
+              Otic Learn gives you the structure, support, and certification you need.
             </p>
-            <Link
-              to="/contact"
+            <a
+              href="https://oticlearn.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-accent-foreground font-body font-medium text-sm uppercase tracking-wider hover:bg-accent/90 transition-colors"
             >
               Enroll Now
               <ArrowRight className="w-4 h-4" />
-            </Link>
+            </a>
           </div>
         </section>
       </main>

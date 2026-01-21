@@ -50,7 +50,7 @@ const Partners = () => {
                 Company
               </p>
               <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8 text-white">
-                Partners
+                Partner with us
               </h1>
               <p className="text-xl lg:text-2xl text-muted-foreground font-body leading-relaxed">
                 We collaborate with leading institutions, government bodies, and industry players 
