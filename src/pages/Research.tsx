@@ -1,76 +1,19 @@
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { ArrowRight, TrendingUp, Building2, BarChart3, Globe, Cpu, Users } from 'lucide-react';
-import enterpriseAI from '@/assets/enterprise-ai.jpeg';
-import oticVision from '@/assets/otic-vision.jpeg';
-import workforceTraining from '@/assets/workforce-training.jpeg';
+import { ArrowRight, Download, TrendingUp, Building2, DollarSign, ShieldCheck, Clock } from 'lucide-react';
+import reimaginedBankingCover from '@/assets/research/reimagined-banking-cover.png';
 
-const researchData = [
-  {
-    number: "01",
-    title: "Agentic AI in Enterprise Operations",
-    summary: "Deployed AI systems that execute workflows in minutes, unify enterprise data, and amplify human decision-making. Our research demonstrates 40-300% ROI across transformed functions.",
-    image: enterpriseAI,
-    link: "/services",
-    stats: [
-      { value: "40-300%", label: "ROI Improvement" },
-      { value: "3.2x", label: "Decision Speed" }
-    ]
-  },
-  {
-    number: "02",
-    title: "Otic Vision: Intelligent Systems for SME Operations",
-    summary: "AI-powered smartphone system for inventory tracking and real-time insights—designed for African SMEs. Using computer vision and data intelligence to empower businesses.",
-    image: oticVision,
-    link: "/otic-vision",
-    stats: [
-      { value: "1000+", label: "SMEs Enabled" },
-      { value: "60%", label: "Time Saved" }
-    ]
-  },
-  {
-    number: "03",
-    title: "Workforce Readiness & AI Adoption",
-    summary: "Training thousands of professionals with workflow-driven AI education that accelerates real transformation. Over 5500 learners have passed through our programs.",
-    image: workforceTraining,
-    link: "/otic-learn",
-    stats: [
-      { value: "5,500+", label: "Trained Professionals" },
-      { value: "15K+", label: "Community Members" }
-    ]
-  },
-  {
-    number: "04",
-    title: "Systems Thinking in Emerging Markets",
-    summary: "Building adaptive, context-aware AI architectures that thrive in informal, fast-growing economies. Our framework addresses the unique challenges of African markets.",
-    link: "/about",
-    stats: [
-      { value: "2", label: "Countries" },
-      { value: "5+", label: "Years Research" }
-    ]
-  }
-];
-
-const insightCards = [
-  {
-    icon: Building2,
-    title: "Enterprise Transformation",
-    value: "67%",
-    description: "of African enterprises cite AI readiness as a top strategic priority for 2025"
-  },
-  {
-    icon: TrendingUp,
-    title: "Market Growth",
-    value: "42%",
-    description: "projected annual growth in AI adoption across East African enterprises"
-  },
-  {
-    icon: Users,
-    title: "Talent Gap",
-    value: "85%",
-    description: "of organizations report difficulty finding AI-skilled talent locally"
-  }
+// Industry adoption data for the bar chart
+const industryAdoptionData = [
+  { industry: 'Banking & Financial Services', value: 67, highlight: true },
+  { industry: 'Healthcare', value: 58 },
+  { industry: 'Manufacturing', value: 54 },
+  { industry: 'Government', value: 52 },
+  { industry: 'Insurance', value: 48 },
+  { industry: 'Retail', value: 45 },
+  { industry: 'Telecommunications', value: 42 },
+  { industry: 'Energy', value: 38 },
 ];
 
 const Research = () => {
@@ -90,114 +33,201 @@ const Research = () => {
               </h1>
               <p className="text-xl lg:text-2xl text-muted-foreground font-body leading-relaxed">
                 Applied research from real deployments, systems, and field work. 
-                Our research emerges from building, deploying, and observing AI systems 
-                in live enterprise and SME environments across Africa.
+                Our insights emerge from building and deploying AI systems 
+                in live enterprise environments across Africa.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Key Insights - Data Cards */}
-        <section className="py-16 bg-secondary/50">
+        {/* Featured Research: Reimagined Banking */}
+        <section className="py-16 bg-[hsl(var(--deep-sea-blue))]">
           <div className="container mx-auto px-6 lg:px-12">
-            <h2 className="font-display text-2xl md:text-3xl font-bold text-white mb-12 text-center">
-              Key Market Insights
-            </h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              {insightCards.map((card, index) => (
-                <div key={index} className="p-8 border border-border bg-background group hover:border-cta/50 transition-colors">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors">
-                      <card.icon className="w-6 h-6 text-accent" />
-                    </div>
-                    <span className="text-xs uppercase tracking-widest text-muted-foreground font-body">
-                      {card.title}
-                    </span>
-                  </div>
-                  <p className="font-display text-5xl md:text-6xl font-bold text-accent mb-4">
-                    {card.value}
-                  </p>
-                  <p className="text-muted-foreground font-body">
-                    {card.description}
+            {/* Cover Image */}
+            <div className="relative rounded-2xl overflow-hidden mb-16 max-w-5xl mx-auto">
+              <img
+                src={reimaginedBankingCover}
+                alt="Reimagined Banking - Accelerating Enterprise Productivity"
+                className="w-full h-auto object-cover"
+              />
+            </div>
+
+            {/* Key Thesis */}
+            <div className="max-w-4xl mx-auto mb-16">
+              <div className="p-8 border border-accent/30 bg-accent/5 rounded-2xl">
+                <p className="text-white/90 font-body text-lg md:text-xl leading-relaxed">
+                  Banks are now crossing a structural boundary: from AI as an assistant that answers 
+                  questions and drafts content, to AI as an <span className="text-accent font-semibold">autonomous actor</span> that 
+                  plans, decides, and executes multi‑step workflows within explicit risk, policy, and capital constraints.
+                </p>
+              </div>
+            </div>
+
+            {/* Central Thesis Highlight */}
+            <div className="max-w-4xl mx-auto mb-16 text-center">
+              <div className="inline-block p-1 bg-gradient-to-r from-accent/50 via-accent to-accent/50 rounded-2xl">
+                <div className="bg-[hsl(var(--deep-sea-blue))] px-8 py-6 rounded-xl">
+                  <p className="text-accent font-display text-xl md:text-2xl font-bold">
+                    Agentic AI allows revenue and risk‑adjusted volume growth to decouple from headcount growth for the first time in modern banking.
                   </p>
                 </div>
-              ))}
+              </div>
             </div>
-          </div>
-        </section>
 
-        {/* Research Grid */}
-        <section className="py-20 bg-[hsl(var(--deep-sea-blue))]">
-          <div className="container mx-auto px-6 lg:px-12">
-            <div className="mb-16">
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">
-                Research Areas
-              </h2>
-              <p className="text-white/70 font-body text-lg max-w-2xl">
-                Our research spans enterprise AI, SME operations, workforce development, and 
-                systems thinking for emerging markets.
+            {/* Data Visualization Section */}
+            <div className="max-w-5xl mx-auto mb-16">
+              <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-8 text-center">
+                AI Readiness by Industry
+              </h3>
+              <p className="text-white/70 font-body text-center mb-12 max-w-2xl mx-auto">
+                Percentage of enterprises citing AI transformation as a top strategic priority for 2025-2026
               </p>
-            </div>
-            
-            <div className="grid lg:grid-cols-2 gap-8">
-              {researchData.map((item) => (
-                <article key={item.number} className="group border border-white/10 hover:border-cta/40 transition-colors overflow-hidden">
-                  {item.image ? (
-                    <div className="relative aspect-[16/9] overflow-hidden">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              
+              {/* Animated Bar Chart */}
+              <div className="space-y-4">
+                {industryAdoptionData.map((item, index) => (
+                  <div key={item.industry} className="flex items-center gap-4">
+                    <span className="text-white/80 font-body text-sm w-48 text-right flex-shrink-0">
+                      {item.industry}
+                    </span>
+                    <div className="flex-1 h-8 bg-white/10 rounded-full overflow-hidden relative">
+                      <div 
+                        className={`h-full rounded-full transition-all duration-1000 ease-out ${
+                          item.highlight 
+                            ? 'bg-gradient-to-r from-accent to-accent/70' 
+                            : 'bg-gradient-to-r from-[#4F7DFF] to-[#4F7DFF]/70'
+                        }`}
+                        style={{ 
+                          width: `${item.value}%`,
+                          animation: `growWidth 1.5s ease-out ${index * 0.1}s forwards`,
+                        }}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--deep-sea-blue))] via-transparent to-transparent" />
-                      <span className="absolute top-4 left-4 text-accent font-display text-sm font-bold tracking-wider bg-[hsl(var(--deep-sea-blue))]/80 px-3 py-1">
-                        {item.number}
+                      <span className={`absolute right-4 top-1/2 -translate-y-1/2 font-display font-bold ${
+                        item.highlight ? 'text-accent' : 'text-white'
+                      }`}>
+                        {item.value}%
                       </span>
                     </div>
-                  ) : (
-                    <div className="relative aspect-[16/9] overflow-hidden bg-gradient-to-br from-accent/20 to-accent/5 flex items-center justify-center">
-                      <Globe className="w-24 h-24 text-white/10" />
-                      <span className="absolute top-4 left-4 text-accent font-display text-sm font-bold tracking-wider bg-[hsl(var(--deep-sea-blue))]/80 px-3 py-1">
-                        {item.number}
-                      </span>
-                    </div>
-                  )}
-                  
-                  <div className="p-8">
-                    <h3 className="font-display text-xl md:text-2xl font-bold text-white mb-4">
-                      {item.title}
-                    </h3>
-                    <p className="text-white/70 font-body mb-6">
-                      {item.summary}
-                    </p>
-                    
-                    {/* Stats Row */}
-                    {item.stats && (
-                      <div className="flex gap-8 mb-6 pt-6 border-t border-white/10">
-                        {item.stats.map((stat, idx) => (
-                          <div key={idx}>
-                            <p className="font-display text-2xl font-bold text-accent">{stat.value}</p>
-                            <p className="text-sm text-white/50 font-body">{stat.label}</p>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                    
-                    <Link
-                      to={item.link}
-                      className="inline-flex items-center gap-2 text-accent font-body font-medium text-sm hover:text-accent/80 transition-colors group/link"
-                    >
-                      Learn more
-                      <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
-                    </Link>
                   </div>
-                </article>
-              ))}
+                ))}
+              </div>
+            </div>
+
+            {/* Key Metrics Cards */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+              <div className="p-6 border border-white/20 rounded-xl group hover:border-accent/40 transition-colors text-center">
+                <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mx-auto mb-4">
+                  <DollarSign className="w-6 h-6 text-accent" />
+                </div>
+                <p className="font-display text-4xl font-bold text-accent mb-2">20-40%</p>
+                <p className="text-white/70 font-body text-sm">
+                  Structural reduction in middle & back-office costs
+                </p>
+              </div>
+              
+              <div className="p-6 border border-white/20 rounded-xl group hover:border-accent/40 transition-colors text-center">
+                <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mx-auto mb-4">
+                  <TrendingUp className="w-6 h-6 text-accent" />
+                </div>
+                <p className="font-display text-4xl font-bold text-accent mb-2">10-20%</p>
+                <p className="text-white/70 font-body text-sm">
+                  Uplift in risk-adjusted revenue in selected businesses
+                </p>
+              </div>
+              
+              <div className="p-6 border border-white/20 rounded-xl group hover:border-accent/40 transition-colors text-center">
+                <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mx-auto mb-4">
+                  <ShieldCheck className="w-6 h-6 text-accent" />
+                </div>
+                <p className="font-display text-4xl font-bold text-white mb-2">Continuous</p>
+                <p className="text-white/70 font-body text-sm">
+                  Real-time controls replacing periodic checks
+                </p>
+              </div>
+              
+              <div className="p-6 border border-white/20 rounded-xl group hover:border-accent/40 transition-colors text-center">
+                <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mx-auto mb-4">
+                  <Clock className="w-6 h-6 text-accent" />
+                </div>
+                <p className="font-display text-4xl font-bold text-white mb-2">24-36</p>
+                <p className="text-white/70 font-body text-sm">
+                  Month window for enterprise transformation
+                </p>
+              </div>
+            </div>
+
+            {/* Key Conclusions */}
+            <div className="max-w-4xl mx-auto mb-16">
+              <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-8">
+                Three Unavoidable Conclusions (January 2026)
+              </h3>
+              <div className="space-y-6">
+                <div className="flex gap-4 p-6 border border-white/20 rounded-xl">
+                  <span className="flex-shrink-0 w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center font-display font-bold text-accent">1</span>
+                  <div>
+                    <h4 className="font-display text-lg font-bold text-white mb-2">Experimentation Phase is Over</h4>
+                    <p className="text-white/70 font-body">
+                      Table-stakes GenAI assistants are commoditized. Boards now demand efficiency ratio, ROE, and loss metrics.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex gap-4 p-6 border border-white/20 rounded-xl">
+                  <span className="flex-shrink-0 w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center font-display font-bold text-accent">2</span>
+                  <div>
+                    <h4 className="font-display text-lg font-bold text-white mb-2">Agentic Systems in Production</h4>
+                    <p className="text-white/70 font-body">
+                      Leading global banks and fintechs have agentic AI in production, and they are compounding advantage.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex gap-4 p-6 border border-white/20 rounded-xl">
+                  <span className="flex-shrink-0 w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center font-display font-bold text-accent">3</span>
+                  <div>
+                    <h4 className="font-display text-lg font-bold text-white mb-2">Partnership Imperative</h4>
+                    <p className="text-white/70 font-body">
+                      Most institutions are structurally unprepared to deploy agentic AI at scale. Strategic partnerships emerge as the lowest-risk, highest-ROI path.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Links and CTA */}
+            <div className="max-w-4xl mx-auto">
+              <div className="flex flex-wrap items-center gap-4 mb-8">
+                <span className="text-white/60 font-body text-sm">Industries:</span>
+                <Link 
+                  to="/industries"
+                  className="px-4 py-2 border border-white/20 rounded-full text-white/80 font-body text-sm hover:border-accent hover:text-accent transition-colors"
+                >
+                  Banking & Financial Services
+                </Link>
+                <span className="text-white/60 font-body text-sm">Services:</span>
+                <Link 
+                  to="/services#agentic-ai"
+                  className="px-4 py-2 border border-white/20 rounded-full text-white/80 font-body text-sm hover:border-accent hover:text-accent transition-colors"
+                >
+                  Agentic AI Enterprise Transformation
+                </Link>
+              </div>
+              
+              <div className="text-center">
+                <a
+                  href="/downloads/Executive_Decision_Strain_Diagnostic.pdf"
+                  download
+                  className="inline-flex items-center gap-3 px-8 py-4 bg-accent text-accent-foreground font-body font-medium text-sm uppercase tracking-wider hover:bg-accent/90 transition-colors rounded-lg"
+                >
+                  <Download className="w-5 h-5" />
+                  Access the Full Report
+                </a>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Industry Focus */}
+        {/* Research Methodology */}
         <section className="py-20">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -212,10 +242,8 @@ const Research = () => {
                 </p>
                 <div className="space-y-4">
                   {[
-                    { icon: Cpu, text: "Field deployments across multiple industries" },
-                    { icon: BarChart3, text: "Quantitative impact measurement and ROI analysis" },
-                    { icon: Users, text: "User research and adoption studies" },
-                    { icon: Globe, text: "Cross-market comparative analysis" }
+                    { icon: Building2, text: "Field deployments across multiple industries" },
+                    { icon: TrendingUp, text: "Quantitative impact measurement and ROI analysis" },
                   ].map((item, index) => (
                     <div key={index} className="flex items-center gap-4 p-4 border border-border">
                       <item.icon className="w-5 h-5 text-accent flex-shrink-0" />
@@ -224,7 +252,7 @@ const Research = () => {
                   ))}
                 </div>
               </div>
-              <div className="relative aspect-square rounded-2xl overflow-hidden border border-accent/10">
+              <div className="relative aspect-video rounded-2xl overflow-hidden border border-accent/10">
                 <img
                   src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80"
                   alt="Data analysis and research"
@@ -256,6 +284,14 @@ const Research = () => {
         </section>
       </main>
       <Footer />
+      
+      <style>{`
+        @keyframes growWidth {
+          from {
+            width: 0%;
+          }
+        }
+      `}</style>
     </div>
   );
 };

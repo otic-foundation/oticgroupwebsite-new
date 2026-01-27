@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, MapPin } from 'lucide-react';
 
 const Contact = () => {
   const formRef = useRef<HTMLDivElement>(null);
@@ -163,21 +163,6 @@ const Contact = () => {
                         className="text-muted-foreground font-body hover:text-accent transition-colors"
                       >
                         info@oticgroup.net
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl glass-card flex items-center justify-center border border-white/20 flex-shrink-0">
-                      <Phone className="w-5 h-5 text-white" />
-                    </div>
-                    <div>
-                      <p className="font-body font-medium mb-1">Phone</p>
-                      <a 
-                        href="tel:+256780176805" 
-                        className="text-muted-foreground font-body hover:text-accent transition-colors"
-                      >
-                        +256 780 176 805
                       </a>
                     </div>
                   </div>
@@ -394,6 +379,17 @@ const Contact = () => {
                     
                     <div className="mobile-grid">
                       <div className="zcwf_row">
+                        <div className="zcwf_col_lab"><label htmlFor="Email">Work Email <span style={{color: 'hsl(var(--cta))'}}>*</span></label></div>
+                        <div className="zcwf_col_fld"><input type="email" autoComplete="off" id="Email" name="Email" maxLength={100} /></div>
+                      </div>
+                      <div className="zcwf_row">
+                        <div className="zcwf_col_lab"><label htmlFor="Phone">Phone <span style={{color: 'hsl(var(--cta))'}}>*</span></label></div>
+                        <div className="zcwf_col_fld"><input type="text" id="Phone" name="Phone" maxLength={30} /></div>
+                      </div>
+                    </div>
+                    
+                    <div className="mobile-grid">
+                      <div className="zcwf_row">
                         <div className="zcwf_col_lab"><label htmlFor="Company">Company <span style={{color: 'hsl(var(--cta))'}}>*</span></label></div>
                         <div className="zcwf_col_fld"><input type="text" id="Company" name="Company" maxLength={200} /></div>
                       </div>
@@ -405,25 +401,13 @@ const Contact = () => {
                     
                     <div className="mobile-grid">
                       <div className="zcwf_row">
-                        <div className="zcwf_col_lab"><label htmlFor="Email">Work Email <span style={{color: 'hsl(var(--cta))'}}>*</span></label></div>
-                        <div className="zcwf_col_fld">
-                          <input type="text" id="Email" name="Email" maxLength={100} />
-                        </div>
+                        <div className="zcwf_col_lab"><label htmlFor="Website">Industry / Sector <span style={{color: 'hsl(var(--cta))'}}>*</span></label></div>
+                        <div className="zcwf_col_fld"><input type="text" id="Website" name="Website" maxLength={255} /></div>
                       </div>
                       <div className="zcwf_row">
-                        <div className="zcwf_col_lab"><label htmlFor="Phone">Phone <span style={{color: 'hsl(var(--cta))'}}>*</span></label></div>
-                        <div className="zcwf_col_fld"><input type="text" id="Phone" name="Phone" maxLength={30} /></div>
+                        <div className="zcwf_col_lab"><label htmlFor="Annual_Revenue">Are you representing your organisation? <span style={{color: 'hsl(var(--cta))'}}>*</span></label></div>
+                        <div className="zcwf_col_fld"><input type="text" id="Annual_Revenue" name="Annual Revenue" maxLength={16} /></div>
                       </div>
-                    </div>
-                    
-                    <div className="zcwf_row">
-                      <div className="zcwf_col_lab"><label htmlFor="Website">Industry / Sector <span style={{color: 'hsl(var(--cta))'}}>*</span></label></div>
-                      <div className="zcwf_col_fld"><input type="text" id="Website" name="Website" maxLength={255} placeholder="e.g. Banking & Financial Services, Government, Manufacturing..." /></div>
-                    </div>
-                    
-                    <div className="zcwf_row">
-                      <div className="zcwf_col_lab"><label htmlFor="Description">Goal / Challenge <span style={{color: 'hsl(var(--cta))'}}>*</span></label></div>
-                      <div className="zcwf_col_fld"><textarea id="Description" name="Description" rows={4} /></div>
                     </div>
                     
                     <div className="mobile-grid">
@@ -438,39 +422,57 @@ const Contact = () => {
                     </div>
                     
                     <div className="zcwf_row">
-                      <div className="zcwf_col_lab"><label htmlFor="Annual_Revenue">Are you representing your organisation? <span style={{color: 'hsl(var(--cta))'}}>*</span></label></div>
-                      <div className="zcwf_col_fld"><input type="text" id="Annual_Revenue" name="Annual Revenue" maxLength={16} placeholder="Yes / No" /></div>
+                      <div className="zcwf_col_lab"><label htmlFor="Description">Goal / Challenge <span style={{color: 'hsl(var(--cta))'}}>*</span></label></div>
+                      <div className="zcwf_col_fld"><textarea id="Description" name="Description" maxLength={32000} rows={4}></textarea></div>
                     </div>
                     
-                    <input type="text" style={{display: 'none'}} name="aG9uZXlwb3Q" defaultValue="" />
-                    
-                    <div className="zcwf_row submit-buttons mt-8">
-                      <input type="submit" id="formsubmit" className="formsubmit zcwf_button" value="Submit" title="Submit" />
-                      <input type="reset" className="zcwf_button" name="reset" value="Reset" title="Reset" />
-                    </div>
-                    
-                    <div className="zcwf_row mt-6">
-                      <div className="zcwf_privacy flex items-start gap-3">
-                        <input 
-                          autoComplete="off" 
-                          id="privacyTool7179876000000615004" 
-                          type="checkbox" 
-                          name="" 
-                          onClick={() => (window as any).disableErr7179876000000615004 && (window as any).disableErr7179876000000615004()}
-                          className="mt-1 flex-shrink-0"
-                        />
-                        <div className="zcwf_privacy_txt">
-                          I agree to be contacted for consultation calls and product presentations.
+                    <div className="zcwf_row" style={{marginTop: '1.5rem'}}>
+                      <div className="zcwf_privacy" style={{display: 'flex', alignItems: 'flex-start'}}>
+                        <div className="dIB vat" style={{padding: '0 0 0 10px'}}>
+                          <input type="checkbox" id="privacyTool7179876000000615004" aria-invalid="false" />
                         </div>
+                        <span className="zcwf_privacy_txt">
+                          I agree to the{' '}
+                          <a 
+                            id="privacyLink7179876000000615004" 
+                            href="/privacy" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="text-accent hover:underline"
+                          >
+                            Privacy Policy
+                          </a>
+                        </span>
                       </div>
-                      <div id="privacyErr7179876000000615004" style={{fontSize: '12px', color: 'hsl(var(--cta))', paddingLeft: '5px', visibility: 'hidden'}}>Please accept this</div>
+                      <div 
+                        id="privacyErr7179876000000615004" 
+                        style={{fontSize: '12px', color: 'hsl(var(--cta))', visibility: 'hidden', marginTop: '4px', paddingLeft: '30px'}}
+                      >
+                        Please accept the privacy policy
+                      </div>
                     </div>
+                    
+                    <div className="zcwf_row" style={{marginTop: '1.5rem'}}>
+                      <div className="zcwf_col_fld submit-buttons">
+                        <input 
+                          type="submit" 
+                          id="formsubmit" 
+                          className="formsubmit zcwf_button" 
+                          value="Submit" 
+                          title="Submit" 
+                        />
+                        <input 
+                          type="reset" 
+                          className="zcwf_button" 
+                          name="reset" 
+                          value="Reset" 
+                          title="Reset" 
+                        />
+                      </div>
+                    </div>
+                    
+                    <script id="wf_anal" src="https://crm.zohopublic.com/crm/WebFormAnalyticsServe498c59df3dce28d0cf12fc1ac5e5eb7f4c0e0fa37bb9c85d2e3c"></script>
                   </form>
-                  
-                  <script 
-                    id="wf_anal" 
-                    src="https://crm.zohopublic.com/crm/WebFormAnalyticsServeServlet?rid=03d3735423f2b151f23ed2ac6a7253235babf24913dadeca9b7eaa6252618aac2b2a62cb7e767063b75148c1a6244d96gida28483d659e6feff155b27fe6421e22c0b07066c0c0f3e3edb9a8bd510c4249egid8b6169edfbebb2a4ed40dc40da2db8e42ad73b102238c10e4813efe8f99ca5fagidde626a3e3647f6b6578aef635f618dc62a25da6fa94ce910c548fe7637eee3f6&tw=5e5e937e3554404b21799d3e3db5d8abd09346326eb446d4829dae06479236b5"
-                  />
                 </div>
               </div>
             </div>

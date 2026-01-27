@@ -1,27 +1,16 @@
-import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { ArrowRight, Award, Users, Globe, Target, Building2, Heart, GraduationCap } from 'lucide-react';
 import speakerImage from '@/assets/speaker.jpeg';
-import PartnerCarousel from '@/components/PartnerCarousel';
+import PartnerLogoGrid from '@/components/PartnerLogoGrid';
 
 const About = () => {
-  const [currentWord, setCurrentWord] = useState(0);
-  const words = ['AI', 'Agents', 'Otic'];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentWord((prev) => (prev + 1) % words.length);
-    }, 2000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <div className="flex flex-col min-h-screen noise-overlay">
       <Header />
       <main className="flex-1">
-        {/* Hero Section with Flipping Text */}
+        {/* Hero Section */}
         <section className="pt-32 pb-20 relative overflow-hidden">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-4xl">
@@ -30,22 +19,7 @@ const About = () => {
               </p>
               <h1 className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-8">
                 <span className="text-white">Reimagine your organisation with </span>
-                <span className="relative inline-block h-[1.2em] overflow-hidden align-bottom">
-                  {words.map((word, index) => (
-                    <span
-                      key={word}
-                      className={`absolute left-0 text-accent transition-all duration-500 ${
-                        index === currentWord 
-                          ? 'translate-y-0 opacity-100' 
-                          : index === (currentWord - 1 + words.length) % words.length
-                            ? '-translate-y-full opacity-0'
-                            : 'translate-y-full opacity-0'
-                      }`}
-                    >
-                      {word}
-                    </span>
-                  ))}
-                </span>
+                <span className="text-accent">Artificial Intelligence</span>
               </h1>
               <p className="text-xl lg:text-2xl text-muted-foreground font-body leading-relaxed">
                 Otic Group is a diversified AI powerhouse accelerating Africa's digital transformation.
@@ -112,7 +86,7 @@ const About = () => {
             <h2 className="font-display text-3xl md:text-4xl font-bold text-[#1a365d] mb-12 text-center">
               Enterprises We Have Reimagined
             </h2>
-            <PartnerCarousel />
+            <PartnerLogoGrid />
             <div className="text-center mt-12">
               <Link
                 to="/contact"

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { ArrowRight, Bot, Workflow, Users, LineChart, Shield, Briefcase, Target, BookOpen, Calendar } from 'lucide-react';
+import { ArrowRight, Bot, Workflow, Users, LineChart, Shield, Briefcase, Target, BookOpen, Calendar, Download, Brain } from 'lucide-react';
 
 const Services = () => {
   return (
@@ -149,6 +149,52 @@ const Services = () => {
                   Talk to Sales <ArrowRight className="w-4 h-4" />
                 </Link>
               </article>
+            </div>
+          </div>
+        </section>
+
+        {/* Enterprise Decision Strain Diagnostic */}
+        <section className="py-20 bg-secondary/50" id="diagnostic">
+          <div className="container mx-auto px-6 lg:px-12">
+            <div className="max-w-4xl mx-auto">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-14 h-14 rounded-xl glass-card flex items-center justify-center border border-accent/40">
+                  <Brain className="w-7 h-7 text-accent" />
+                </div>
+                <span className="text-accent font-body text-sm uppercase tracking-widest">
+                  Leadership Framework
+                </span>
+              </div>
+              
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-8">
+                Enterprise Decision Strain Diagnostic
+              </h2>
+              
+              <div className="space-y-6 text-muted-foreground font-body text-lg leading-relaxed mb-12">
+                <p>
+                  As organizations scale, complexity increases faster than decision capacity. What often 
+                  shows up as operational friction, rising costs, missed opportunities, or declining trust 
+                  is rarely a single failure. It is usually a structural strain in how decisions, controls, 
+                  and information flow across the enterprise.
+                </p>
+                <p>
+                  The Enterprise Decision Strain Diagnostic is a leadership framework designed to help 
+                  executive teams assess where decision making is under pressure as complexity grows.
+                </p>
+                <p>
+                  Rather than focusing on systems or technology, it examines how the organization senses 
+                  issues, makes decisions, enforces controls, and maintains trust at scale.
+                </p>
+              </div>
+              
+              <a
+                href="/downloads/Executive_Decision_Strain_Diagnostic.pdf"
+                download
+                className="inline-flex items-center gap-3 px-8 py-4 bg-accent text-accent-foreground font-body font-medium text-sm uppercase tracking-wider hover:bg-accent/90 transition-colors rounded-lg"
+              >
+                <Download className="w-5 h-5" />
+                Access the Framework
+              </a>
             </div>
           </div>
         </section>
@@ -360,7 +406,7 @@ const Services = () => {
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-[hsl(var(--deep-sea-blue))] font-body font-medium text-sm uppercase tracking-wider hover:bg-accent hover:text-white transition-colors rounded-lg"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-accent-foreground font-body font-medium text-sm uppercase tracking-wider hover:bg-accent/90 transition-colors rounded-lg"
             >
               Talk to Sales
               <ArrowRight className="w-4 h-4" />
