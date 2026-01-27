@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import logo from '@/assets/logo.png';
@@ -9,6 +9,9 @@ const Header = () => {
   const [expertiseOpen, setExpertiseOpen] = useState(false);
   const [companyOpen, setCompanyOpen] = useState(false);
   const location = useLocation();
+  
+  const expertiseTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const companyTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,6 +26,32 @@ const Header = () => {
     setExpertiseOpen(false);
     setCompanyOpen(false);
   }, [location]);
+
+  const handleExpertiseEnter = () => {
+    if (expertiseTimeoutRef.current) {
+      clearTimeout(expertiseTimeoutRef.current);
+    }
+    setExpertiseOpen(true);
+  };
+
+  const handleExpertiseLeave = () => {
+    expertiseTimeoutRef.current = setTimeout(() => {
+      setExpertiseOpen(false);
+    }, 150);
+  };
+
+  const handleCompanyEnter = () => {
+    if (companyTimeoutRef.current) {
+      clearTimeout(companyTimeoutRef.current);
+    }
+    setCompanyOpen(true);
+  };
+
+  const handleCompanyLeave = () => {
+    companyTimeoutRef.current = setTimeout(() => {
+      setCompanyOpen(false);
+    }, 150);
+  };
 
   return (
     <header
@@ -56,36 +85,56 @@ const Header = () => {
           </Link>
           
           {/* Expertise Dropdown */}
-          <div className="relative" onMouseEnter={() => setExpertiseOpen(true)} onMouseLeave={() => setExpertiseOpen(false)}>
+          <div 
+            className="relative" 
+            onMouseEnter={handleExpertiseEnter} 
+            onMouseLeave={handleExpertiseLeave}
+          >
             <button className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors uppercase group">
               Expertise <ChevronDown className={`w-3 h-3 transition-transform ${expertiseOpen ? 'rotate-180' : ''}`} />
             </button>
-            <div className={`absolute top-full left-0 mt-4 w-48 glass-card rounded-lg overflow-hidden transition-all duration-300 border border-accent-luminous/10 ${
-              expertiseOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none'
-            }`}>
-              <Link to="/services" className="block px-4 py-3 text-muted-foreground hover:text-foreground hover:bg-accent-luminous/10 transition-colors border-b border-border/30">
-                Services
-              </Link>
-              <Link to="/industries" className="block px-4 py-3 text-muted-foreground hover:text-foreground hover:bg-accent-luminous/10 transition-colors">
-                Industries
-              </Link>
+            <div 
+              className={`absolute top-full left-0 pt-2 w-48 transition-all duration-300 ${
+                expertiseOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none'
+              }`}
+              onMouseEnter={handleExpertiseEnter}
+              onMouseLeave={handleExpertiseLeave}
+            >
+              <div className="glass-card rounded-lg overflow-hidden border border-accent-luminous/10 bg-background/95 backdrop-blur-xl">
+                <Link to="/services" className="block px-4 py-3 text-muted-foreground hover:text-foreground hover:bg-accent-luminous/10 transition-colors border-b border-border/30">
+                  Services
+                </Link>
+                <Link to="/industries" className="block px-4 py-3 text-muted-foreground hover:text-foreground hover:bg-accent-luminous/10 transition-colors">
+                  Industries
+                </Link>
+              </div>
             </div>
           </div>
 
           {/* Company Dropdown */}
-          <div className="relative" onMouseEnter={() => setCompanyOpen(true)} onMouseLeave={() => setCompanyOpen(false)}>
+          <div 
+            className="relative" 
+            onMouseEnter={handleCompanyEnter} 
+            onMouseLeave={handleCompanyLeave}
+          >
             <button className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors uppercase group">
               Company <ChevronDown className={`w-3 h-3 transition-transform ${companyOpen ? 'rotate-180' : ''}`} />
             </button>
-            <div className={`absolute top-full left-0 mt-4 w-48 glass-card rounded-lg overflow-hidden transition-all duration-300 border border-accent-luminous/10 ${
-              companyOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none'
-            }`}>
-              <Link to="/about" className="block px-4 py-3 text-muted-foreground hover:text-foreground hover:bg-accent-luminous/10 transition-colors border-b border-border/30">
-                Who We Are
-              </Link>
-              <Link to="/partners" className="block px-4 py-3 text-muted-foreground hover:text-foreground hover:bg-accent-luminous/10 transition-colors">
-                Partner with us
-              </Link>
+            <div 
+              className={`absolute top-full left-0 pt-2 w-48 transition-all duration-300 ${
+                companyOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none'
+              }`}
+              onMouseEnter={handleCompanyEnter}
+              onMouseLeave={handleCompanyLeave}
+            >
+              <div className="glass-card rounded-lg overflow-hidden border border-accent-luminous/10 bg-background/95 backdrop-blur-xl">
+                <Link to="/about" className="block px-4 py-3 text-muted-foreground hover:text-foreground hover:bg-accent-luminous/10 transition-colors border-b border-border/30">
+                  Who We Are
+                </Link>
+                <Link to="/partners" className="block px-4 py-3 text-muted-foreground hover:text-foreground hover:bg-accent-luminous/10 transition-colors">
+                  Partner with us
+                </Link>
+              </div>
             </div>
           </div>
 

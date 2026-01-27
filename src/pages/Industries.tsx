@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { ArrowRight, Building2, Landmark, Factory, Shield } from 'lucide-react';
+import { ArrowRight, Building2, Landmark, Factory, Shield, Scale, GraduationCap, Car } from 'lucide-react';
 
 const industries = [
   {
@@ -41,7 +41,7 @@ const industries = [
       "Demand forecasting",
       "Production scheduling"
     ],
-    image: "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&q=80"
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80"
   },
   {
     icon: Shield,
@@ -55,6 +55,45 @@ const industries = [
       "Policy administration"
     ],
     image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80"
+  },
+  {
+    icon: Scale,
+    name: "Legal Services",
+    description: "Streamline legal workflows with AI-powered document analysis, contract review, compliance monitoring, and case management automation.",
+    capabilities: [
+      "Contract analysis & review",
+      "Legal document automation",
+      "Compliance monitoring",
+      "Case outcome prediction",
+      "Due diligence acceleration"
+    ],
+    image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=800&q=80"
+  },
+  {
+    icon: GraduationCap,
+    name: "Education",
+    description: "Transform learning experiences with personalized AI tutoring, automated assessments, curriculum optimization, and student success prediction.",
+    capabilities: [
+      "Personalized learning paths",
+      "Automated grading & feedback",
+      "Student performance analytics",
+      "Curriculum optimization",
+      "Administrative automation"
+    ],
+    image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=80"
+  },
+  {
+    icon: Car,
+    name: "Automotive",
+    description: "Drive innovation in automotive operations with AI-powered predictive maintenance, supply chain optimization, and customer experience enhancement.",
+    capabilities: [
+      "Predictive maintenance systems",
+      "Supply chain intelligence",
+      "Quality inspection automation",
+      "Customer experience optimization",
+      "Fleet management analytics"
+    ],
+    image: "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&q=80"
   }
 ];
 
@@ -92,7 +131,7 @@ const Industries = () => {
         {/* Industries Grid - Image Cards */}
         <section className="py-20 relative">
           <div className="container mx-auto px-6 lg:px-12">
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               {industries.map((industry, index) => (
                 <div 
                   key={industry.name} 
@@ -111,17 +150,17 @@ const Industries = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-cta/15 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
                   
-                  <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors">
-                        <industry.icon className="w-6 h-6 text-white" />
+                  <div className="absolute inset-0 p-5 lg:p-6 flex flex-col justify-end">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors">
+                        <industry.icon className="w-5 h-5 lg:w-6 lg:h-6 text-white" />
                       </div>
-                      <h2 className="font-display text-xl lg:text-2xl font-bold text-white">
+                      <h2 className="font-display text-lg lg:text-xl font-bold text-white">
                         {industry.name}
                       </h2>
                     </div>
                     
-                    <p className="text-muted-foreground font-body text-sm mb-4">
+                    <p className="text-muted-foreground font-body text-sm mb-4 line-clamp-3">
                       {industry.description}
                     </p>
                     
@@ -131,7 +170,7 @@ const Industries = () => {
                         {industry.capabilities.slice(0, 3).map((cap) => (
                           <span 
                             key={cap} 
-                            className="px-3 py-1 text-xs font-body bg-white/10 text-white border border-white/20 rounded-full"
+                            className="px-2 py-1 text-xs font-body bg-white/10 text-white border border-white/20 rounded-full"
                           >
                             {cap}
                           </span>
