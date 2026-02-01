@@ -8,16 +8,16 @@ const OticVision = () => {
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="pt-32 pb-20 relative overflow-hidden grid-bg">
+        {/* Hero Section - matching Industries style */}
+        <section className="pt-32 pb-20 relative overflow-hidden bg-secondary/30">
           <div className="orb orb-luminous w-[500px] h-[500px] -top-64 -right-64 animate-glow-pulse" />
           <div className="orb orb-blue w-80 h-80 bottom-0 -left-40 opacity-25" />
           
           <div className="container mx-auto px-6 lg:px-12 relative z-10">
             <div className="max-w-4xl">
               <div className="flex items-center gap-3 mb-6">
-                <span className="marker-orange" />
-                <p className="text-xs uppercase tracking-widest text-accent-luminous font-body">
+                <span className="w-2 h-2 rounded-full bg-cta" />
+                <p className="text-xs uppercase tracking-widest text-cta font-body">
                   Product
                 </p>
               </div>
@@ -56,7 +56,7 @@ const OticVision = () => {
                 sales data is fragmented, customer behavior is unclear, and compliance is time consuming. 
                 This leads to lost revenue, slow decisions, and operational stress.
               </p>
-              <p className="text-accent font-body text-lg font-medium">
+              <p className="text-cta font-body text-lg font-medium">
                 OticVision closes this gap by making advanced AI tools affordable, simple, and locally relevant.
               </p>
             </div>
@@ -64,14 +64,14 @@ const OticVision = () => {
         </section>
 
         {/* What OticVision Delivers */}
-        <section className="py-20">
+        <section className="py-20 bg-background">
           <div className="container mx-auto px-6 lg:px-12">
             <h2 className="font-display text-3xl md:text-4xl font-bold mb-16 text-center text-white">
               What OticVision Delivers
             </h2>
             
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="p-8 border border-border hover:border-cta/50 transition-colors group">
+              <div className="p-8 border border-white/10 hover:border-cta/50 transition-colors group rounded-xl">
                 <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors mb-6">
                   <Eye className="w-6 h-6 text-white" />
                 </div>
@@ -84,7 +84,7 @@ const OticVision = () => {
                 </p>
               </div>
 
-              <div className="p-8 border border-border hover:border-cta/50 transition-colors group">
+              <div className="p-8 border border-white/10 hover:border-cta/50 transition-colors group rounded-xl">
                 <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors mb-6">
                   <ShoppingCart className="w-6 h-6 text-white" />
                 </div>
@@ -97,7 +97,7 @@ const OticVision = () => {
                 </p>
               </div>
 
-              <div className="p-8 border border-border hover:border-cta/50 transition-colors group">
+              <div className="p-8 border border-white/10 hover:border-cta/50 transition-colors group rounded-xl">
                 <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors mb-6">
                   <FileCheck className="w-6 h-6 text-white" />
                 </div>
@@ -110,7 +110,7 @@ const OticVision = () => {
                 </p>
               </div>
 
-              <div className="p-8 border border-border hover:border-cta/50 transition-colors group">
+              <div className="p-8 border border-white/10 hover:border-cta/50 transition-colors group rounded-xl">
                 <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors mb-6">
                   <Users className="w-6 h-6 text-white" />
                 </div>
@@ -127,7 +127,7 @@ const OticVision = () => {
         </section>
 
         {/* Business Value */}
-        <section className="py-20 bg-[hsl(var(--deep-sea-blue))]">
+        <section className="py-20 bg-secondary/30">
           <div className="container mx-auto px-6 lg:px-12">
             <h2 className="font-display text-3xl md:text-4xl font-bold mb-12 text-center text-white">
               Business Value at a Glance
@@ -141,8 +141,8 @@ const OticVision = () => {
                 { icon: Users, text: "Improved customer satisfaction and retention" },
                 { icon: Smartphone, text: "Access to AI capabilities previously limited to large enterprises" }
               ].map((item, index) => (
-                <div key={index} className="flex items-start gap-4 p-6 border border-white/20">
-                  <item.icon className="w-6 h-6 text-accent flex-shrink-0" />
+                <div key={index} className="flex items-start gap-4 p-6 border border-white/10 rounded-xl">
+                  <item.icon className="w-6 h-6 text-cta flex-shrink-0" />
                   <p className="text-white/80 font-body">{item.text}</p>
                 </div>
               ))}
@@ -151,7 +151,7 @@ const OticVision = () => {
         </section>
 
         {/* Designed for African Businesses */}
-        <section className="py-20">
+        <section className="py-20 bg-background">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div>
@@ -167,7 +167,7 @@ const OticVision = () => {
                   Unlike generic tools, OticVision balances advanced capability with everyday usability.
                 </p>
               </div>
-              <div className="relative aspect-video rounded-2xl overflow-hidden border border-accent/10">
+              <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/10">
                 <img
                   src="https://images.unsplash.com/photo-1556740758-90de374c12ad?w=800&q=80"
                   alt="African business owner using smartphone"
@@ -196,7 +196,7 @@ const OticVision = () => {
         </section>
 
         {/* CTA */}
-        <section className="py-24 relative overflow-hidden">
+        <section className="py-24 relative overflow-hidden bg-background">
           <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-background to-background" />
           <div className="orb orb-luminous w-[600px] h-[600px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20" />
           

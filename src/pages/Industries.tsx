@@ -102,8 +102,8 @@ const Industries = () => {
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="pt-32 pb-20 relative overflow-hidden grid-bg">
+        {/* Hero Section - consistent style */}
+        <section className="pt-32 pb-20 relative overflow-hidden bg-secondary/30">
           <div className="orb orb-luminous w-[500px] h-[500px] -top-64 -right-64 animate-glow-pulse" />
           <div className="orb orb-blue w-80 h-80 top-1/3 -left-40 opacity-25" />
           <div className="orb orb-accent w-64 h-64 bottom-0 right-1/4 opacity-20" />
@@ -111,8 +111,8 @@ const Industries = () => {
           <div className="container mx-auto px-6 lg:px-12 relative z-10">
             <div className="max-w-4xl">
               <div className="flex items-center gap-3 mb-6">
-                <span className="marker-orange" />
-                <p className="text-xs uppercase tracking-widest text-accent-luminous font-body">
+                <span className="w-2 h-2 rounded-full bg-cta" />
+                <p className="text-xs uppercase tracking-widest text-cta font-body">
                   Our Expertise
                 </p>
               </div>
@@ -123,7 +123,6 @@ const Industries = () => {
                 AI impacts every sector differently. We bring deep domain expertise and 
                 proven frameworks tailored to your industry's unique challenges.
               </p>
-              <div className="divider-accent w-32 mt-8" />
             </div>
           </div>
         </section>

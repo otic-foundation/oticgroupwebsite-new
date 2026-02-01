@@ -7,13 +7,16 @@ const OticLearn = () => {
     <div className="flex flex-col min-h-screen noise-overlay">
       <Header />
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="pt-32 pb-20 relative overflow-hidden">
+        {/* Hero Section - matching Industries style */}
+        <section className="pt-32 pb-20 relative overflow-hidden bg-secondary/30">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-4xl">
-              <p className="text-xs uppercase tracking-widest text-accent font-body mb-4">
-                Education
-              </p>
+              <div className="flex items-center gap-3 mb-6">
+                <span className="w-2 h-2 rounded-full bg-cta" />
+                <p className="text-xs uppercase tracking-widest text-cta font-body">
+                  Education
+                </p>
+              </div>
               <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8 text-white">
                 OticLearn
               </h1>
@@ -31,7 +34,7 @@ const OticLearn = () => {
           <div className="container mx-auto px-6 lg:px-12">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div>
-                <p className="text-accent font-body text-sm uppercase tracking-widest mb-4">
+                <p className="text-cta font-body text-sm uppercase tracking-widest mb-4">
                   Digital Learning Environment
                 </p>
                 <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-6">
@@ -44,7 +47,7 @@ const OticLearn = () => {
                 <ul className="space-y-4">
                   <li className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-xl glass-card flex items-center justify-center border border-white/20 flex-shrink-0">
-                      <BookOpen className="w-5 h-5 text-accent" />
+                      <BookOpen className="w-5 h-5 text-cta" />
                     </div>
                     <p className="text-muted-foreground font-body">
                       Access structured, expert created AI and data science courses
@@ -52,7 +55,7 @@ const OticLearn = () => {
                   </li>
                   <li className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-xl glass-card flex items-center justify-center border border-white/20 flex-shrink-0">
-                      <Clock className="w-5 h-5 text-accent" />
+                      <Clock className="w-5 h-5 text-cta" />
                     </div>
                     <p className="text-muted-foreground font-body">
                       Learn at your own pace, on your own schedule
@@ -60,7 +63,7 @@ const OticLearn = () => {
                   </li>
                   <li className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-xl glass-card flex items-center justify-center border border-white/20 flex-shrink-0">
-                      <Award className="w-5 h-5 text-accent" />
+                      <Award className="w-5 h-5 text-cta" />
                     </div>
                     <p className="text-muted-foreground font-body">
                       Gain certifications that validate your skills and enhance career competitiveness
@@ -68,7 +71,7 @@ const OticLearn = () => {
                   </li>
                 </ul>
               </div>
-              <div className="relative aspect-square rounded-2xl overflow-hidden border border-accent/10">
+              <div className="relative aspect-square rounded-2xl overflow-hidden border border-white/10">
                 <img
                   src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80"
                   alt="Collaborative learning environment"
@@ -81,7 +84,7 @@ const OticLearn = () => {
         </section>
 
         {/* Why OticLearn */}
-        <section className="py-20 bg-[hsl(var(--deep-sea-blue))]">
+        <section className="py-20 bg-background">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-3xl mx-auto text-center mb-16">
               <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-6">
@@ -96,7 +99,7 @@ const OticLearn = () => {
             </div>
             
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="p-8 border border-white/20 group hover:border-cta/40 transition-colors">
+              <div className="p-8 border border-white/10 group hover:border-cta/40 transition-colors rounded-xl">
                 <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors mb-6">
                   <Target className="w-6 h-6 text-white" />
                 </div>
@@ -109,7 +112,7 @@ const OticLearn = () => {
                 </p>
               </div>
               
-              <div className="p-8 border border-white/20 group hover:border-cta/40 transition-colors">
+              <div className="p-8 border border-white/10 group hover:border-cta/40 transition-colors rounded-xl">
                 <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors mb-6">
                   <Briefcase className="w-6 h-6 text-white" />
                 </div>
@@ -122,7 +125,7 @@ const OticLearn = () => {
                 </p>
               </div>
               
-              <div className="p-8 border border-white/20 group hover:border-cta/40 transition-colors">
+              <div className="p-8 border border-white/10 group hover:border-cta/40 transition-colors rounded-xl">
                 <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors mb-6">
                   <GraduationCap className="w-6 h-6 text-white" />
                 </div>
@@ -139,7 +142,7 @@ const OticLearn = () => {
         </section>
 
         {/* CTA */}
-        <section className="py-20">
+        <section className="py-20 bg-secondary/50">
           <div className="container mx-auto px-6 lg:px-12 text-center">
             <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 text-white">
               Start Your AI Learning Journey
@@ -152,7 +155,7 @@ const OticLearn = () => {
               href="https://oticlearn.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-accent-foreground font-body font-medium text-sm uppercase tracking-wider hover:bg-accent/90 transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-cta text-cta-foreground font-body font-medium text-sm uppercase tracking-wider hover:bg-cta/90 transition-colors rounded-lg"
             >
               Enroll Now
               <ArrowRight className="w-4 h-4" />
