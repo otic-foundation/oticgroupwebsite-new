@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import OticVision from "./pages/OticVision";
 import OticLearn from "./pages/OticLearn";
 import Research from "./pages/Research";
+import ResearchReimagined from "./pages/ResearchReimagined";
 import Services from "./pages/Services";
 import Industries from "./pages/Industries";
 import About from "./pages/About";
@@ -31,6 +32,7 @@ const App = () => (
           <Route path="/otic-vision" element={<OticVision />} />
           <Route path="/otic-learn" element={<OticLearn />} />
           <Route path="/research" element={<Research />} />
+          <Route path="/research/reimagined-banking" element={<ResearchReimagined />} />
           <Route path="/services" element={<Services />} />
           <Route path="/industries" element={<Industries />} />
           <Route path="/about" element={<About />} />
