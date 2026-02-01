@@ -10,16 +10,19 @@ const About = () => {
     <div className="flex flex-col min-h-screen noise-overlay">
       <Header />
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="pt-32 pb-20 relative overflow-hidden">
+        {/* Hero Section - matching Industries style */}
+        <section className="pt-32 pb-20 relative overflow-hidden bg-secondary/30">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-4xl">
-              <p className="text-xs uppercase tracking-widest text-accent font-body mb-4">
-                Company
-              </p>
+              <div className="flex items-center gap-3 mb-6">
+                <span className="w-2 h-2 rounded-full bg-cta" />
+                <p className="text-xs uppercase tracking-widest text-cta font-body">
+                  Company
+                </p>
+              </div>
               <h1 className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-8">
                 <span className="text-white">Reimagine your organisation with </span>
-                <span className="text-accent">Artificial Intelligence</span>
+                <span className="text-cta">Artificial Intelligence</span>
               </h1>
               <p className="text-xl lg:text-2xl text-muted-foreground font-body leading-relaxed">
                 Otic Group is a diversified AI powerhouse accelerating Africa's digital transformation.
@@ -35,7 +38,7 @@ const About = () => {
               Our Corporate Structure
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="p-8 border border-border bg-background group hover:border-cta/50 transition-colors">
+              <div className="p-8 border border-white/10 bg-background group hover:border-cta/50 transition-colors rounded-xl">
                 <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors mb-6">
                   <Building2 className="w-6 h-6 text-white" />
                 </div>
@@ -48,7 +51,7 @@ const About = () => {
                 </p>
               </div>
 
-              <div className="p-8 border border-border bg-background group hover:border-cta/50 transition-colors">
+              <div className="p-8 border border-white/10 bg-background group hover:border-cta/50 transition-colors rounded-xl">
                 <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors mb-6">
                   <Heart className="w-6 h-6 text-white" />
                 </div>
@@ -59,12 +62,12 @@ const About = () => {
                   Leads national AI awareness, community skilling, and digital capacity building 
                   initiatives for underserved groups.
                 </p>
-                <p className="text-accent font-body font-medium">
+                <p className="text-cta font-body font-medium">
                   Over 5500 Ugandans trained in critical AI competencies
                 </p>
               </div>
 
-              <div className="p-8 border border-border bg-background group hover:border-cta/50 transition-colors">
+              <div className="p-8 border border-white/10 bg-background group hover:border-cta/50 transition-colors rounded-xl">
                 <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors mb-6">
                   <GraduationCap className="w-6 h-6 text-white" />
                 </div>
@@ -90,7 +93,7 @@ const About = () => {
             <div className="text-center mt-12">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-[#1a365d] text-white font-body font-medium text-sm uppercase tracking-wider hover:bg-[#1a365d]/90 transition-colors"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-[#1a365d] text-white font-body font-medium text-sm uppercase tracking-wider hover:bg-[#1a365d]/90 transition-colors rounded-lg"
               >
                 Talk to Sales
                 <ArrowRight className="w-4 h-4" />
@@ -100,19 +103,19 @@ const About = () => {
         </section>
 
         {/* Leadership */}
-        <section className="py-20">
+        <section className="py-20 bg-background">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div className="relative">
-                <div className="absolute -top-4 -left-4 w-full h-full border border-accent/30 -z-10" />
+                <div className="absolute -top-4 -left-4 w-full h-full border border-cta/30 rounded-xl -z-10" />
                 <img
                   src={speakerImage}
                   alt="Nesta Paul Katende, Founder & CEO"
-                  className="w-full h-auto"
+                  className="w-full h-auto rounded-xl"
                 />
               </div>
               <div>
-                <p className="text-xs uppercase tracking-widest text-accent font-body mb-4">
+                <p className="text-xs uppercase tracking-widest text-cta font-body mb-4">
                   Leadership
                 </p>
                 <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 text-white">
@@ -132,7 +135,7 @@ const About = () => {
         </section>
 
         {/* Traction Stats */}
-        <section className="py-20 bg-[hsl(var(--deep-sea-blue))]">
+        <section className="py-20 bg-secondary/30">
           <div className="container mx-auto px-6 lg:px-12">
             <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-16 text-center">
               Our Traction
@@ -144,7 +147,7 @@ const About = () => {
                 { icon: Globe, stat: "15,000+", label: "Community Members", desc: "AI talent, tech leaders, and enthusiasts" },
                 { icon: Target, stat: "2", label: "Countries", desc: "Operations in Uganda and Rwanda" }
               ].map((item, index) => (
-                <div key={index} className="text-center p-8 border border-white/20 group hover:border-cta/40 transition-colors">
+                <div key={index} className="text-center p-8 border border-white/10 group hover:border-cta/40 transition-colors rounded-xl">
                   <div className="w-10 h-10 rounded-xl glass-card flex items-center justify-center border border-white/20 mx-auto mb-4">
                     <item.icon className="w-5 h-5 text-white" />
                   </div>
@@ -158,7 +161,7 @@ const About = () => {
         </section>
 
         {/* Endorsement */}
-        <section className="py-20">
+        <section className="py-20 bg-background">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-3xl mx-auto text-center">
               <div className="w-16 h-16 rounded-xl glass-card flex items-center justify-center border border-white/20 mx-auto mb-8">
@@ -186,7 +189,7 @@ const About = () => {
             </p>
             <Link
               to="/partners"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent text-accent-foreground font-body font-medium text-sm uppercase tracking-wider hover:bg-accent/90 transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-cta text-cta-foreground font-body font-medium text-sm uppercase tracking-wider hover:bg-cta/90 transition-colors rounded-lg"
             >
               Become a Partner
               <ArrowRight className="w-4 h-4" />

@@ -6,13 +6,16 @@ const Privacy = () => {
     <div className="flex flex-col min-h-screen noise-overlay">
       <Header />
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="pt-32 pb-12 relative overflow-hidden">
+        {/* Hero Section - matching Industries style */}
+        <section className="pt-32 pb-12 relative overflow-hidden bg-secondary/30">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-4xl">
-              <p className="text-xs uppercase tracking-widest text-accent font-body mb-4">
-                Legal
-              </p>
+              <div className="flex items-center gap-3 mb-6">
+                <span className="w-2 h-2 rounded-full bg-cta" />
+                <p className="text-xs uppercase tracking-widest text-cta font-body">
+                  Legal
+                </p>
+              </div>
               <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-white">
                 Privacy Policy
               </h1>

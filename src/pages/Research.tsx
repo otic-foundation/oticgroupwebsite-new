@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { ArrowRight } from 'lucide-react';
 import reimaginedBankingCover from '@/assets/research/reimagined-banking-cover.png';
+import researchBg from '@/assets/research-bg.jpg';
 
 interface ResearchCard {
   id: string;
@@ -32,13 +33,16 @@ const Research = () => {
     <div className="flex flex-col min-h-screen noise-overlay">
       <Header />
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="pt-32 pb-20 relative overflow-hidden">
+        {/* Hero Section - matching Industries style */}
+        <section className="pt-32 pb-20 relative overflow-hidden bg-secondary/30">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-4xl">
-              <p className="text-xs uppercase tracking-widest text-accent font-body mb-4">
-                Insights
-              </p>
+              <div className="flex items-center gap-3 mb-6">
+                <span className="w-2 h-2 rounded-full bg-cta" />
+                <p className="text-xs uppercase tracking-widest text-cta font-body">
+                  Insights
+                </p>
+              </div>
               <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8 text-white">
                 Research
               </h1>
@@ -51,36 +55,45 @@ const Research = () => {
           </div>
         </section>
 
-        {/* Research Cards Grid */}
-        <section className="py-16 bg-[hsl(var(--deep-sea-blue))]">
-          <div className="container mx-auto px-6 lg:px-12">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Research Cards Grid with Background Image */}
+        <section className="py-20 relative min-h-[70vh]">
+          {/* Background Image with Dark Overlay */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${researchBg})` }}
+          />
+          <div className="absolute inset-0 bg-background/85" />
+          
+          <div className="container mx-auto px-6 lg:px-12 relative z-10">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {researchItems.map((item) => (
                 <Link
                   key={item.id}
                   to={item.link}
-                  className="group relative block overflow-hidden rounded-lg bg-secondary/30 border border-white/10 transition-all duration-500 hover:border-accent/40"
+                  className="group relative block overflow-hidden rounded-xl bg-card/80 backdrop-blur-sm border border-white/10 transition-all duration-500 hover:border-accent/40 hover:shadow-2xl hover:shadow-accent/10"
                   onMouseEnter={() => setHoveredCard(item.id)}
                   onMouseLeave={() => setHoveredCard(null)}
                 >
                   {/* Category Label */}
                   <div className="absolute top-4 left-4 z-10">
-                    <span className="text-xs uppercase tracking-widest text-accent font-body font-medium">
+                    <span className="text-xs uppercase tracking-widest text-cta font-body font-medium bg-background/80 px-3 py-1 rounded-full">
                       {item.category}
                     </span>
                   </div>
 
                   {/* Card Content */}
-                  <div className="relative aspect-[4/5] overflow-hidden">
-                    {/* Image */}
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
+                  <div className="relative aspect-[3/4] overflow-hidden">
+                    {/* Image - object-contain to show full image */}
+                    <div className="absolute inset-0 bg-secondary/50 flex items-center justify-center p-6 pt-16">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
+                      />
+                    </div>
                     
                     {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
                     
                     {/* Content Overlay */}
                     <div className="absolute inset-0 flex flex-col justify-end p-6">
@@ -102,7 +115,7 @@ const Research = () => {
                       </div>
                       
                       {/* Read More Link */}
-                      <div className="flex items-center gap-2 text-accent font-body text-sm font-medium group-hover:gap-3 transition-all duration-300">
+                      <div className="flex items-center gap-2 text-cta font-body text-sm font-medium group-hover:gap-3 transition-all duration-300">
                         <span>Read more</span>
                         <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                       </div>
@@ -125,7 +138,7 @@ const Research = () => {
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-accent-foreground font-body font-medium text-sm uppercase tracking-wider hover:bg-accent/90 transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-cta text-cta-foreground font-body font-medium text-sm uppercase tracking-wider hover:bg-cta/90 transition-colors rounded-lg"
             >
               Start a Conversation
               <ArrowRight className="w-4 h-4" />
