@@ -14,7 +14,57 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      research_posts: {
+        Row: {
+          category: string
+          cover_image_url: string | null
+          created_at: string
+          display_order: number | null
+          download_file_url: string | null
+          executive_summary: string | null
+          id: string
+          industries_link: string | null
+          preamble: string
+          published: boolean | null
+          services_link: string | null
+          slug: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          category?: string
+          cover_image_url?: string | null
+          created_at?: string
+          display_order?: number | null
+          download_file_url?: string | null
+          executive_summary?: string | null
+          id?: string
+          industries_link?: string | null
+          preamble: string
+          published?: boolean | null
+          services_link?: string | null
+          slug: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          category?: string
+          cover_image_url?: string | null
+          created_at?: string
+          display_order?: number | null
+          download_file_url?: string | null
+          executive_summary?: string | null
+          id?: string
+          industries_link?: string | null
+          preamble?: string
+          published?: boolean | null
+          services_link?: string | null
+          slug?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
