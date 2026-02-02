@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { ArrowRight } from 'lucide-react';
 import reimaginedBankingCover from '@/assets/research/reimagined-banking-cover.png';
 import researchBg from '@/assets/research-bg.jpg';
+import { supabase } from '@/integrations/supabase/client';
 
 interface ResearchCard {
   id: string;
@@ -15,7 +16,8 @@ interface ResearchCard {
   link: string;
 }
 
-const researchItems: ResearchCard[] = [
+// Default static research items (fallback)
+const defaultResearchItems: ResearchCard[] = [
   {
     id: 'reimagined-banking',
     category: 'RESEARCH REPORT',
@@ -28,6 +30,31 @@ const researchItems: ResearchCard[] = [
 
 const Research = () => {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+  const [researchItems, setResearchItems] = useState<ResearchCard[]>(defaultResearchItems);
+
+  useEffect(() => {
+    const fetchResearchPosts = async () => {
+      const { data, error } = await supabase
+        .from('research_posts')
+        .select('*')
+        .eq('published', true)
+        .order('display_order', { ascending: true });
+
+      if (data && data.length > 0) {
+        const posts = data.map((post: any) => ({
+          id: post.slug,
+          category: post.category,
+          title: post.title,
+          preamble: post.preamble,
+          image: post.cover_image_url || reimaginedBankingCover,
+          link: `/research/${post.slug}`,
+        }));
+        setResearchItems(posts);
+      }
+    };
+
+    fetchResearchPosts();
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen noise-overlay">
@@ -124,25 +151,6 @@ const Research = () => {
                 </Link>
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section className="py-20 bg-secondary/50">
-          <div className="container mx-auto px-6 lg:px-12 text-center">
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 text-white">
-              Partner With Us on Research
-            </h2>
-            <p className="text-muted-foreground font-body text-lg mb-8 max-w-2xl mx-auto">
-              Collaborate with Otic Group on groundbreaking AI research tailored for African markets.
-            </p>
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-cta text-cta-foreground font-body font-medium text-sm uppercase tracking-wider hover:bg-cta/90 transition-colors rounded-lg"
-            >
-              Start a Conversation
-              <ArrowRight className="w-4 h-4" />
-            </Link>
           </div>
         </section>
       </main>
