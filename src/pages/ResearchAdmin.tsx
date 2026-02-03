@@ -338,17 +338,17 @@ const ResearchAdmin = () => {
                           placeholder="Image URL or upload"
                           className="bg-secondary/50 border-white/10 flex-1"
                         />
-                        <label className="cursor-pointer">
+                        <div className="relative">
                           <input
                             type="file"
                             accept="image/*"
-                            className="hidden"
+                            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
                             onChange={(e) => e.target.files?.[0] && handleFileUpload(e.target.files[0], 'image')}
                           />
-                          <Button type="button" variant="outline" className="border-white/10" disabled={uploading}>
+                          <Button type="button" variant="outline" className="border-white/10 pointer-events-none" disabled={uploading}>
                             <Upload className="w-4 h-4" />
                           </Button>
-                        </label>
+                        </div>
                       </div>
                       {formData.cover_image_url && (
                         <img src={formData.cover_image_url} alt="Preview" className="w-32 h-32 object-cover rounded mt-2" />
@@ -363,17 +363,17 @@ const ResearchAdmin = () => {
                           placeholder="PDF URL or upload"
                           className="bg-secondary/50 border-white/10 flex-1"
                         />
-                        <label className="cursor-pointer">
+                        <div className="relative">
                           <input
                             type="file"
                             accept=".pdf"
-                            className="hidden"
+                            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
                             onChange={(e) => e.target.files?.[0] && handleFileUpload(e.target.files[0], 'pdf')}
                           />
-                          <Button type="button" variant="outline" className="border-white/10" disabled={uploading}>
+                          <Button type="button" variant="outline" className="border-white/10 pointer-events-none" disabled={uploading}>
                             <Upload className="w-4 h-4" />
                           </Button>
-                        </label>
+                        </div>
                       </div>
                     </div>
                   </div>

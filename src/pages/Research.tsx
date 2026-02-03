@@ -38,7 +38,7 @@ const Research = () => {
         .from('research_posts')
         .select('*')
         .eq('published', true)
-        .order('display_order', { ascending: true });
+        .order('created_at', { ascending: false });
 
       if (data && data.length > 0) {
         const posts = data.map((post: any) => ({
