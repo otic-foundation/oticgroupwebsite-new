@@ -146,6 +146,18 @@ const ResearchPost = () => {
                     </p>
                   ))}
                 </div>
+                {post.download_file_url && (
+                  <div className="mt-10 text-center">
+                    <a
+                      href={post.download_file_url}
+                      download
+                      className="inline-flex items-center gap-2 px-8 py-4 bg-cta text-cta-foreground font-body font-medium text-sm uppercase tracking-wider hover:bg-cta/90 transition-all duration-300 rounded-full shadow-lg shadow-cta/30"
+                    >
+                      <Download className="w-4 h-4" />
+                      Download The Full Report
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
           </section>
