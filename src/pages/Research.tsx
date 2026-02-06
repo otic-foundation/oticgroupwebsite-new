@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { ArrowRight } from 'lucide-react';
-import reimaginedBankingCover from '@/assets/research/reimagined-banking-cover.png';
+import reimaginedBankingCover from '@/assets/research/reimagined-cover.png';
 import researchBg from '@/assets/research-bg.jpg';
 import { supabase } from '@/integrations/supabase/client';
 

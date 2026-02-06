@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { ArrowRight, TrendingUp, Shield, DollarSign, Download, Building2, Cog } from 'lucide-react';
+import bankBuilding from '@/assets/research/bank-building.jpg';
 import {
   ChartContainer,
   ChartTooltip,
@@ -84,6 +85,18 @@ const ResearchReimagined = () => {
           </div>
         </section>
 
+        {/* Hero Image - Bank Building */}
+        <section className="relative w-full">
+          <div className="w-full h-[250px] md:h-[400px] lg:h-[500px] overflow-hidden">
+            <img 
+              src={bankBuilding} 
+              alt="Modern banking institution"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background/80" />
+          </div>
+        </section>
+
         {/* Thesis Statement Section */}
         <section className="py-12 md:py-20 bg-background relative overflow-hidden">
           <div className="container mx-auto px-4 md:px-6 lg:px-12">
@@ -102,6 +115,43 @@ const ResearchReimagined = () => {
                     "Agentic AI allows revenue and risk‑adjusted volume growth to decouple from 
                     headcount growth for the first time in modern banking."
                   </p>
+                </div>
+              </div>
+
+              {/* AI Evolution Infographic */}
+              <div className="mt-10 md:mt-14">
+                <p className="text-xs uppercase tracking-widest text-cta font-body mb-6 text-center">
+                  The Paradigm Shift
+                </p>
+                <div className="grid md:grid-cols-2 gap-4 md:gap-6">
+                  {/* Before */}
+                  <div className="rounded-2xl p-5 md:p-6 border border-white/10 bg-secondary/30 relative overflow-hidden">
+                    <div className="absolute top-0 left-0 w-full h-1 bg-muted-foreground/30" />
+                    <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3 font-body">Before</p>
+                    <h4 className="font-display text-lg md:text-xl font-bold text-white/60 mb-3">AI as Assistant</h4>
+                    <ul className="space-y-2">
+                      {['Answers questions', 'Drafts content', 'Supports staff decisions', 'Manual escalation paths'].map((item) => (
+                        <li key={item} className="flex items-center gap-2 text-muted-foreground text-sm font-body">
+                          <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground/50" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  {/* After */}
+                  <div className="rounded-2xl p-5 md:p-6 border border-cta/30 bg-cta/5 relative overflow-hidden">
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cta to-cta/50" />
+                    <p className="text-xs uppercase tracking-widest text-cta mb-3 font-body">Now</p>
+                    <h4 className="font-display text-lg md:text-xl font-bold text-white mb-3">AI as Autonomous Actor</h4>
+                    <ul className="space-y-2">
+                      {['Plans & decides autonomously', 'Executes multi-step workflows', 'Invokes tools & APIs directly', 'Escalates only true exceptions'].map((item) => (
+                        <li key={item} className="flex items-center gap-2 text-white/80 text-sm font-body">
+                          <span className="w-1.5 h-1.5 rounded-full bg-cta" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
@@ -357,6 +407,54 @@ const ResearchReimagined = () => {
                   capability chasm within the <span className="text-white font-semibold">24–36 month window</span> shareholders 
                   and regulators will tolerate.
                 </p>
+              </div>
+
+              {/* Capability Gap Infographic */}
+              <div className="mt-8 md:mt-12">
+                <p className="text-xs uppercase tracking-widest text-cta font-body mb-6 text-center">
+                  The Readiness Gap
+                </p>
+                <div className="grid grid-cols-3 gap-3 md:gap-4">
+                  {[
+                    { label: 'Legacy Core Systems', pct: 78, desc: 'of banks run on legacy cores incompatible with agentic orchestration' },
+                    { label: 'Fragmented Data', pct: 65, desc: 'report data silos as the top barrier to autonomous AI workflows' },
+                    { label: 'Missing Governance', pct: 71, desc: 'lack the orchestration and policy frameworks for autonomous agents' },
+                  ].map((item, i) => (
+                    <div key={i} className="rounded-xl p-4 md:p-5 border border-white/10 bg-secondary/30 text-center">
+                      <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-cta font-display mb-1">
+                        {isVisible && <AnimatedCounter end={item.pct} suffix="%" />}
+                      </p>
+                      <p className="text-white text-xs md:text-sm font-medium mb-2">{item.label}</p>
+                      <p className="text-muted-foreground text-[10px] md:text-xs font-body leading-relaxed">{item.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Window of Opportunity Timeline */}
+              <div className="mt-8 md:mt-12">
+                <p className="text-xs uppercase tracking-widest text-cta font-body mb-6 text-center">
+                  Window of Opportunity
+                </p>
+                <div className="relative">
+                  {/* Timeline line */}
+                  <div className="absolute top-5 left-0 right-0 h-0.5 bg-gradient-to-r from-cta via-accent to-muted-foreground/30 hidden md:block" />
+                  <div className="grid md:grid-cols-3 gap-4 md:gap-6">
+                    {[
+                      { year: '2025', phase: 'Foundation', desc: 'Establish data mesh, API orchestration layer, and governance framework' },
+                      { year: '2026–27', phase: 'Scale', desc: 'Deploy agentic workflows in credit, KYC, liquidity, and IT operations' },
+                      { year: '2028+', phase: 'Compound', desc: 'Self-improving systems deliver exponential efficiency and revenue gains' },
+                    ].map((item, i) => (
+                      <div key={i} className="text-center relative">
+                        <div className="w-10 h-10 rounded-full bg-cta/20 border-2 border-cta flex items-center justify-center mx-auto mb-3 relative z-10">
+                          <span className="text-cta font-display font-bold text-xs">{item.year}</span>
+                        </div>
+                        <h4 className="font-display text-sm md:text-base font-bold text-white mb-1">{item.phase}</h4>
+                        <p className="text-muted-foreground text-xs font-body leading-relaxed">{item.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
