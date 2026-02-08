@@ -3,7 +3,6 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { ArrowRight, Handshake } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import PartnerCarousel from '@/components/PartnerCarousel';
 
 const Partners = () => {
   const { toast } = useToast();
@@ -60,16 +59,6 @@ const Partners = () => {
                 to accelerate Africa's AI transformation.
               </p>
             </div>
-          </div>
-        </section>
-
-        {/* Partners Carousel Section */}
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-6 lg:px-12">
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-12 text-[#1a365d]">
-              Our Partners
-            </h2>
-            <PartnerCarousel />
           </div>
         </section>
 

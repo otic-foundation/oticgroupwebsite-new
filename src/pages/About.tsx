@@ -3,7 +3,6 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { ArrowRight, Award, Users, Globe, Target, Building2, Heart, GraduationCap } from 'lucide-react';
 import speakerImage from '@/assets/speaker.jpeg';
-import PartnerLogoGrid from '@/components/PartnerLogoGrid';
 
 const About = () => {
   return (
@@ -79,25 +78,6 @@ const About = () => {
                   frontier technologies.
                 </p>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Enterprises We Have Reimagined */}
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-6 lg:px-12">
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-[#1a365d] mb-12 text-center">
-              Enterprises We Have Reimagined
-            </h2>
-            <PartnerLogoGrid />
-            <div className="text-center mt-12">
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-[#1a365d] text-white font-body font-medium text-sm uppercase tracking-wider hover:bg-[#1a365d]/90 transition-colors rounded-lg"
-              >
-                Talk to Sales
-                <ArrowRight className="w-4 h-4" />
-              </Link>
             </div>
           </div>
         </section>
