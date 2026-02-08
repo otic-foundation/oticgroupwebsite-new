@@ -154,6 +154,18 @@ const ResearchReimagined = () => {
                   </div>
                 </div>
               </div>
+
+              {/* Download Report CTA */}
+              <div className="mt-10 md:mt-14 text-center">
+                <a
+                  href="/downloads/The_Agentic_AI_Inflection_Point_in_Banking.pdf"
+                  download
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-cta text-cta-foreground font-body font-medium text-sm uppercase tracking-wider hover:bg-cta/90 transition-all duration-300 rounded-full shadow-lg shadow-cta/30"
+                >
+                  <Download className="w-4 h-4" />
+                  Download The Full Report
+                </a>
+              </div>
             </div>
           </div>
         </section>

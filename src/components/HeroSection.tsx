@@ -37,36 +37,19 @@ const HeroSection = () => {
               <span className="text-white">The Future </span>
               <span className="text-cta italic">Reimagined</span>
             </h1>
-
-            {/* CTA buttons */}
-            <div className="mt-10 flex flex-wrap gap-4 animate-fade-up-delay-2">
-              <Link 
-                to="/services" 
-                className="btn-glow px-8 py-4 rounded-lg text-cta-foreground uppercase font-medium flex items-center gap-2 group"
-              >
-                Explore Our Services
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link 
-                to="/about" 
-                className="glass-card-hover px-8 py-4 rounded-lg text-foreground uppercase font-medium border border-accent-luminous/20 hover:border-accent-luminous/40"
-              >
-                Learn More
-              </Link>
-            </div>
           </div>
         </div>
 
-        {/* Full-width hero image */}
-        <div className="relative w-full overflow-hidden" style={{ height: '70vh' }}>
-          <div ref={parallaxRef} className="absolute inset-0 w-full h-[120%] -top-[10%]">
+        {/* Full-width hero image - show full subject */}
+        <div className="relative w-full overflow-hidden bg-background/50">
+          <div ref={parallaxRef} className="w-full">
             <img
               src={speakerImage}
               alt="Visionary leader speaking about the future of African enterprise"
-              className="w-full h-full object-cover"
+              className="w-full h-auto object-contain max-h-[80vh]"
             />
             {/* Subtle gradient overlays */}
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/20" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/20 pointer-events-none" />
           </div>
         </div>
 
@@ -93,6 +76,23 @@ const HeroSection = () => {
                     </p>
                   </div>
                 </div>
+              </div>
+
+              {/* CTA buttons below quote */}
+              <div className="mt-10 flex flex-wrap gap-4 animate-fade-up-delay-2">
+                <Link 
+                  to="/services" 
+                  className="btn-glow px-8 py-4 rounded-lg text-cta-foreground uppercase font-medium flex items-center gap-2 group"
+                >
+                  Explore Our Services
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <Link 
+                  to="/about" 
+                  className="glass-card-hover px-8 py-4 rounded-lg text-foreground uppercase font-medium border border-accent-luminous/20 hover:border-accent-luminous/40"
+                >
+                  Learn More
+                </Link>
               </div>
             </div>
           </div>
