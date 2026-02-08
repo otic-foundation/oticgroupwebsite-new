@@ -144,49 +144,40 @@ const Contact = () => {
         {/* Contact Section */}
         <section className="py-20">
           <div className="container mx-auto px-6 lg:px-12">
-            <div className="grid lg:grid-cols-3 gap-12">
+            <div className="max-w-3xl mx-auto">
               {/* Contact Info */}
-              <div className="space-y-8">
-                <div>
-                  <h2 className="font-display text-2xl font-bold mb-6 text-white">Get in Touch</h2>
-                  <p className="text-muted-foreground font-body">
-                    Have a question or want to work together? Reach out to us.
-                  </p>
+              <div className="flex flex-col sm:flex-row gap-8 mb-12">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl glass-card flex items-center justify-center border border-white/20 flex-shrink-0">
+                    <Mail className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <p className="font-body font-medium mb-1">Email</p>
+                    <a 
+                      href="mailto:info@oticgroup.net" 
+                      className="text-muted-foreground font-body hover:text-accent transition-colors"
+                    >
+                      info@oticgroup.net
+                    </a>
+                  </div>
                 </div>
 
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl glass-card flex items-center justify-center border border-white/20 flex-shrink-0">
-                      <Mail className="w-5 h-5 text-white" />
-                    </div>
-                    <div>
-                      <p className="font-body font-medium mb-1">Email</p>
-                      <a 
-                        href="mailto:info@oticgroup.net" 
-                        className="text-muted-foreground font-body hover:text-accent transition-colors"
-                      >
-                        info@oticgroup.net
-                      </a>
-                    </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl glass-card flex items-center justify-center border border-white/20 flex-shrink-0">
+                    <MapPin className="w-5 h-5 text-white" />
                   </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl glass-card flex items-center justify-center border border-white/20 flex-shrink-0">
-                      <MapPin className="w-5 h-5 text-white" />
-                    </div>
-                    <div>
-                      <p className="font-body font-medium mb-1">Locations</p>
-                      <p className="text-muted-foreground font-body">
-                        Uganda • Rwanda
-                      </p>
-                    </div>
+                  <div>
+                    <p className="font-body font-medium mb-1">Locations</p>
+                    <p className="text-muted-foreground font-body">
+                      Uganda • Rwanda
+                    </p>
                   </div>
                 </div>
               </div>
 
               {/* Zoho CRM Form */}
-              <div className="lg:col-span-2" ref={formRef}>
-                <div className="p-4 md:p-8 bg-secondary/30 border border-border rounded-xl">
+              <div ref={formRef}>
+                <div className="p-6 md:p-10 bg-secondary/30 border border-border rounded-xl">
                   <style dangerouslySetInnerHTML={{__html: `
                     .zcwf_lblLeft .zcwf_title{ 
                       word-wrap: break-word; 
@@ -197,6 +188,7 @@ const Contact = () => {
                       font-family: var(--font-display);
                     }
                     .zcwf_lblLeft .zcwf_col_fld input[type=text], 
+                    .zcwf_lblLeft .zcwf_col_fld input[type=email],
                     .zcwf_lblLeft .zcwf_col_fld textarea { 
                       width: 100%; 
                       border: 1px solid hsl(var(--border)) !important; 
@@ -208,8 +200,10 @@ const Contact = () => {
                       padding: 0.75rem 1rem;
                       font-family: var(--font-body);
                       font-size: 16px;
+                      box-sizing: border-box;
                     }
                     .zcwf_lblLeft .zcwf_col_fld input[type=text]:focus,
+                    .zcwf_lblLeft .zcwf_col_fld input[type=email]:focus,
                     .zcwf_lblLeft .zcwf_col_fld textarea:focus {
                       outline: none;
                       border-color: hsl(var(--accent)) !important;
@@ -231,19 +225,20 @@ const Contact = () => {
                       padding: 0px 6px 0px; 
                       position: relative; 
                       margin-top: 5px; 
+                      box-sizing: border-box;
                     }
                     .zcwf_lblLeft .zcwf_row { 
-                      margin: 12px 0px; 
+                      margin: 8px 0px; 
                     }
                     .zcwf_lblLeft .formsubmit { 
                       cursor: pointer; 
                       font-size: 14px;
                       background: linear-gradient(135deg, hsl(var(--cta)) 0%, hsl(var(--accent)) 100%);
                       color: hsl(var(--cta-foreground));
-                      padding: 0.75rem 2rem;
+                      padding: 0.875rem 2.5rem;
                       border-radius: 0.5rem;
                       border: none;
-                      font-weight: 500;
+                      font-weight: 600;
                       text-transform: uppercase;
                       letter-spacing: 0.05em;
                       transition: all 0.3s;
@@ -259,22 +254,18 @@ const Contact = () => {
                       transform: translateY(-1px);
                     }
                     .zcwf_lblLeft .zcwf_button { 
-                      font-size: 14px; 
+                      font-size: 13px; 
                       border: 1px solid hsl(var(--border)); 
                       padding: 0.75rem 2rem; 
                       border-radius: 0.5rem; 
                       cursor: pointer;
                       background: transparent;
-                      color: hsl(var(--foreground));
-                      margin-left: 0;
-                      margin-top: 0.5rem;
+                      color: hsl(var(--muted-foreground));
                       width: 100%;
                     }
                     @media (min-width: 768px) {
                       .zcwf_lblLeft .zcwf_button {
                         width: auto;
-                        margin-left: 0.5rem;
-                        margin-top: 0;
                       }
                     }
                     .zcwf_lblLeft .zcwf_privacy_txt { 
@@ -315,36 +306,39 @@ const Contact = () => {
                     .zcwf_lblLeft .zcwf_privacy input[type=checkbox] {
                       accent-color: hsl(var(--accent));
                     }
-                    .mobile-grid {
+                    .form-two-col {
                       display: block;
                     }
-                    @media (min-width: 768px) {
-                      .mobile-grid {
+                    @media (min-width: 640px) {
+                      .form-two-col {
                         display: grid;
                         grid-template-columns: 1fr 1fr;
-                        gap: 1rem;
+                        gap: 0 1rem;
                       }
                     }
-                    .zcwf_row {
-                      width: 100% !important;
+                    .form-section-label {
+                      font-size: 0.75rem;
+                      text-transform: uppercase;
+                      letter-spacing: 0.1em;
+                      color: hsl(var(--muted-foreground));
+                      font-family: var(--font-body);
+                      padding: 0 6px;
+                      margin-bottom: 4px;
                     }
-                    .zcwf_col_fld {
-                      width: 100% !important;
+                    .form-section-divider {
+                      border-top: 1px solid hsl(var(--border));
+                      margin: 1.5rem 0;
                     }
-                    .zcwf_col_fld input[type=text],
-                    .zcwf_col_fld textarea {
-                      width: 100% !important;
-                      box-sizing: border-box !important;
-                    }
-                    .submit-buttons {
+                    .form-footer {
                       display: flex;
                       flex-direction: column;
-                      gap: 0.5rem;
+                      gap: 0.75rem;
+                      padding-top: 1rem;
                     }
-                    @media (min-width: 768px) {
-                      .submit-buttons {
+                    @media (min-width: 640px) {
+                      .form-footer {
                         flex-direction: row;
-                        gap: 0;
+                        align-items: center;
                       }
                     }
                   `}} />
@@ -369,7 +363,10 @@ const Contact = () => {
                     
                     <div className="zcwf_title">Get in touch!</div>
                     
-                    <div className="mobile-grid">
+                    {/* Section: Personal Information */}
+                    <div className="form-section-label">Personal Information</div>
+                    
+                    <div className="form-two-col">
                       <div className="zcwf_row">
                         <div className="zcwf_col_lab"><label htmlFor="First_Name">First Name <span style={{color: 'hsl(var(--cta))'}}>*</span></label></div>
                         <div className="zcwf_col_fld"><input type="text" id="First_Name" name="First Name" maxLength={40} /></div>
@@ -380,7 +377,7 @@ const Contact = () => {
                       </div>
                     </div>
                     
-                    <div className="mobile-grid">
+                    <div className="form-two-col">
                       <div className="zcwf_row">
                         <div className="zcwf_col_lab"><label htmlFor="Email">Work Email <span style={{color: 'hsl(var(--cta))'}}>*</span></label></div>
                         <div className="zcwf_col_fld"><input type="email" autoComplete="off" id="Email" name="Email" maxLength={100} /></div>
@@ -391,29 +388,37 @@ const Contact = () => {
                       </div>
                     </div>
                     
-                    <div className="mobile-grid">
-                      <div className="zcwf_row">
-                        <div className="zcwf_col_lab"><label htmlFor="Company">Company <span style={{color: 'hsl(var(--cta))'}}>*</span></label></div>
-                        <div className="zcwf_col_fld"><input type="text" id="Company" name="Company" maxLength={200} /></div>
-                      </div>
-                      <div className="zcwf_row">
-                        <div className="zcwf_col_lab"><label htmlFor="Designation">Job Title <span style={{color: 'hsl(var(--cta))'}}>*</span></label></div>
-                        <div className="zcwf_col_fld"><input type="text" id="Designation" name="Designation" maxLength={100} /></div>
-                      </div>
+                    <div className="zcwf_row">
+                      <div className="zcwf_col_lab"><label htmlFor="Designation">Job Title <span style={{color: 'hsl(var(--cta))'}}>*</span></label></div>
+                      <div className="zcwf_col_fld"><input type="text" id="Designation" name="Designation" maxLength={100} /></div>
                     </div>
                     
-                    <div className="mobile-grid">
-                      <div className="zcwf_row">
-                        <div className="zcwf_col_lab"><label htmlFor="Website">Industry / Sector <span style={{color: 'hsl(var(--cta))'}}>*</span></label></div>
-                        <div className="zcwf_col_fld"><input type="text" id="Website" name="Website" maxLength={255} /></div>
-                      </div>
-                      <div className="zcwf_row">
-                        <div className="zcwf_col_lab"><label htmlFor="Annual_Revenue">Are you representing your organisation? <span style={{color: 'hsl(var(--cta))'}}>*</span></label></div>
-                        <div className="zcwf_col_fld"><input type="text" id="Annual_Revenue" name="Annual Revenue" maxLength={16} /></div>
-                      </div>
+                    <div className="form-section-divider" />
+                    
+                    {/* Section: Organization Details */}
+                    <div className="form-section-label">Organization Details</div>
+                    
+                    <div className="zcwf_row">
+                      <div className="zcwf_col_lab"><label htmlFor="Company">Company <span style={{color: 'hsl(var(--cta))'}}>*</span></label></div>
+                      <div className="zcwf_col_fld"><input type="text" id="Company" name="Company" maxLength={200} /></div>
                     </div>
                     
-                    <div className="mobile-grid">
+                    <div className="zcwf_row">
+                      <div className="zcwf_col_lab"><label htmlFor="Website">Industry / Sector <span style={{color: 'hsl(var(--cta))'}}>*</span></label></div>
+                      <div className="zcwf_col_fld"><input type="text" id="Website" name="Website" maxLength={255} /></div>
+                    </div>
+                    
+                    <div className="zcwf_row">
+                      <div className="zcwf_col_lab"><label htmlFor="Annual_Revenue">Are you representing your organisation? <span style={{color: 'hsl(var(--cta))'}}>*</span></label></div>
+                      <div className="zcwf_col_fld"><input type="text" id="Annual_Revenue" name="Annual Revenue" maxLength={16} /></div>
+                    </div>
+                    
+                    <div className="form-section-divider" />
+                    
+                    {/* Section: Location */}
+                    <div className="form-section-label">Location</div>
+                    
+                    <div className="form-two-col">
                       <div className="zcwf_row">
                         <div className="zcwf_col_lab"><label htmlFor="City">City <span style={{color: 'hsl(var(--cta))'}}>*</span></label></div>
                         <div className="zcwf_col_fld"><input type="text" id="City" name="City" maxLength={100} /></div>
@@ -424,8 +429,13 @@ const Contact = () => {
                       </div>
                     </div>
                     
+                    <div className="form-section-divider" />
+                    
+                    {/* Section: Goal / Challenge */}
+                    <div className="form-section-label">Goal / Challenge</div>
+                    
                     <div className="zcwf_row">
-                      <div className="zcwf_col_lab"><label htmlFor="Description">Goal / Challenge <span style={{color: 'hsl(var(--cta))'}}>*</span></label></div>
+                      <div className="zcwf_col_lab"><label htmlFor="Description">Describe your goal or challenge <span style={{color: 'hsl(var(--cta))'}}>*</span></label></div>
                       <div className="zcwf_col_fld"><textarea id="Description" name="Description" maxLength={32000} rows={4}></textarea></div>
                     </div>
                     
@@ -455,8 +465,9 @@ const Contact = () => {
                       </div>
                     </div>
                     
+                    {/* Form Footer - Submit & Reset */}
                     <div className="zcwf_row" style={{marginTop: '1.5rem'}}>
-                      <div className="zcwf_col_fld submit-buttons">
+                      <div className="zcwf_col_fld form-footer">
                         <input 
                           type="submit" 
                           id="formsubmit" 
