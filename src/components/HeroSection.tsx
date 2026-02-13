@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import speakerImage from '@/assets/hero-speaker.jpeg';
+import WhatsNewSection from './WhatsNewSection';
 
 const HeroSection = () => {
   const parallaxRef = useRef<HTMLDivElement>(null);
@@ -19,7 +20,7 @@ const HeroSection = () => {
 
   return (
     <section className="relative overflow-hidden">
-      {/* DESKTOP VIEW - Headline above, full-width image, quote below */}
+      {/* DESKTOP VIEW - Headline above, flyer section, full-width image, quote below */}
       <div className="hidden lg:block relative">
         {/* Headline Section */}
         <div className="relative z-10 pt-32 pb-10 bg-background">
@@ -39,6 +40,9 @@ const HeroSection = () => {
             </h1>
           </div>
         </div>
+
+        {/* "See what's new with us" Section */}
+        <WhatsNewSection />
 
         {/* Full-width hero image - show full subject */}
         <div className="relative w-full overflow-hidden bg-background/50">
@@ -124,6 +128,11 @@ const HeroSection = () => {
             <span className="block text-white">The Future</span>
             <span className="block text-cta italic">Reimagined</span>
           </h1>
+
+          {/* "See what's new with us" Section */}
+          <div className="mb-10">
+            <WhatsNewSection />
+          </div>
 
           {/* Speaker image */}
           <div className="animate-fade-up-delay-2 mb-10">
