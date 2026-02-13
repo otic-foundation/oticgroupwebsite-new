@@ -1,3 +1,4 @@
+// WhatsNewSection.tsx
 import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import webinarFlyer from '@/assets/ums-webinar.jpg';
@@ -10,16 +11,13 @@ const WhatsNewSection = () => {
     <>
       <div className="relative z-10 py-12 bg-background">
         <div className="container mx-auto px-6 lg:px-12">
-          {/* Section heading */}
           <h2 className="font-display text-2xl lg:text-3xl font-bold mb-8 animate-fade-up">
             <span className="text-foreground">See what's new </span>
             <span className="text-cta">with us</span>
           </h2>
 
-          {/* Featured flyer card */}
           <div className="glass-card-hover rounded-xl overflow-hidden max-w-4xl animate-fade-up-delay-1">
             <div className="md:flex">
-              {/* Flyer image */}
               <div className="md:w-3/5 relative overflow-hidden">
                 <img
                   src={webinarFlyer}
@@ -28,10 +26,11 @@ const WhatsNewSection = () => {
                 />
               </div>
 
-              {/* Info panel */}
               <div className="md:w-2/5 p-6 lg:p-8 flex flex-col justify-center">
                 <div className="mb-2">
-                  <span className="text-xs uppercase tracking-widest text-cta font-body font-medium">Upcoming Webinar</span>
+                  <span className="text-xs uppercase tracking-widest text-cta font-body font-medium">
+                    Upcoming Webinar
+                  </span>
                 </div>
                 <h3 className="font-display text-xl lg:text-2xl font-bold text-foreground mb-3">
                   Stop Guessing. Start Acquiring.
