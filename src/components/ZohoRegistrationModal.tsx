@@ -1,48 +1,11 @@
-import { useEffect, useState } from 'react';
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 
 interface ZohoRegistrationModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }
 
-const ZOHO_FORM_HTML = `<!-- your full Zoho form HTML here -->`;
-
-const ZOHO_SCRIPTS = `<!-- your full Zoho inline JS functions here -->`;
-
 const ZohoRegistrationModal = ({ open, onOpenChange }: ZohoRegistrationModalProps) => {
-  const [formInjected, setFormInjected] = useState(false);
-
-  useEffect(() => {
-    if (open && !formInjected) {
-      // Create a container div for the form
-      const container = document.getElementById('zoho-form-container');
-      if (container) {
-        // Inject the HTML
-        container.innerHTML = ZOHO_FORM_HTML;
-
-        // Inject the scripts
-        const script = document.createElement('script');
-        script.textContent = ZOHO_SCRIPTS;
-        document.body.appendChild(script);
-
-        setFormInjected(true);
-      }
-    }
-
-    // Cleanup when modal closes
-    if (!open) {
-      setFormInjected(false);
-      const container = document.getElementById('zoho-form-container');
-      if (container) container.innerHTML = '';
-    }
-  }, [open, formInjected]);
-
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-background border-border">
@@ -52,12 +15,19 @@ const ZohoRegistrationModal = ({ open, onOpenChange }: ZohoRegistrationModalProp
           </DialogTitle>
         </DialogHeader>
 
-        <div
-          id="zoho-form-container"
-          className="rounded-lg overflow-hidden min-h-[200px] flex items-center justify-center"
-        >
-          {!formInjected && <p className="text-muted-foreground">Loading form...</p>}
-        </div>
+        {open && (
+          <div className="rounded-lg overflow-hidden min-h-[400px]">
+            <iframe
+              title="Zoho Webinar Registration"
+              src="https://crm.zoho.com/crm/WebToContactForm?xnQsjsdp=82d655bc38614b358448593965faae083336afa04a4d4be271f56cf1e5b02b4b&xmIwtLD=607bb775341726795f82050ee3eb6836081b9c86342227a8611643efabe1eaeb36f4ea2b6f01c2f3bd946f53db5d8634&actionType=Q29udGFjdHM=&returnURL=https://www.oticgroup.net/"
+              width="100%"
+              height="700"
+              frameBorder="0"
+              scrolling="auto"
+              style={{ border: 'none', minHeight: '400px' }}
+            />
+          </div>
+        )}
       </DialogContent>
     </Dialog>
   );
