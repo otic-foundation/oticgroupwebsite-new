@@ -1,12 +1,10 @@
+// ZohoRegistrationModal.tsx
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 
 interface ZohoRegistrationModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }
-
-// Replace this URL with your Zoho form’s hosted link
-const ZOHO_FORM_URL = "https://crm.zoho.com/crm/WebToContactForm?formId=7179876000000665003";
 
 const ZohoRegistrationModal = ({ open, onOpenChange }: ZohoRegistrationModalProps) => {
   return (
@@ -19,16 +17,11 @@ const ZohoRegistrationModal = ({ open, onOpenChange }: ZohoRegistrationModalProp
         </DialogHeader>
 
         {open && (
-          <div className="rounded-lg overflow-hidden min-h-[600px]">
-            <iframe
-              src={ZOHO_FORM_URL}
-              title="Zoho Webinar Registration"
-              width="100%"
-              height="100%"
-              style={{ minHeight: '600px', border: 'none' }}
-              sandbox="allow-forms allow-scripts allow-same-origin allow-popups"
-            />
-          </div>
+          <iframe
+            src="https://forms.zohopublic.com/yourformurl" // <-- replace with your Zoho form's public URL
+            title="Zoho Webinar Registration"
+            className="w-full min-h-[600px] rounded-lg border-none"
+          />
         )}
       </DialogContent>
     </Dialog>
