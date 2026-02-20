@@ -49,7 +49,17 @@ const Research = () => {
           image: post.cover_image_url || reimaginedBankingCover,
           link: `/research/${post.slug}`,
         }));
+
+        // Ensure the static Reimagined Banking item remains available
+        const hasReimagined = posts.some((p: any) => p.id === 'reimagined-banking');
+        if (!hasReimagined) {
+          posts.unshift(defaultResearchItems[0]);
+        }
+
         setResearchItems(posts);
+      } else {
+        // If no posts returned, keep the default static item
+        setResearchItems(defaultResearchItems);
       }
     };
 

@@ -142,7 +142,7 @@ const Contact = () => {
         </section>
 
         {/* Contact Section */}
-        <section className="py-20">
+        <section className="py-20 contact-section">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-3xl mx-auto">
               {/* Contact Info */}
@@ -177,8 +177,15 @@ const Contact = () => {
 
               {/* Zoho CRM Form */}
               <div ref={formRef}>
-                <div className="p-6 md:p-10 bg-secondary/30 border border-border rounded-xl">
+                <div className="p-6 md:p-10 bg-secondary/30 border border-border rounded-xl form-wrapper-beige">
                   <style dangerouslySetInnerHTML={{__html: `
+                    /* Form wrapper - light mode override */
+                    html.light .form-wrapper-beige {
+                      background-color: #F5E6D3 !important;
+                      border-color: #E0D0B8 !important;
+                    }
+                    
+                    /* Dark mode (default) */
                     .zcwf_lblLeft .zcwf_title{ 
                       word-wrap: break-word; 
                       padding: 0px 6px 10px; 
@@ -341,6 +348,44 @@ const Contact = () => {
                         align-items: center;
                       }
                     }
+
+                    /* Light mode overrides */
+                    html.light .zcwf_lblLeft .zcwf_title {
+                      color: #0F172A !important;
+                      background-color: transparent;
+                    }
+                    html.light .zcwf_lblLeft {
+                      background-color: #F5E6D3 !important;
+                    }
+                    html.light .zcwf_lblLeft .zcwf_col_fld input[type=text],
+                    html.light .zcwf_lblLeft .zcwf_col_fld input[type=email],
+                    html.light .zcwf_lblLeft .zcwf_col_fld textarea {
+                      background-color: #FFFFFF !important;
+                      color: #333333 !important;
+                      border-color: #CCCCCC !important;
+                    }
+                    html.light .zcwf_lblLeft .zcwf_col_fld input[type=text]:focus,
+                    html.light .zcwf_lblLeft .zcwf_col_fld input[type=email]:focus,
+                    html.light .zcwf_lblLeft .zcwf_col_fld textarea:focus {
+                      border-color: #FF9500 !important;
+                    }
+                    html.light .zcwf_lblLeft .zcwf_col_lab {
+                      color: #0F172A !important;
+                    }
+                    html.light .zcwf_lblLeft .zcwf_privacy_txt {
+                      color: #0F172A !important;
+                    }
+                    html.light .zcwf_lblLeft .zcwf_button {
+                      color: #0F172A !important;
+                      border-color: #CCCCCC !important;
+                      background: #FFFFFF !important;
+                    }
+                    html.light .zcwf_lblLeft .form-section-label {
+                      color: #0F172A !important;
+                    }
+                    html.light .form-section-divider {
+                      border-color: #CCCCCC !important;
+                    }
                   `}} />
                   
                   <form 
@@ -439,54 +484,68 @@ const Contact = () => {
                       <div className="zcwf_col_fld"><textarea id="Description" name="Description" maxLength={32000} rows={4}></textarea></div>
                     </div>
                     
-                    <div className="zcwf_row" style={{marginTop: '1.5rem'}}>
-                      <div className="zcwf_privacy" style={{display: 'flex', alignItems: 'flex-start'}}>
-                        <div className="dIB vat" style={{padding: '0 0 0 10px'}}>
-                          <input type="checkbox" id="privacyTool7179876000000615004" aria-invalid="false" />
-                        </div>
-                        <span className="zcwf_privacy_txt">
-                          I agree to the{' '}
-                          <a 
-                            id="privacyLink7179876000000615004" 
-                            href="/privacy" 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="text-accent hover:underline"
-                          >
-                            Privacy Policy
-                          </a>
-                        </span>
-                      </div>
-                      <div 
-                        id="privacyErr7179876000000615004" 
-                        style={{fontSize: '12px', color: 'hsl(var(--cta))', visibility: 'hidden', marginTop: '4px', paddingLeft: '30px'}}
-                      >
-                        Please accept the privacy policy
-                      </div>
-                    </div>
-                    
-                    {/* Form Footer - Submit & Reset */}
-                    <div className="zcwf_row" style={{marginTop: '1.5rem'}}>
-                      <div className="zcwf_col_fld form-footer">
-                        <input 
-                          type="submit" 
-                          id="formsubmit" 
-                          className="formsubmit zcwf_button" 
-                          value="Submit" 
-                          title="Submit" 
-                        />
-                        <input 
-                          type="reset" 
-                          className="zcwf_button" 
-                          name="reset" 
-                          value="Reset" 
-                          title="Reset" 
-                        />
-                      </div>
-                    </div>
-                    
                     <script id="wf_anal" src="https://crm.zohopublic.com/crm/WebFormAnalyticsServe498c59df3dce28d0cf12fc1ac5e5eb7f4c0e0fa37bb9c85d2e3c"></script>
                   </form>
+
+                  {/* Form Footer - Privacy Checkbox, Submit & Reset Buttons - Below Form */}
+                  <div className="zcwf_row" style={{marginTop: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem', backgroundColor: '#FF9500', borderRadius: '0.75rem', padding: '1rem', marginBottom: '2rem'}}>
+                    <div className="zcwf_privacy" style={{display: 'flex', alignItems: 'center'}}>
+                      <div style={{padding: '0 0 0 10px'}}>
+                        <input type="checkbox" id="privacyTool7179876000000615004" aria-invalid="false" onChange={(e) => (window as any).disableErr7179876000000615004()} />
+                      </div>
+                      <span className="zcwf_privacy_txt" style={{color: '#FFFFFF', textDecoration: 'none'}}>
+                        I agree to the{' '}
+                        <a 
+                          id="privacyLink7179876000000615004" 
+                          href="/privacy" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          style={{color: '#FFFFFF', textDecoration: 'underline'}}
+                        >
+                          Privacy Policy
+                        </a>
+                      </span>
+                      <div 
+                        id="privacyErr7179876000000615004" 
+                        style={{fontSize: '12px', color: '#FFFFFF', visibility: 'hidden', marginTop: '0', paddingLeft: '10px', whiteSpace: 'nowrap'}}
+                      >
+                        Please accept
+                      </div>
+                    </div>
+                    <div className="zcwf_col_fld form-footer" style={{display: 'flex', gap: '0.5rem'}}>
+                      <button 
+                        type="submit" 
+                        id="formsubmit" 
+                        className="formsubmit" 
+                        title="Submit"
+                        style={{backgroundColor: '#FFFFFF', color: '#FF9500', padding: '0.75rem 2rem', borderRadius: '0.5rem', border: 'none', fontWeight: '600', cursor: 'pointer', fontSize: '14px'}}
+                        onClick={(e) => {
+                          const form = document.getElementById('webform7179876000000615004') as HTMLFormElement;
+                          if (form && (window as any).checkMandatory7179876000000615004) {
+                            if ((window as any).checkMandatory7179876000000615004()) {
+                              form.submit();
+                            }
+                          }
+                        }}
+                      >
+                        Submit
+                      </button>
+                      <button 
+                        type="reset" 
+                        className="zcwf_button" 
+                        title="Reset"
+                        style={{backgroundColor: '#FFFFFF', color: '#FF9500', padding: '0.75rem 2rem', borderRadius: '0.5rem', border: 'none', fontWeight: '600', cursor: 'pointer', fontSize: '14px'}}
+                        onClick={() => {
+                          const form = document.getElementById('webform7179876000000615004') as HTMLFormElement;
+                          if (form) {
+                            form.reset();
+                          }
+                        }}
+                      >
+                        Reset
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

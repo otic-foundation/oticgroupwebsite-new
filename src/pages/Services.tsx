@@ -43,7 +43,7 @@ const Services = () => {
               <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6">
                 Agentic AI Enterprise Transformation
               </h2>
-              <p className="text-white/80 font-body text-lg">
+              <p className="text-foreground/80 font-body text-lg">
                 This is our flagship, end to end transformation engagement. We work with leadership 
                 to reimagine how the entire organization operates when autonomous AI agents are 
                 embedded across functions, workflows, and decision making. The objective is not 

@@ -75,10 +75,176 @@
     
     /* Grid pattern - slightly more visible */
     --grid-color: 210 20% 95% / 0.04;
+    --deep-sea-blue: 223 40% 8%;
+  }
+
+  /* Dark mode (default) - header tabs white */
+  html:not(.light) header nav a, 
+  html:not(.light) header a, 
+  html:not(.light) header button { 
+    color: #FFFFFF !important; 
+  }
+  html:not(.light) header nav a:hover, 
+  html:not(.light) header a:hover, 
+  html:not(.light) header button:hover { 
+    color: #FFFFFF !important; 
   }
 
   .dark {
     /* Same as root - we're dark by default */
+  }
+
+  /* Light/white mode overrides - AWS-style alternating backgrounds */
+  .light {
+    /* keep base background lilac for landing pages */
+    --background: 270 100% 98%; /* very light lilac base as HSL fallback */
+    /* body / foreground (slate gray) */
+    --foreground-hex: #334155;
+    /* heading color (near-black) */
+    --heading-hex: #0F172A;
+
+    --card: 0 0% 98%;
+    --card-foreground: 220 20% 6%;
+
+    --popover: 0 0% 98%;
+    --popover-foreground: 220 20% 6%;
+
+    --primary: 220 20% 6%;
+    --primary-foreground: 0 0% 100%;
+
+    --accent: 223 63% 33%;
+    --accent-foreground: 0 0% 100%;
+    --accent-luminous: 223 100% 65%;
+
+    --cta: 30 88% 55%;
+    --cta-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 97%;
+    --secondary-foreground: 220 20% 6%;
+
+    --muted: 0 0% 90%;
+    --muted-foreground: 0 0% 60%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* border outlines for light mode */
+    --border: 210 16% 92%; /* #E2E8F0 */
+    --input: 0 0% 95%;
+    --ring: 223 100% 65%;
+
+    --glass-bg: 0 0% 100% / 0.7;
+    --glass-border: 0 0% 0% / 0.08;
+    --glass-blur: 20px;
+
+    --surface-elevated: 0 0% 98%;
+    --surface-overlay: 0 0% 0% / 0.04;
+
+    --grid-color: 220 20% 6% / 0.04;
+
+    /* keep gradients subtle in light mode */
+    --gradient-dark: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(0 0% 98%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(223 100% 98%) 0%, hsl(223 63% 97%) 100%);
+    --gradient-glass: linear-gradient(135deg, hsl(var(--glass-bg)) 0%, hsl(0 0% 100% / 0.4) 100%);
+
+    /* override any hardcoded white colors to readable slate */
+    .text-white { color: var(--foreground-hex) !important; }
+    .text-white\/80 { color: rgba(51,65,85,0.8) !important; }
+    .text-white\/70 { color: rgba(51,65,85,0.7) !important; }
+    .text-white\/60 { color: rgba(51,65,85,0.6) !important; }
+    .border-white\/20 { border-color: #E2E8F0 !important; }
+
+    /* Section background tokens (exact hex values per spec) */
+    --section-bg-primary: #F8FAFC; /* soft blue-gray, near-white */
+    --section-bg-alt: #F3F0FF; /* very light blue-purple tint */
+    --section-bg-accent: #EEF2FF; /* accent / highlight background */
+
+    /* Ensure any heavy gradients are tamed in light mode */
+    [class*="bg-gradient"] { background-image: none !important; }
+
+    /* main > section alternation: primary -> alt -> primary -> alt
+       Also support `.page-section` which we use inside composite components */
+    main > section:not(.keep-bg):nth-of-type(odd),
+    main .page-section:not(.keep-bg):nth-of-type(odd) {
+      background-color: var(--section-bg-primary) !important;
+    }
+    main > section:not(.keep-bg):nth-of-type(even),
+    main .page-section:not(.keep-bg):nth-of-type(even) {
+      background-color: var(--section-bg-alt) !important;
+    }
+
+    /* small accent areas that explicitly want accent background */
+    .section-accent { background-color: var(--section-bg-accent) !important; }
+
+    /* Typography overrides for light mode */
+    h1, h2, h3, h4, h5, h6 { color: #0F172A; }
+    p, body, .text-foreground { color: #334155 !important; }
+
+    /* Contact form in light mode - beige background, white fields and dark text */
+    html.light #webform7179876000000615004,
+    html.light .zcwf_lblLeft {
+      background-color: #F5E6D3 !important;
+      border-color: #E0D0B8 !important;
+    }
+    html.light .zcwf_lblLeft input[type="text"],
+    html.light .zcwf_lblLeft input[type="email"],
+    html.light .zcwf_lblLeft input[type="tel"],
+    html.light .zcwf_lblLeft textarea,
+    html.light .zcwf_lblLeft select {
+      color: #0F172A !important;
+      background-color: #FFFFFF !important;
+      border-color: #CCCCCC !important;
+    }
+    html.light .zcwf_lblLeft input::placeholder,
+    html.light .zcwf_lblLeft textarea::placeholder {
+      color: #9CA3AF !important;
+    }
+    /* Force all textual content inside the Zoho form to be dark in light mode */
+    html.light .zcwf_lblLeft,
+    html.light .zcwf_lblLeft * {
+      color: #0F172A !important;
+    }
+    .zcwf_lblLeft label,
+    .zcwf_lblLeft .zcwf_col_lab label,
+    .form-section-label,
+    .zcwf_lblLeft .zcwf_privacy_txt {
+      color: #FFFFFF !important;
+    }
+    .zcwf_lblLeft .zcwf_button {
+      color: #FFFFFF !important;
+      border-color: #FFFFFF !important;
+    }
+    .zcwf_lblLeft .zcwf_title {
+      color: #FFFFFF !important;
+    }
+    .zcwf_lblLeft a {
+      color: #38BDF8 !important;
+    }
+
+    /* subtle outlines */
+    .border-border, .border-border\/20 { border-color: #E2E8F0 !important; }
+
+    /* ensure hero / dark sections keep their dark styling if explicitly marked */
+    .hero-dark { color: #fff; }
+
+    /* Research cards in light mode keep white titles */
+    .light .group h3.font-display { color: #FFFFFF !important; }
+    .light .group .text-white { color: #FFFFFF !important; }
+
+     /* Landing page background override (soft lilac similar to Otic Learn)
+       Use a direct background-color to ensure Tailwind bg- variables don't override it. */
+     body { background-color: #F5F2FF !important; }
+
+    /* Header background - transparent in light mode so video shows through, all tabs black */
+    header { background-color: transparent !important; }
+    /* In light mode all header tabs (including Expertise, Company) should be black */
+    header nav a, header a, header button { color: #0F172A !important; }
+    header nav a:hover, header a:hover, header button:hover { color: #0F172A !important; }
+    /* Glass card styling in header for transparency */
+    header .glass-card { background: hsl(var(--glass-bg)) !important; }
+
+    /* Contact section - beige background in light mode only */
+    .contact-section { background-color: #F5E6D3 !important; }
   }
 }
 
@@ -277,9 +443,49 @@
   /* Section panel with subtle elevation */
   .section-panel {
     position: relative;
-    background: hsl(220 25% 8% / 0.6);
+    background: hsl(var(--glass-bg));
     border: 1px solid hsl(var(--border) / 0.5);
     border-radius: 1.5rem;
+    color: hsl(var(--primary));
+  }
+
+  /* Full-screen video hero section */
+  .video-hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .video-hero-section video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+
+  .video-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 2;
+  }
+
+  .video-hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    color: white;
   }
 
   .section-panel::before {

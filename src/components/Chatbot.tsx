@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
-import { MessageCircle, X, Send, ArrowRight } from 'lucide-react';
+import { X, Send, ArrowRight, MessageCircle } from 'lucide-react';
+import logo from '@/assets/oticlogo.png';
 import { Link } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 
@@ -79,14 +80,14 @@ const Chatbot = () => {
         className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-cta text-cta-foreground shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
         aria-label={isOpen ? 'Close chat' : 'Open chat'}
       >
-        {isOpen ? <X className="w-6 h-6" /> : <MessageCircle className="w-6 h-6" />}
+        {isOpen ? <X className="w-6 h-6" /> : <MessageCircle className="w-7 h-7 stroke-2" />}
       </button>
 
       <div className={`fixed bottom-24 right-6 z-50 w-[350px] sm:w-[400px] max-h-[500px] glass-card rounded-2xl border border-border/50 shadow-2xl flex flex-col overflow-hidden transition-all duration-300 ${isOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'}`}>
         <div className="px-4 py-3 border-b border-border/30 bg-secondary/50">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-cta/20 flex items-center justify-center">
-              <MessageCircle className="w-5 h-5 text-cta" />
+            <div className="w-10 h-10 rounded-full bg-cta/20 flex items-center justify-center overflow-hidden">
+              <img src={logo} alt="Otic logo" className="w-7 h-7 object-contain" />
             </div>
             <div>
               <h3 className="font-body font-semibold text-sm">Otic AI Assistant</h3>

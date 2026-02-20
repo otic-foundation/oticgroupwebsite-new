@@ -87,12 +87,19 @@ const ResearchReimagined = () => {
 
         {/* Hero Image - Bank Building */}
         <section className="relative w-full">
-          <div className="w-full h-[250px] md:h-[400px] lg:h-[500px] overflow-hidden">
-            <img 
-              src={bankBuilding} 
-              alt="Modern banking institution"
+          <div className="w-full h-[250px] md:h-[400px] lg:h-[500px] overflow-hidden relative">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster={bankBuilding}
               className="w-full h-full object-cover"
-            />
+            >
+              <source src="/reimagined.mp4" type="video/mp4" />
+              {/* Fallback still image if video is not supported */}
+            </video>
             <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background/80" />
           </div>
         </section>

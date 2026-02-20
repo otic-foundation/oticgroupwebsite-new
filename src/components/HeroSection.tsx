@@ -1,198 +1,117 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import speakerImage from '@/assets/hero-speaker.jpeg';
-import WhatsNewSection from './WhatsNewSection';
+import reimaginedBankingCover from '@/assets/research/reimagined-cover.png';
 
 const HeroSection = () => {
-  const parallaxRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (parallaxRef.current) {
-        const scrolled = window.scrollY;
-        parallaxRef.current.style.transform = `translateY(${scrolled * 0.15}px)`;
-      }
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   return (
-    <section className="relative overflow-hidden">
-      {/* DESKTOP VIEW - Headline above, flyer section, full-width image, quote below */}
-      <div className="hidden lg:block relative">
-        {/* Headline Section */}
-        <div className="relative z-10 pt-32 pb-10 bg-background">
+    <>
+      {/* Full-screen video hero from header to "What's new" */}
+      <section className="video-hero-section relative pt-24">
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute top-0 left-0 w-full h-full object-cover"
+        >
+          <source src="/hero-video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div className="video-hero-overlay" />
+        <div className="video-hero-content">
           <div className="container mx-auto px-6 lg:px-12">
-            {/* Small label */}
             <div className="glass-card p-4 rounded-lg border-l-2 border-accent-luminous/50 mb-8 inline-block animate-fade-up">
               <p className="text-xs uppercase tracking-widest text-muted-foreground font-body leading-relaxed">
                 Empowering Africa's future{' '}
                 <span className="text-gradient font-medium">With Artificial Intelligence</span>
               </p>
             </div>
-
-            {/* Headline - single line */}
-            <h1 className="font-display text-6xl xl:text-7xl 2xl:text-8xl font-bold leading-[0.95] tracking-tight animate-fade-up-delay-1">
-              <span className="text-white">The Future </span>
+            <h1 className="font-display text-6xl xl:text-7xl 2xl:text-8xl font-bold leading-[0.95] tracking-tight animate-fade-up-delay-1 text-white">
+              <span>The Future </span>
               <span className="text-cta italic">Reimagined</span>
             </h1>
           </div>
         </div>
+      </section>
 
-        {/* "See what's new with us" Section */}
-        <WhatsNewSection />
-
-        {/* Full-width hero image - show full subject */}
-        <div className="relative w-full overflow-hidden bg-background/50">
-          <div ref={parallaxRef} className="w-full">
-            <img
-              src={speakerImage}
-              alt="Visionary leader speaking about the future of African enterprise"
-              className="w-full h-auto object-contain max-h-[80vh]"
-            />
-            {/* Subtle gradient overlays */}
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/20 pointer-events-none" />
-          </div>
-        </div>
-
-        {/* Quote section below the image */}
-        <div className="relative z-10 py-16 bg-background">
-          <div className="container mx-auto px-6 lg:px-12">
-            <div className="max-w-3xl mx-auto">
-              <div className="section-panel p-8 rounded-xl border-l-2 border-cta/50 animate-fade-up">
-                <p className="text-lg lg:text-xl text-muted-foreground font-body leading-relaxed italic">
-                  "We are architecting the intelligence layer for African enterprise. 
-                  By merging rigorous systems thinking with adaptive AI, Otic Group 
-                  is not just predicting what comes next—we are building the framework for it."
-                </p>
-                <div className="mt-6 flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent-luminous/30 to-accent/20 flex items-center justify-center border border-accent-luminous/20">
-                    <span className="text-accent-luminous font-display font-bold text-lg">N</span>
-                  </div>
-                  <div>
-                    <p className="text-sm text-foreground font-body font-medium">
-                      Nesta Paul Katende
-                    </p>
-                    <p className="text-xs text-muted-foreground font-body uppercase tracking-wide">
-                      Group CEO & Founder
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* CTA buttons below quote */}
-              <div className="mt-10 flex flex-wrap gap-4 animate-fade-up-delay-2">
-                <Link 
-                  to="/services" 
-                  className="btn-glow px-8 py-4 rounded-lg text-cta-foreground uppercase font-medium flex items-center gap-2 group"
-                >
-                  Explore Our Services
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-                <Link 
-                  to="/about" 
-                  className="glass-card-hover px-8 py-4 rounded-lg text-foreground uppercase font-medium border border-accent-luminous/20 hover:border-accent-luminous/40"
-                >
-                  Learn More
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* MOBILE/TABLET VIEW - Stacked layout */}
-      <div className="lg:hidden min-h-screen relative grid-bg">
-        {/* Animated orb decorations */}
-        <div className="orb orb-luminous w-[300px] h-[300px] -top-32 -right-32 animate-glow-pulse" />
-        <div className="orb orb-blue w-48 h-48 top-1/3 -left-24 animate-float" style={{ animationDelay: '1s' }} />
-        <div className="orb orb-accent w-40 h-40 bottom-20 right-1/4 animate-float" style={{ animationDelay: '2s' }} />
-        
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background pointer-events-none" />
-        
-        {/* Main content */}
-        <div className="container mx-auto px-6 pt-28 pb-16 relative z-10">
-          {/* Small label */}
-          <div className="glass-card p-4 rounded-lg border-l-2 border-accent-luminous/50 mb-8 inline-block animate-fade-up">
-            <p className="text-xs uppercase tracking-widest text-muted-foreground font-body leading-relaxed">
-              Empowering Africa's future<br />
-              <span className="text-gradient font-medium">With Artificial Intelligence</span>
-            </p>
+      {/* "What's new with us" section */}
+      <section className="page-section py-12">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="font-display text-5xl lg:text-6xl font-bold leading-tight">
+              What's new <span className="text-cta italic">with us</span>
+            </h2>
           </div>
 
-          {/* Headline */}
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold leading-[0.95] tracking-tight animate-fade-up-delay-1 mb-10">
-            <span className="block text-white">The Future</span>
-            <span className="block text-cta italic">Reimagined</span>
-          </h1>
-
-          {/* "See what's new with us" Section */}
-          <div className="mb-10">
-            <WhatsNewSection />
-          </div>
-
-          {/* Speaker image */}
-          <div className="animate-fade-up-delay-2 mb-10">
-            <div className="relative w-full max-w-md mx-auto">
-              <div className="absolute -inset-4 glass-card rounded-2xl -z-10 border border-accent-luminous/10" />
-              <div className="absolute -inset-8 border border-accent-luminous/5 rounded-3xl -z-20" />
-              <div className="relative overflow-hidden rounded-xl">
-                <img
-                  src={speakerImage}
-                  alt="Visionary leader speaking about the future of African enterprise"
-                  className="w-full h-auto object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-accent-luminous/5 pointer-events-none" />
-              </div>
-            </div>
-          </div>
-
-          {/* Description block */}
-          <div className="animate-fade-up-delay-3 mb-10">
-            <div className="section-panel p-6 rounded-xl border-l-2 border-cta/50">
-              <p className="text-base text-muted-foreground font-body leading-relaxed italic">
-                "We are architecting the intelligence layer for African enterprise. 
-                By merging rigorous systems thinking with adaptive AI, Otic Group 
-                is not just predicting what comes next—we are building the framework for it."
-              </p>
-              <div className="mt-4 flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent-luminous/30 to-accent/20 flex items-center justify-center border border-accent-luminous/20">
-                  <span className="text-accent-luminous font-display font-bold text-lg">N</span>
-                </div>
-                <div>
-                  <p className="text-sm text-foreground font-body font-medium">
-                    Nesta Paul Katende
-                  </p>
-                  <p className="text-xs text-muted-foreground font-body uppercase tracking-wide">
-                    Group CEO & Founder
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* CTA buttons */}
-          <div className="flex flex-wrap gap-4 justify-center animate-fade-up-delay-4">
-            <Link 
-              to="/services" 
-              className="btn-glow px-8 py-4 rounded-lg text-cta-foreground uppercase font-medium flex items-center gap-2 group"
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Reimagined Banking Card */}
+            <Link
+              to={'/research'}
+              className="group relative block overflow-hidden rounded-xl bg-card/80 backdrop-blur-sm border border-white/10 transition-all duration-500 hover:border-accent/40 hover:shadow-2xl hover:shadow-accent/10"
             >
-              Explore Our Services
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <div className="relative aspect-[3/4] overflow-hidden">
+                <div className="absolute inset-0 bg-secondary/50 flex items-center justify-center p-6 pt-16">
+                  <img
+                    src={reimaginedBankingCover}
+                    alt="Reimagined Banking"
+                    className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+
+                <div className="absolute inset-0 flex flex-col justify-end p-6">
+                  <h3 className="font-display text-xl md:text-2xl font-bold text-white mb-3 leading-tight">
+                    The Agentic AI Inflection Point In Banking
+                  </h3>
+                  <p className="text-white/80 font-body text-sm leading-relaxed mb-4">
+                    Banks are crossing a structural boundary: from AI as an assistant to AI as an autonomous actor.
+                  </p>
+                  <div className="flex items-center gap-2 text-cta font-body text-sm font-medium group-hover:gap-3 transition-all duration-300">
+                    <span>Read more</span>
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </div>
+                </div>
+              </div>
             </Link>
-            <Link 
-              to="/about" 
-              className="glass-card-hover px-8 py-4 rounded-lg text-foreground uppercase font-medium border border-accent-luminous/20 hover:border-accent-luminous/40"
+
+            {/* Ecobank Uganda Card with Video */}
+            <Link
+              to="/research"
+              className="group relative block overflow-hidden rounded-xl bg-card/80 backdrop-blur-sm border border-white/10 transition-all duration-500 hover:border-accent/40 hover:shadow-2xl hover:shadow-accent/10"
             >
-              Learn More
+              <div className="relative aspect-[3/4] overflow-hidden">
+                {/* Video as background */}
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  className="absolute inset-0 w-full h-full object-cover"
+                >
+                  <source src="/ecobank-video.mp4" type="video/mp4" />
+                </video>
+
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+
+                <div className="absolute inset-0 flex flex-col justify-end p-6">
+                  <h3 className="font-display text-xl md:text-2xl font-bold text-white mb-3 leading-tight">
+                    A reimagined series: Ecobank Uganda
+                  </h3>
+                  <div className="flex items-center gap-2 text-cta font-body text-sm font-medium group-hover:gap-3 transition-all duration-300">
+                    <span>Read more</span>
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </div>
+                </div>
+              </div>
             </Link>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

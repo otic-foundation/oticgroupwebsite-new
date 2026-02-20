@@ -1,17 +1,45 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown } from 'lucide-react';
-import logo from '@/assets/logo.png';
+import { Menu, X, ChevronDown, Sun, Moon } from 'lucide-react';
+import logo from '@/assets/oticlogo.png';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [expertiseOpen, setExpertiseOpen] = useState(false);
   const [companyOpen, setCompanyOpen] = useState(false);
+  const [isLight, setIsLight] = useState(false);
   const location = useLocation();
   
   const expertiseTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const companyTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // apply theme class on root and persist
+  const applyTheme = (light: boolean) => {
+    const root = document.documentElement;
+    if (light) {
+      root.classList.add('light');
+    } else {
+      root.classList.remove('light');
+    }
+    localStorage.setItem('theme', light ? 'light' : 'dark');
+  };
+
+  const toggleTheme = () => {
+    setIsLight(prev => {
+      const next = !prev;
+      applyTheme(next);
+      return next;
+    });
+  };
+
+  useEffect(() => {
+    // read stored preference or default to dark
+    const pref = localStorage.getItem('theme');
+    const light = pref === 'light';
+    setIsLight(light);
+    applyTheme(light);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,7 +65,7 @@ const Header = () => {
   const handleExpertiseLeave = () => {
     expertiseTimeoutRef.current = setTimeout(() => {
       setExpertiseOpen(false);
-    }, 150);
+    }, 350);
   };
 
   const handleCompanyEnter = () => {
@@ -50,7 +78,7 @@ const Header = () => {
   const handleCompanyLeave = () => {
     companyTimeoutRef.current = setTimeout(() => {
       setCompanyOpen(false);
-    }, 150);
+    }, 350);
   };
 
   return (
@@ -141,6 +169,18 @@ const Header = () => {
           <Link to="/contact" className="btn-glow px-6 py-2.5 rounded-lg text-cta-foreground uppercase font-medium">
             Contact
           </Link>
+          {/* theme toggle */}
+          <button
+            onClick={toggleTheme}
+            className="ml-4 p-2 rounded-full hover:bg-secondary/50 transition-colors"
+            aria-label="Toggle light/dark mode"
+          >
+            {isLight ? (
+              <Moon className="w-5 h-5 text-foreground" />
+            ) : (
+              <Sun className="w-5 h-5 text-foreground" />
+            )}
+          </button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -162,6 +202,14 @@ const Header = () => {
           <Link to="/about" className="block py-3 px-4 text-foreground font-body rounded-lg hover:bg-secondary/50 transition-colors">Who We Are</Link>
           <Link to="/partners" className="block py-3 px-4 text-foreground font-body rounded-lg hover:bg-secondary/50 transition-colors">Partner with us</Link>
           <Link to="/contact" className="block py-3 px-4 text-cta font-body font-medium rounded-lg hover:bg-cta/10 transition-colors">Contact</Link>
+          {/* mobile theme toggle */}
+          <button
+            onClick={toggleTheme}
+            className="block py-3 px-4 text-foreground font-body rounded-lg hover:bg-secondary/50 transition-colors"
+            aria-label="Toggle light/dark mode"
+          >
+            {isLight ? 'Dark Mode' : 'Light Mode'}
+          </button>
         </div>
       </div>
     </header>

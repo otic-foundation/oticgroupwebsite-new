@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Linkedin, Facebook, Youtube } from 'lucide-react';
-import logo from '@/assets/logo.png';
+import logo from '@/assets/oticlogo.png';
 
 // Custom X (Twitter) icon
 const XIcon = () => (
