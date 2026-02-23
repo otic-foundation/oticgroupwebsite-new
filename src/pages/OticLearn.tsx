@@ -73,7 +73,7 @@ const OticLearn = () => {
               </div>
               <div className="relative aspect-square rounded-2xl overflow-hidden border border-white/10">
                 <img
-                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80"
+                  src="/oticlearn.png"
                   alt="Collaborative learning environment"
                   className="w-full h-full object-cover"
                 />

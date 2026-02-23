@@ -99,15 +99,15 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-8 text-sm tracking-wide font-body">
-          <Link to="/otic-vision" className="text-muted-foreground hover:text-foreground transition-colors uppercase relative group">
+          <Link to="/otic-vision" className="text-muted-foreground light:text-gray-900 hover:text-foreground light:hover:text-black transition-colors uppercase relative group">
             Otic Vision
             <span className="absolute -bottom-1 left-0 w-0 h-px bg-accent-luminous group-hover:w-full transition-all duration-300" />
           </Link>
-          <Link to="/otic-learn" className="text-muted-foreground hover:text-foreground transition-colors uppercase relative group">
+          <Link to="/otic-learn" className="text-muted-foreground light:text-gray-900 hover:text-foreground light:hover:text-black transition-colors uppercase relative group">
             Otic Learn
             <span className="absolute -bottom-1 left-0 w-0 h-px bg-accent-luminous group-hover:w-full transition-all duration-300" />
           </Link>
-          <Link to="/research" className="text-muted-foreground hover:text-foreground transition-colors uppercase relative group">
+          <Link to="/research" className="text-muted-foreground light:text-gray-900 hover:text-foreground light:hover:text-black transition-colors uppercase relative group">
             Research
             <span className="absolute -bottom-1 left-0 w-0 h-px bg-accent-luminous group-hover:w-full transition-all duration-300" />
           </Link>
@@ -118,7 +118,7 @@ const Header = () => {
             onMouseEnter={handleExpertiseEnter} 
             onMouseLeave={handleExpertiseLeave}
           >
-            <button className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors uppercase group">
+            <button className="flex items-center gap-1 text-muted-foreground light:text-gray-900 hover:text-foreground light:hover:text-black transition-colors uppercase group">
               Expertise <ChevronDown className={`w-3 h-3 transition-transform ${expertiseOpen ? 'rotate-180' : ''}`} />
             </button>
             <div 
@@ -128,11 +128,11 @@ const Header = () => {
               onMouseEnter={handleExpertiseEnter}
               onMouseLeave={handleExpertiseLeave}
             >
-              <div className="glass-card rounded-lg overflow-hidden border border-accent-luminous/10 bg-background/95 backdrop-blur-xl">
-                <Link to="/services" className="block px-4 py-3 text-muted-foreground hover:text-foreground hover:bg-accent-luminous/10 transition-colors border-b border-border/30">
+              <div className="glass-card rounded-lg overflow-hidden border border-accent-luminous/10 bg-background/95 light:bg-white/95 backdrop-blur-xl">
+                <Link to="/services" className="block px-4 py-3 text-muted-foreground light:text-gray-900 hover:text-foreground light:hover:text-black hover:bg-accent-luminous/10 light:hover:bg-gray-100 transition-colors border-b border-border/30">
                   Services
                 </Link>
-                <Link to="/industries" className="block px-4 py-3 text-muted-foreground hover:text-foreground hover:bg-accent-luminous/10 transition-colors">
+                <Link to="/industries" className="block px-4 py-3 text-muted-foreground light:text-gray-900 hover:text-foreground light:hover:text-black hover:bg-accent-luminous/10 light:hover:bg-gray-100 transition-colors">
                   Industries
                 </Link>
               </div>
@@ -145,7 +145,7 @@ const Header = () => {
             onMouseEnter={handleCompanyEnter} 
             onMouseLeave={handleCompanyLeave}
           >
-            <button className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors uppercase group">
+            <button className="flex items-center gap-1 text-muted-foreground light:text-gray-900 hover:text-foreground light:hover:text-black transition-colors uppercase group">
               Company <ChevronDown className={`w-3 h-3 transition-transform ${companyOpen ? 'rotate-180' : ''}`} />
             </button>
             <div 
@@ -155,11 +155,11 @@ const Header = () => {
               onMouseEnter={handleCompanyEnter}
               onMouseLeave={handleCompanyLeave}
             >
-              <div className="glass-card rounded-lg overflow-hidden border border-accent-luminous/10 bg-background/95 backdrop-blur-xl">
-                <Link to="/about" className="block px-4 py-3 text-muted-foreground hover:text-foreground hover:bg-accent-luminous/10 transition-colors border-b border-border/30">
+              <div className="glass-card rounded-lg overflow-hidden border border-accent-luminous/10 bg-background/95 light:bg-white/95 backdrop-blur-xl">
+                <Link to="/about" className="block px-4 py-3 text-muted-foreground light:text-gray-900 hover:text-foreground light:hover:text-black hover:bg-accent-luminous/10 light:hover:bg-gray-100 transition-colors border-b border-border/30">
                   Who We Are
                 </Link>
-                <Link to="/partners" className="block px-4 py-3 text-muted-foreground hover:text-foreground hover:bg-accent-luminous/10 transition-colors">
+                <Link to="/partners" className="block px-4 py-3 text-muted-foreground light:text-gray-900 hover:text-foreground light:hover:text-black hover:bg-accent-luminous/10 light:hover:bg-gray-100 transition-colors">
                   Partner with us
                 </Link>
               </div>

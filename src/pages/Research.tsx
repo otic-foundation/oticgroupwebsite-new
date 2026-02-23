@@ -99,7 +99,7 @@ const Research = () => {
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${researchBg})` }}
           />
-          <div className="absolute inset-0 bg-background/85" />
+          <div className="absolute inset-0 dark:bg-background/85" />
           
           <div className="container mx-auto px-6 lg:px-12 relative z-10">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -121,7 +121,7 @@ const Research = () => {
                   {/* Card Content */}
                   <div className="relative aspect-[3/4] overflow-hidden">
                     {/* Image - object-contain to show full image */}
-                    <div className="absolute inset-0 bg-secondary/50 flex items-center justify-center p-6 pt-16">
+                    <div className="absolute inset-0 dark:bg-secondary/50 light:bg-white/10 flex items-center justify-center p-6 pt-16">
                       <img
                         src={item.image}
                         alt={item.title}
@@ -129,8 +129,8 @@ const Research = () => {
                       />
                     </div>
                     
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+                    {/* Gradient Overlay - Dark mode prominent, light mode subtle */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent dark:from-background dark:via-background/40" />
                     
                     {/* Content Overlay */}
                     <div className="absolute inset-0 flex flex-col justify-end p-6">

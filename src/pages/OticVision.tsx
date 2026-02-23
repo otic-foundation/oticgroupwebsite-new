@@ -1,30 +1,68 @@
-import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { ArrowRight, Eye, BarChart3, ShoppingCart, FileCheck, Users, Smartphone, TrendingUp, Shield } from 'lucide-react';
+import { ArrowRight, BarChart3, Smartphone, TrendingUp, Shield, Users } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+
+const LazyVideo = ({ src, poster, className }: { src: string; poster?: string; className?: string }) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+        observer.unobserve(entry.target);
+      }
+    }, { threshold: 0.1 });
+
+    if (videoRef.current) {
+      observer.observe(videoRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <video
+      ref={videoRef}
+      autoPlay={isVisible}
+      muted
+      loop
+      playsInline
+      preload={isVisible ? "auto" : "none"}
+      poster={poster}
+      className={className}
+      src={isVisible ? src : undefined}
+    />
+  );
+};
 
 const OticVision = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-1">
-        {/* Hero Section - matching Industries style */}
-        <section className="pt-32 pb-20 relative overflow-hidden bg-secondary/30">
-          <div className="orb orb-luminous w-[500px] h-[500px] -top-64 -right-64 animate-glow-pulse" />
-          <div className="orb orb-blue w-80 h-80 bottom-0 -left-40 opacity-25" />
+        {/* Hero Section - Video Background */}
+        <section className="relative min-h-[90vh] overflow-hidden dark">
+          <LazyVideo
+            src="/shopkeeper.mp4"
+            poster="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=1600&q=80"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/75 dark:bg-black/75" />
           
           <div className="container mx-auto px-6 lg:px-12 relative z-10">
             <div className="max-w-4xl">
               <div className="flex items-center gap-3 mb-6">
                 <span className="w-2 h-2 rounded-full bg-cta" />
-                <p className="text-xs uppercase tracking-widest text-cta font-body">
+                <p className="text-xs uppercase tracking-widest !text-white font-body">
                   Product
                 </p>
               </div>
               <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8">
-                <span className="text-white">OticVision</span>
+                <span className="!text-white">OticVision</span>
               </h1>
-              <p className="text-xl lg:text-2xl text-muted-foreground font-body leading-relaxed mb-8">
+              <p className="text-xl lg:text-2xl !text-white font-body leading-relaxed mb-8" style={{ color: '#ffffff' }}>
                 An operations platform built to give African SMEs enterprise grade visibility and 
                 control using nothing more than a smartphone. It brings together computer vision, 
                 automation, and real time analytics to help business owners understand what is 
@@ -51,77 +89,14 @@ const OticVision = () => {
               <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 text-white">
                 Why OticVision Exists
               </h2>
-              <p className="text-muted-foreground font-body text-lg leading-relaxed mb-6">
+              <p className="text-white font-body text-lg leading-relaxed mb-6">
                 Most small and medium businesses operate with limited insight. Inventory is manual, 
                 sales data is fragmented, customer behavior is unclear, and compliance is time consuming. 
                 This leads to lost revenue, slow decisions, and operational stress.
               </p>
-              <p className="text-cta font-body text-lg font-medium">
+                <p className="text-white font-body text-lg font-medium">
                 OticVision closes this gap by making advanced AI tools affordable, simple, and locally relevant.
               </p>
-            </div>
-          </div>
-        </section>
-
-        {/* What OticVision Delivers */}
-        <section className="py-20 bg-background">
-          <div className="container mx-auto px-6 lg:px-12">
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-16 text-center text-white">
-              What OticVision Delivers
-            </h2>
-            
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="p-8 border border-white/10 hover:border-cta/50 transition-colors group rounded-xl">
-                <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors mb-6">
-                  <Eye className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="font-display text-2xl font-bold mb-4 text-white">
-                  Full Operational Visibility
-                </h3>
-                <p className="text-muted-foreground font-body">
-                  Track inventory, sales, customers, and performance in real time with automated 
-                  dashboards and alerts.
-                </p>
-              </div>
-
-              <div className="p-8 border border-white/10 hover:border-cta/50 transition-colors group rounded-xl">
-                <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors mb-6">
-                  <ShoppingCart className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="font-display text-2xl font-bold mb-4 text-white">
-                  AI Powered Inventory and Sales
-                </h3>
-                <p className="text-muted-foreground font-body">
-                  Use computer vision to scan products, record sales instantly, and keep stock 
-                  levels accurate without manual effort.
-                </p>
-              </div>
-
-              <div className="p-8 border border-white/10 hover:border-cta/50 transition-colors group rounded-xl">
-                <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors mb-6">
-                  <FileCheck className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="font-display text-2xl font-bold mb-4 text-white">
-                  Built In Compliance and Accounting
-                </h3>
-                <p className="text-muted-foreground font-body">
-                  Generate compliant digital receipts and simplify reporting through integrated 
-                  accounting and regulatory readiness.
-                </p>
-              </div>
-
-              <div className="p-8 border border-white/10 hover:border-cta/50 transition-colors group rounded-xl">
-                <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center border border-white/20 group-hover:border-cta/40 transition-colors mb-6">
-                  <Users className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="font-display text-2xl font-bold mb-4 text-white">
-                  Better Customer Experience
-                </h3>
-                <p className="text-muted-foreground font-body">
-                  Reduce queues, support digital payments, and understand customer behavior 
-                  through data driven insights.
-                </p>
-              </div>
             </div>
           </div>
         </section>
@@ -158,18 +133,18 @@ const OticVision = () => {
                 <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 text-white">
                   Designed for African Businesses
                 </h2>
-                <p className="text-muted-foreground font-body text-lg leading-relaxed mb-6">
+                <p className="text-white font-body text-lg leading-relaxed mb-6">
                   OticVision is built for local realities. It works on smartphones, requires minimal 
                   setup, and scales with the business. Pricing is structured to remain accessible 
                   as businesses grow.
                 </p>
-                <p className="text-muted-foreground font-body text-lg leading-relaxed">
+                <p className="text-white font-body text-lg leading-relaxed">
                   Unlike generic tools, OticVision balances advanced capability with everyday usability.
                 </p>
               </div>
               <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/10">
                 <img
-                  src="https://images.unsplash.com/photo-1556740758-90de374c12ad?w=800&q=80"
+                  src="/oticbusiness.jpg"
                   alt="African business owner using smartphone"
                   className="w-full h-full object-cover"
                 />
@@ -186,7 +161,7 @@ const OticVision = () => {
               <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 text-white">
                 The Bigger Vision
               </h2>
-              <p className="text-muted-foreground font-body text-lg leading-relaxed">
+              <p className="text-white font-body text-lg leading-relaxed">
                 OticVision is part of Otic Group's mission to democratize access to intelligence 
                 across Africa. By giving entrepreneurs clear sight into their operations, we enable 
                 stronger businesses, better livelihoods, and more resilient local economies.
@@ -206,7 +181,7 @@ const OticVision = () => {
               <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">
                 <span className="text-white">Ready to Transform Your Business?</span>
               </h2>
-              <p className="text-muted-foreground font-body text-lg mb-8 max-w-2xl mx-auto">
+              <p className="text-white font-body text-lg mb-8 max-w-2xl mx-auto">
                 Join thousands of SMEs across Africa using Otic Vision to streamline operations.
               </p>
               <a
