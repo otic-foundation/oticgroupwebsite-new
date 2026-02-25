@@ -5,6 +5,7 @@ import { ArrowRight } from 'lucide-react';
 const HeroSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const compactRailRef = useRef<HTMLDivElement>(null);
+  const internshipsRailRef = useRef<HTMLDivElement>(null);
 
   const scrollCompactRail = (direction: 'left' | 'right') => {
     if (!compactRailRef.current) return;
@@ -12,6 +13,14 @@ const HeroSection = () => {
     const step = card ? card.offsetWidth + 24 : 320;
     const offset = direction === 'left' ? -step : step;
     compactRailRef.current.scrollBy({ left: offset, behavior: 'smooth' });
+  };
+
+  const scrollInternshipsRail = (direction: 'left' | 'right') => {
+    if (!internshipsRailRef.current) return;
+    const card = internshipsRailRef.current.querySelector<HTMLElement>('[data-internship-card]');
+    const step = card ? card.offsetWidth + 24 : 640;
+    const offset = direction === 'left' ? -step : step;
+    internshipsRailRef.current.scrollBy({ left: offset, behavior: 'smooth' });
   };
 
   return (
@@ -58,77 +67,104 @@ const HeroSection = () => {
             </p>
           </div>
 
-          <a
-            href="https://forms.zohopublic.com/bobdstvgm1/form/UIUXDesignerInternApplicationForm/formperma/0BIwseDjX660OgxvHKGw7fZN7tIdbkBrS7WqNkRCQvU"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative block overflow-hidden rounded-3xl border border-white/10 bg-white/5 dark:bg-white/5 backdrop-blur-sm shadow-lg transition-all duration-300 ease-out hover:-translate-y-1 mt-8"
-          >
-            <div className="grid lg:grid-cols-12 gap-0">
-              <div className="lg:col-span-7 relative aspect-[16/9] lg:aspect-auto bg-black/5">
-                <img
-                  src="/uiux%20landscape.jpg"
-                  alt="Intelligent Systems Design Intern application flyer"
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-              </div>
-              <div className="lg:col-span-5 p-6 sm:p-8 flex flex-col justify-center gap-6">
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground font-body">
-                    UI/UX Internship
-                  </p>
-                  <h3 className="mt-3 font-display text-2xl sm:text-3xl font-bold">
-                    Intelligent Systems Design Intern Application
-                  </h3>
-                  <p className="mt-4 text-muted-foreground font-body text-sm sm:text-base">
-                    Apply for the UI/UX intern role focused on designing AI-first experiences.
-                  </p>
-                </div>
-                <div>
-                  <span className="inline-flex items-center justify-center rounded-full bg-cta px-6 py-3 text-sm font-semibold text-white shadow-md transition-transform duration-300 group-hover:scale-[1.02]">
-                    Apply
-                  </span>
-                </div>
-              </div>
-            </div>
-          </a>
+          <div className="flex items-center justify-end gap-2 mb-4">
+            <button
+              type="button"
+              onClick={() => scrollInternshipsRail('left')}
+              className="h-9 w-9 rounded-full border border-border/60 bg-background/80 backdrop-blur-sm text-foreground hover:border-cta/60 hover:text-cta transition-colors"
+              aria-label="Scroll internships left"
+            >
+              <span className="sr-only">Scroll left</span>
+              <ArrowRight className="w-4 h-4 rotate-180 mx-auto" />
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollInternshipsRail('right')}
+              className="h-9 w-9 rounded-full border border-border/60 bg-background/80 backdrop-blur-sm text-foreground hover:border-cta/60 hover:text-cta transition-colors"
+              aria-label="Scroll internships right"
+            >
+              <span className="sr-only">Scroll right</span>
+              <ArrowRight className="w-4 h-4 mx-auto" />
+            </button>
+          </div>
 
-          <a
-            href="https://forms.zohopublic.com/bobdstvgm1/form/InternApplicationForm/formperma/51MorMsVuuJyRFD3WuvnNg7XrTVlHIfxd9_4Ds2oQUo"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative block overflow-hidden rounded-3xl border border-white/10 bg-white/5 dark:bg-white/5 backdrop-blur-sm shadow-lg transition-all duration-300 ease-out hover:-translate-y-1 mt-8"
+          <div
+            ref={internshipsRailRef}
+            className="flex gap-6 overflow-x-auto scroll-smooth pb-2 snap-x snap-mandatory"
           >
-            <div className="grid lg:grid-cols-12 gap-0">
-              <div className="lg:col-span-7 relative aspect-[16/9] lg:aspect-auto bg-black/5">
-                <img
-                  src="/agentic%20ai%20interns%20landscape.jpg"
-                  alt="Otic Internships flyer"
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-              </div>
-              <div className="lg:col-span-5 p-6 sm:p-8 flex flex-col justify-center gap-6">
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground font-body">
-                    Recruitment
-                  </p>
-                  <h3 className="mt-3 font-display text-2xl sm:text-3xl font-bold">
-                    Join the <span className="text-cta italic">Agentic AI</span> Internship Cohort
-                  </h3>
-                  <p className="mt-4 text-muted-foreground font-body text-sm sm:text-base">
-                    Apply for a structured internship program focused on AI, product, and research.
-                  </p>
+            <a
+              href="https://forms.zohopublic.com/bobdstvgm1/form/UIUXDesignerInternApplicationForm/formperma/0BIwseDjX660OgxvHKGw7fZN7tIdbkBrS7WqNkRCQvU"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative block overflow-hidden rounded-3xl border border-white/10 bg-white/5 dark:bg-white/5 backdrop-blur-sm shadow-lg transition-all duration-300 ease-out hover:-translate-y-1 min-w-[320px] sm:min-w-[560px] lg:min-w-full snap-start"
+              data-internship-card
+            >
+              <div className="grid lg:grid-cols-12 gap-0">
+                <div className="lg:col-span-7 relative aspect-[16/9] lg:aspect-auto bg-black/5">
+                  <img
+                    src="/uiux%20landscape.jpg"
+                    alt="Intelligent Systems Design Intern application flyer"
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                 </div>
-                <div>
-                  <span className="inline-flex items-center justify-center rounded-full bg-cta px-6 py-3 text-sm font-semibold text-white shadow-md transition-transform duration-300 group-hover:scale-[1.02]">
-                    Apply Now
-                  </span>
+                <div className="lg:col-span-5 p-6 sm:p-8 flex flex-col justify-center gap-6">
+                  <div>
+                    <p className="text-xs uppercase tracking-widest text-muted-foreground font-body">
+                      UI/UX Internship
+                    </p>
+                    <h3 className="mt-3 font-display text-2xl sm:text-3xl font-bold">
+                      Intelligent Systems Design Intern Application
+                    </h3>
+                    <p className="mt-4 text-muted-foreground font-body text-sm sm:text-base">
+                      Apply for the UI/UX intern role focused on designing AI-first experiences.
+                    </p>
+                  </div>
+                  <div>
+                    <span className="inline-flex items-center justify-center rounded-full bg-cta px-6 py-3 text-sm font-semibold text-white shadow-md transition-transform duration-300 group-hover:scale-[1.02]">
+                      Apply
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
-          </a>
+            </a>
+
+            <a
+              href="https://forms.zohopublic.com/bobdstvgm1/form/InternApplicationForm/formperma/51MorMsVuuJyRFD3WuvnNg7XrTVlHIfxd9_4Ds2oQUo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative block overflow-hidden rounded-3xl border border-white/10 bg-white/5 dark:bg-white/5 backdrop-blur-sm shadow-lg transition-all duration-300 ease-out hover:-translate-y-1 min-w-[320px] sm:min-w-[560px] lg:min-w-full snap-start"
+            >
+              <div className="grid lg:grid-cols-12 gap-0">
+                <div className="lg:col-span-7 relative aspect-[16/9] lg:aspect-auto bg-black/5">
+                  <img
+                    src="/agentic%20ai%20interns%20landscape.jpg"
+                    alt="Otic Internships flyer"
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                </div>
+                <div className="lg:col-span-5 p-6 sm:p-8 flex flex-col justify-center gap-6">
+                  <div>
+                    <p className="text-xs uppercase tracking-widest text-muted-foreground font-body">
+                      Recruitment
+                    </p>
+                    <h3 className="mt-3 font-display text-2xl sm:text-3xl font-bold">
+                      Join the <span className="text-cta italic">Agentic AI</span> Internship Cohort
+                    </h3>
+                    <p className="mt-4 text-muted-foreground font-body text-sm sm:text-base">
+                      Apply for a structured internship program focused on AI, product, and research.
+                    </p>
+                  </div>
+                  <div>
+                    <span className="inline-flex items-center justify-center rounded-full bg-cta px-6 py-3 text-sm font-semibold text-white shadow-md transition-transform duration-300 group-hover:scale-[1.02]">
+                      Apply Now
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
         </div>
       </section>
 
