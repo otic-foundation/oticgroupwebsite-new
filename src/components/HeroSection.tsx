@@ -59,10 +59,46 @@ const HeroSection = () => {
           </div>
 
           <a
+            href="https://forms.zohopublic.com/bobdstvgm1/form/UIUXDesignerInternApplicationForm/formperma/0BIwseDjX660OgxvHKGw7fZN7tIdbkBrS7WqNkRCQvU"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative block overflow-hidden rounded-3xl border border-white/10 bg-white/5 dark:bg-white/5 backdrop-blur-sm shadow-lg transition-all duration-300 ease-out hover:-translate-y-1 mt-8"
+          >
+            <div className="grid lg:grid-cols-12 gap-0">
+              <div className="lg:col-span-7 relative aspect-[16/9] lg:aspect-auto bg-black/5">
+                <img
+                  src="/uiux%20landscape.jpg"
+                  alt="Intelligent Systems Design Intern application flyer"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+              </div>
+              <div className="lg:col-span-5 p-6 sm:p-8 flex flex-col justify-center gap-6">
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-muted-foreground font-body">
+                    UI/UX Internship
+                  </p>
+                  <h3 className="mt-3 font-display text-2xl sm:text-3xl font-bold">
+                    Intelligent Systems Design Intern Application
+                  </h3>
+                  <p className="mt-4 text-muted-foreground font-body text-sm sm:text-base">
+                    Apply for the UI/UX intern role focused on designing AI-first experiences.
+                  </p>
+                </div>
+                <div>
+                  <span className="inline-flex items-center justify-center rounded-full bg-cta px-6 py-3 text-sm font-semibold text-white shadow-md transition-transform duration-300 group-hover:scale-[1.02]">
+                    Apply
+                  </span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a
             href="https://forms.zohopublic.com/bobdstvgm1/form/InternApplicationForm/formperma/51MorMsVuuJyRFD3WuvnNg7XrTVlHIfxd9_4Ds2oQUo"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative block overflow-hidden rounded-3xl border border-white/10 bg-white/5 dark:bg-white/5 backdrop-blur-sm shadow-lg transition-all duration-300 ease-out hover:-translate-y-1"
+            className="group relative block overflow-hidden rounded-3xl border border-white/10 bg-white/5 dark:bg-white/5 backdrop-blur-sm shadow-lg transition-all duration-300 ease-out hover:-translate-y-1 mt-8"
           >
             <div className="grid lg:grid-cols-12 gap-0">
               <div className="lg:col-span-7 relative aspect-[16/9] lg:aspect-auto bg-black/5">
