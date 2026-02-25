@@ -8,7 +8,7 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [expertiseOpen, setExpertiseOpen] = useState(false);
   const [companyOpen, setCompanyOpen] = useState(false);
-  const [isLight, setIsLight] = useState(false);
+  const [isLight, setIsLight] = useState(true);
   const location = useLocation();
   
   const expertiseTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -34,9 +34,9 @@ const Header = () => {
   };
 
   useEffect(() => {
-    // read stored preference or default to dark
+    // read stored preference or default to light
     const pref = localStorage.getItem('theme');
-    const light = pref === 'light';
+    const light = pref !== 'dark';
     setIsLight(light);
     applyTheme(light);
   }, []);
