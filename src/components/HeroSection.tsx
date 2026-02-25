@@ -4,6 +4,15 @@ import { ArrowRight } from 'lucide-react';
 
 const HeroSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const compactRailRef = useRef<HTMLDivElement>(null);
+
+  const scrollCompactRail = (direction: 'left' | 'right') => {
+    if (!compactRailRef.current) return;
+    const card = compactRailRef.current.querySelector<HTMLElement>('[data-compact-card]');
+    const step = card ? card.offsetWidth + 24 : 320;
+    const offset = direction === 'left' ? -step : step;
+    compactRailRef.current.scrollBy({ left: offset, behavior: 'smooth' });
+  };
 
   return (
     <>
@@ -135,11 +144,37 @@ const HeroSection = () => {
             </Link>
 
             {/* Compact Rail - Right Column (40%, 4-5 cols) */}
-            <div className="lg:col-span-5 flex flex-col gap-6">
+            <div className="lg:col-span-5">
+              <div className="hidden sm:flex items-center justify-end gap-2 mb-3">
+                <button
+                  type="button"
+                  onClick={() => scrollCompactRail('left')}
+                  className="h-8 w-8 rounded-full border border-border/60 bg-background/80 backdrop-blur-sm text-foreground hover:border-cta/60 hover:text-cta transition-colors"
+                  aria-label="Scroll cards left"
+                >
+                  <span className="sr-only">Scroll left</span>
+                  <ArrowRight className="w-4 h-4 rotate-180 mx-auto" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => scrollCompactRail('right')}
+                  className="h-8 w-8 rounded-full border border-border/60 bg-background/80 backdrop-blur-sm text-foreground hover:border-cta/60 hover:text-cta transition-colors"
+                  aria-label="Scroll cards right"
+                >
+                  <span className="sr-only">Scroll right</span>
+                  <ArrowRight className="w-4 h-4 mx-auto" />
+                </button>
+              </div>
+
+              <div
+                ref={compactRailRef}
+                className="flex gap-4 sm:gap-6 overflow-x-auto scroll-smooth pb-2 snap-x snap-mandatory px-1"
+              >
               {/* Compact Card 1 - Ecobank Uganda */}
               <Link
                 to="/research"
-                className="group relative block overflow-hidden rounded-2xl transition-all duration-300 ease-out h-40"
+                className="group relative block overflow-hidden rounded-2xl transition-all duration-300 ease-out h-36 sm:h-40 min-w-[220px] sm:min-w-[300px] snap-start"
+                data-compact-card
               >
                 <div className="relative w-full h-full overflow-hidden rounded-2xl bg-gradient-to-br from-secondary/60 to-accent/20 backdrop-blur-sm">
                   {/* Gradient instead of video */}
@@ -163,68 +198,7 @@ const HeroSection = () => {
                   <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent-luminous/0 to-accent-luminous/0 group-hover:from-accent-luminous/10 group-hover:to-accent-luminous/5 transition-all duration-300 pointer-events-none" />
                 </div>
               </Link>
-
-              {/* Compact Card 2 - Research Header */}
-              <Link
-                to="/research"
-                className="group relative block overflow-hidden rounded-2xl transition-all duration-300 ease-out h-40"
-              >
-                <div className="relative w-full h-full overflow-hidden rounded-2xl bg-gradient-to-br from-secondary/80 to-secondary/40 backdrop-blur-sm">
-                  {/* Placeholder with gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-accent-luminous/20 via-transparent to-transparent" />
-
-                  {/* Glass Border */}
-                  <div className="absolute inset-0 rounded-2xl border-2 border-orange-500 group-hover:border-orange-400 transition-colors duration-300" />
-
-                  {/* Content */}
-                  <div className="absolute inset-0 flex flex-col justify-end p-5 transform transition-transform duration-300 ease-out group-hover:translate-y-[-4px]">
-                    <h4 className="font-display text-lg font-bold mb-2 text-white light:text-black">
-                      Research Reimagined
-                    </h4>
-                    <p className="font-body text-xs mb-2 line-clamp-1" style={{ color: 'rgba(255, 255, 255, 0.7)' }}>
-                      Exploring AI's impact
-                    </p>
-                    <div className="flex items-center gap-2 text-cta font-body text-xs font-medium group-hover:gap-3 transition-all duration-300">
-                      <span>Explore</span>
-                      <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
-                    </div>
-                  </div>
-
-                  {/* Hover Glow */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent-luminous/0 to-accent-luminous/0 group-hover:from-accent-luminous/10 group-hover:to-accent-luminous/5 transition-all duration-300 pointer-events-none" />
-                </div>
-              </Link>
-
-              {/* Compact Card 3 - Updates */}
-              <Link
-                to="/research"
-                className="group relative block overflow-hidden rounded-2xl transition-all duration-300 ease-out h-40"
-              >
-                <div className="relative w-full h-full overflow-hidden rounded-2xl bg-gradient-to-br from-accent/10 to-secondary/40 backdrop-blur-sm">
-                  {/* Accent glow */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-cta/10 via-transparent to-transparent" />
-
-                  {/* Glass Border */}
-                  <div className="absolute inset-0 rounded-2xl border-2 border-orange-500 group-hover:border-orange-400 transition-colors duration-300" />
-
-                  {/* Content */}
-                  <div className="absolute inset-0 flex flex-col justify-end p-5 transform transition-transform duration-300 ease-out group-hover:translate-y-[-4px]">
-                    <h4 className="font-display text-lg font-bold mb-2 text-white light:text-black">
-                      Latest Insights
-                    </h4>
-                    <p className="font-body text-xs mb-2 line-clamp-1" style={{ color: 'rgba(255, 255, 255, 0.7)' }}>
-                      AI trends & analysis
-                    </p>
-                    <div className="flex items-center gap-2 text-cta font-body text-xs font-medium group-hover:gap-3 transition-all duration-300">
-                      <span>Discover</span>
-                      <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
-                    </div>
-                  </div>
-
-                  {/* Hover Glow */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent-luminous/0 to-accent-luminous/0 group-hover:from-accent-luminous/10 group-hover:to-accent-luminous/5 transition-all duration-300 pointer-events-none" />
-                </div>
-              </Link>
+              </div>
             </div>
           </div>
 
