@@ -56,11 +56,11 @@ const HeroSection = () => {
             className="group relative block overflow-hidden rounded-3xl border border-white/10 bg-white/5 dark:bg-white/5 backdrop-blur-sm shadow-lg transition-all duration-300 ease-out hover:-translate-y-1"
           >
             <div className="grid lg:grid-cols-12 gap-0">
-              <div className="lg:col-span-7 relative aspect-[4/3] lg:aspect-auto bg-black/5">
+              <div className="lg:col-span-7 relative aspect-[16/9] lg:aspect-auto bg-black/5">
                 <img
-                  src="/agentic%20ai%20interns%20%281%29.jpg"
+                  src="/agentic%20ai%20interns%20landscape.jpg"
                   alt="Otic Internships flyer"
-                  className="absolute inset-0 w-full h-full object-contain"
+                  className="absolute inset-0 w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
               </div>
