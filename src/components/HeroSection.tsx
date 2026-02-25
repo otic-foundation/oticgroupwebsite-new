@@ -58,7 +58,7 @@ const HeroSection = () => {
             <div className="grid lg:grid-cols-12 gap-0">
               <div className="lg:col-span-7 relative aspect-[4/3] lg:aspect-auto">
                 <img
-                  src="/agentic%20ai%20interns.jpg"
+                  src="/agentic%20ai%20interns%20%281%29.jpg"
                   alt="Otic Internships flyer"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
