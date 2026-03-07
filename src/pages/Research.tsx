@@ -1,11 +1,8 @@
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { ArrowRight } from 'lucide-react';
-import reimaginedBankingCover from '@/assets/research/reimagined-cover.png';
-import researchBg from '@/assets/research-bg.jpg';
-import { supabase } from '@/integrations/supabase/client';
+import reimaginedSeriesCover from '@/assets/research/reimagined-cover.png';
 
 interface ResearchCard {
   id: string;
@@ -17,54 +14,29 @@ interface ResearchCard {
 }
 
 // Default static research items (fallback)
-const defaultResearchItems: ResearchCard[] = [
+const staticResearchItems: ResearchCard[] = [
   {
     id: 'reimagined-banking',
     category: 'RESEARCH REPORT',
-    title: 'Reimagined Banking: The Agentic AI Inflection Point',
-    preamble: 'Banks are crossing a structural boundary: from AI as an assistant to AI as an autonomous actor that plans, decides, and executes workflows within risk and policy constraints.',
-    image: reimaginedBankingCover,
+    title: 'Reimagined Banking',
+    preamble:
+      'From experimentation to revenue-grade deployment: how agentic AI lets growth decouple from headcount across Tier 1 banks.',
+    image: '/reimaginedbanking.jpg',
     link: '/research/reimagined-banking',
+  },
+  {
+    id: 'reimagined-series',
+    category: 'FIELD SERIES',
+    title: 'Reimagined Series',
+    preamble:
+      'Ecobank Uganda field briefs that document production-grade orchestration, escalation ladders, and policy guardrails.',
+    image: reimaginedSeriesCover,
+    link: '/research#reimagined-series',
   },
 ];
 
 const Research = () => {
-  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
-  const [researchItems, setResearchItems] = useState<ResearchCard[]>(defaultResearchItems);
-
-  useEffect(() => {
-    const fetchResearchPosts = async () => {
-      const { data, error } = await supabase
-        .from('research_posts')
-        .select('*')
-        .eq('published', true)
-        .order('created_at', { ascending: false });
-
-      if (data && data.length > 0) {
-        const posts = data.map((post: any) => ({
-          id: post.slug,
-          category: post.category,
-          title: post.title,
-          preamble: post.preamble,
-          image: post.cover_image_url || reimaginedBankingCover,
-          link: `/research/${post.slug}`,
-        }));
-
-        // Ensure the static Reimagined Banking item remains available
-        const hasReimagined = posts.some((p: any) => p.id === 'reimagined-banking');
-        if (!hasReimagined) {
-          posts.unshift(defaultResearchItems[0]);
-        }
-
-        setResearchItems(posts);
-      } else {
-        // If no posts returned, keep the default static item
-        setResearchItems(defaultResearchItems);
-      }
-    };
-
-    fetchResearchPosts();
-  }, []);
+  const researchItems = staticResearchItems;
 
   return (
     <div className="flex flex-col min-h-screen noise-overlay">
@@ -92,68 +64,36 @@ const Research = () => {
           </div>
         </section>
 
-        {/* Research Cards Grid with Background Image */}
-        <section className="py-20 relative min-h-[70vh]">
-          {/* Background Image with Dark Overlay */}
-          <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(${researchBg})` }}
-          />
-          <div className="absolute inset-0 dark:bg-background/85" />
-          
-          <div className="container mx-auto px-6 lg:px-12 relative z-10">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Research Cards Rail */}
+        <section className="research-cards-section py-20">
+          <div className="container mx-auto px-6 lg:px-12">
+            <div className="research-card-rail flex gap-6 overflow-x-auto scroll-smooth pb-4 snap-x snap-mandatory -mx-4 px-4 lg:mx-0 lg:px-0">
               {researchItems.map((item) => (
                 <Link
                   key={item.id}
                   to={item.link}
-                  className="group relative block overflow-hidden rounded-xl bg-card/80 backdrop-blur-sm border border-white/10 transition-all duration-500 hover:border-accent/40 hover:shadow-2xl hover:shadow-accent/10"
-                  onMouseEnter={() => setHoveredCard(item.id)}
-                  onMouseLeave={() => setHoveredCard(null)}
+                  className="research-card group flex flex-col md:flex-row overflow-hidden min-w-[320px] sm:min-w-[520px] lg:min-w-[640px] h-[360px] snap-start"
                 >
-                  {/* Category Label */}
-                  <div className="absolute top-4 left-4 z-10">
-                    <span className="text-xs uppercase tracking-widest text-cta font-body font-medium bg-background/80 px-3 py-1 rounded-full">
-                      {item.category}
-                    </span>
+                  <div className="research-card-media relative w-full md:w-[45%] h-[180px] md:h-full">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
                   </div>
-
-                  {/* Card Content */}
-                  <div className="relative aspect-[3/4] overflow-hidden">
-                    {/* Image - object-contain to show full image */}
-                    <div className="absolute inset-0 dark:bg-secondary/50 light:bg-white/10 flex items-center justify-center p-6 pt-16">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
-                      />
-                    </div>
-                    
-                    {/* Gradient Overlay - Dark mode prominent, light mode subtle */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent dark:from-background dark:via-background/40" />
-                    
-                    {/* Content Overlay */}
-                    <div className="absolute inset-0 flex flex-col justify-end p-6">
-                      <h3 className="font-display text-xl md:text-2xl font-bold text-white mb-3 leading-tight">
+                  <div className="research-card-body flex w-full md:w-[55%] items-center p-8">
+                    <div className="space-y-4">
+                      <p className="research-card-tag">
+                        {item.category}
+                      </p>
+                      <h3 className="research-card-title font-display text-2xl md:text-[32px] font-semibold leading-tight">
                         {item.title}
                       </h3>
-                      
-                      {/* Preamble - Shows on hover */}
-                      <div 
-                        className={`overflow-hidden transition-all duration-500 ease-out ${
-                          hoveredCard === item.id 
-                            ? 'max-h-32 opacity-100' 
-                            : 'max-h-0 opacity-0'
-                        }`}
-                      >
-                        <p className="text-white/80 font-body text-sm leading-relaxed mb-4">
-                          {item.preamble}
-                        </p>
-                      </div>
-                      
-                      {/* Read More Link */}
-                      <div className="flex items-center gap-2 text-cta font-body text-sm font-medium group-hover:gap-3 transition-all duration-300">
-                        <span>Read more</span>
+                      <p className="research-card-copy text-sm md:text-base font-body leading-relaxed">
+                        {item.preamble}
+                      </p>
+                      <div className="research-card-cta inline-flex items-center gap-2 font-semibold">
+                        <span>Read the paper</span>
                         <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                       </div>
                     </div>

@@ -5,7 +5,7 @@ import Chatbot from '@/components/Chatbot';
 
 const Index = () => {
   return (
-    <div className="flex flex-col min-h-screen noise-overlay">
+    <div className="flex flex-col min-h-screen noise-overlay bg-[#f7f8fb] dark:bg-[#050914] transition-colors">
       <Header />
       <main className="flex-1">
         <HeroSection />

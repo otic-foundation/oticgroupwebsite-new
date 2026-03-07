@@ -32,44 +32,44 @@ const WhatsAppIcon = () => (
 
 const Footer = () => {
   return (
-    <footer className="relative overflow-hidden border-t border-border/30">
+    <footer className="site-footer relative overflow-hidden border-t border-border/30 dark:bg-[#050914]">
       {/* Background effects - enhanced */}
       <div className="orb orb-accent w-80 h-80 -bottom-40 -left-40 opacity-20" />
       <div className="orb orb-luminous w-64 h-64 -bottom-32 right-1/4 opacity-15" />
       
       <div className="container mx-auto px-6 lg:px-12 py-16 relative z-10">
-        <div className="divider-accent w-full mb-12" />
+        <div className="footer-divider w-full mb-12" />
         <div className="grid lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 overflow-hidden">
+              <div className="w-16 h-16 overflow-hidden">
                 <img src={logo} alt="Otic Group Logo" className="w-full h-full object-contain" />
               </div>
             </Link>
-            <p className="text-muted-foreground text-sm font-body leading-relaxed">
+            <p className="footer-tagline text-sm font-body leading-relaxed">
               Pioneering AI solutions for African enterprise transformation.
             </p>
           </div>
 
           {/* Products */}
           <div>
-            <h4 className="font-body font-semibold text-sm uppercase tracking-wide mb-6 text-foreground">
+            <h4 className="footer-heading font-body text-sm uppercase tracking-wide mb-6">
               Products
             </h4>
             <ul className="space-y-3">
               <li>
-                <Link to="/otic-vision" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">
+                <Link to="/otic-vision" className="footer-link transition-colors text-sm font-body">
                   Otic Vision
                 </Link>
               </li>
               <li>
-                <Link to="/otic-learn" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">
+                <Link to="/otic-learn" className="footer-link transition-colors text-sm font-body">
                   Otic Learn
                 </Link>
               </li>
               <li>
-                <Link to="/research" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">
+                <Link to="/research" className="footer-link transition-colors text-sm font-body">
                   Research
                 </Link>
               </li>
@@ -78,27 +78,27 @@ const Footer = () => {
 
           {/* Company */}
           <div>
-            <h4 className="font-body font-semibold text-sm uppercase tracking-wide mb-6 text-foreground">
+            <h4 className="footer-heading font-body text-sm uppercase tracking-wide mb-6">
               Company
             </h4>
             <ul className="space-y-3">
               <li>
-                <Link to="/about" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">
+                <Link to="/about" className="footer-link transition-colors text-sm font-body">
                   Who We Are
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">
+                <Link to="/services" className="footer-link transition-colors text-sm font-body">
                   Services
                 </Link>
               </li>
               <li>
-                <Link to="/industries" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">
+                <Link to="/industries" className="footer-link transition-colors text-sm font-body">
                   Industries
                 </Link>
               </li>
               <li>
-                <Link to="/partners" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">
+                <Link to="/partners" className="footer-link transition-colors text-sm font-body">
                   Partner with us
                 </Link>
               </li>
@@ -107,14 +107,14 @@ const Footer = () => {
 
           {/* Connect */}
           <div>
-            <h4 className="font-body font-semibold text-sm uppercase tracking-wide mb-6 text-foreground flex items-center gap-2">
+            <h4 className="footer-heading font-body text-sm uppercase tracking-wide mb-6 flex items-center gap-2">
               <span className="marker-orange" />
               Connect
             </h4>
             
             <Link 
               to="/contact"
-              className="btn-glow inline-block px-6 py-3 rounded-lg text-cta-foreground uppercase text-sm font-medium mb-6"
+              className="btn-glow inline-block px-7 py-3.5 rounded-xl text-cta-foreground uppercase text-sm font-semibold mb-6"
             >
               Get in Touch
             </Link>
@@ -125,7 +125,7 @@ const Footer = () => {
                 href="https://www.linkedin.com/company/oticuganda/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg glass-card flex items-center justify-center text-muted-foreground hover:text-cta hover:border-cta/30 transition-all"
+                className="social-icon"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-4 h-4" />
@@ -134,7 +134,7 @@ const Footer = () => {
                 href="https://x.com/OticUganda" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg glass-card flex items-center justify-center text-muted-foreground hover:text-cta hover:border-cta/30 transition-all"
+                className="social-icon"
                 aria-label="X (Twitter)"
               >
                 <XIcon />
@@ -143,7 +143,7 @@ const Footer = () => {
                 href="https://www.instagram.com/oticgroup_?igsh=YzE3bDQ5c2RudnU3" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg glass-card flex items-center justify-center text-muted-foreground hover:text-cta hover:border-cta/30 transition-all"
+                className="social-icon"
                 aria-label="Instagram"
               >
                 <InstagramIcon />
@@ -152,7 +152,7 @@ const Footer = () => {
                 href="https://www.facebook.com/profile.php?id=61559194525144&sk=about" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg glass-card flex items-center justify-center text-muted-foreground hover:text-cta hover:border-cta/30 transition-all"
+                className="social-icon"
                 aria-label="Facebook"
               >
                 <Facebook className="w-4 h-4" />
@@ -161,7 +161,7 @@ const Footer = () => {
                 href="https://youtube.com/@oticgroup?si=mxr-kzZMiBWnYxSj" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg glass-card flex items-center justify-center text-muted-foreground hover:text-cta hover:border-cta/30 transition-all"
+                className="social-icon"
                 aria-label="YouTube"
               >
                 <Youtube className="w-4 h-4" />
@@ -170,7 +170,7 @@ const Footer = () => {
                 href="https://www.tiktok.com/@oticgroup?_r=1&_t=ZM-92r345MF61Q" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg glass-card flex items-center justify-center text-muted-foreground hover:text-cta hover:border-cta/30 transition-all"
+                className="social-icon"
                 aria-label="TikTok"
               >
                 <TikTokIcon />
@@ -179,7 +179,7 @@ const Footer = () => {
                 href="https://whatsapp.com/channel/0029Vaob8KGDOQIeI5FiGL0Y" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg glass-card flex items-center justify-center text-muted-foreground hover:text-green-500 hover:border-green-500/30 transition-all"
+                className="social-icon"
                 aria-label="WhatsApp"
               >
                 <WhatsAppIcon />
@@ -189,11 +189,11 @@ const Footer = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-16 pt-8 border-t border-border/30 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-muted-foreground text-xs font-body">
+        <div className="footer-bottom mt-16 pt-8 border-t border-border/30 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="footer-bottom-text text-xs font-body">
             © {new Date().getFullYear()} Otic Group. All rights reserved.
           </p>
-          <Link to="/privacy" className="text-muted-foreground hover:text-foreground text-xs font-body transition-colors">
+          <Link to="/privacy" className="footer-bottom-text hover:text-foreground text-xs font-body transition-colors">
             Privacy Policy
           </Link>
         </div>

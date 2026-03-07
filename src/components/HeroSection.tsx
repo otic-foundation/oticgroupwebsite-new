@@ -2,25 +2,37 @@ import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
+const whatsNewHighlights = [
+  {
+    id: 'reimagined-banking',
+    eyebrow: 'Research Playbook',
+    title: 'Reimagined Banking',
+    description: 'Agentic AI architecture, governance, and revenue plays for Tier 1 banks across Africa.',
+    image: '/reimaginedbanking.jpg',
+    link: '/research/reimagined-banking',
+    cta: 'Read the report',
+  },
+  {
+    id: 'reimagined-series',
+    eyebrow: 'Reimagined Series',
+    title: 'Ecobank Uganda Field Notes',
+    description: 'A glass-box tour of how frontline teams deploy agentic workflows without breaking controls.',
+    image: '/oticbusiness.jpg',
+    link: '/research#reimagined-series',
+    cta: 'See the series',
+  },
+];
+
 const HeroSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const compactRailRef = useRef<HTMLDivElement>(null);
-  const internshipsRailRef = useRef<HTMLDivElement>(null);
+  const whatsNewRailRef = useRef<HTMLDivElement>(null);
 
-  const scrollCompactRail = (direction: 'left' | 'right') => {
-    if (!compactRailRef.current) return;
-    const card = compactRailRef.current.querySelector<HTMLElement>('[data-compact-card]');
-    const step = card ? card.offsetWidth + 24 : 320;
+  const scrollWhatsNewRail = (direction: 'left' | 'right') => {
+    if (!whatsNewRailRef.current) return;
+    const card = whatsNewRailRef.current.querySelector<HTMLElement>('[data-update-card]');
+    const step = card ? card.offsetWidth + 24 : 560;
     const offset = direction === 'left' ? -step : step;
-    compactRailRef.current.scrollBy({ left: offset, behavior: 'smooth' });
-  };
-
-  const scrollInternshipsRail = (direction: 'left' | 'right') => {
-    if (!internshipsRailRef.current) return;
-    const card = internshipsRailRef.current.querySelector<HTMLElement>('[data-internship-card]');
-    const step = card ? card.offsetWidth + 24 : 640;
-    const offset = direction === 'left' ? -step : step;
-    internshipsRailRef.current.scrollBy({ left: offset, behavior: 'smooth' });
+    whatsNewRailRef.current.scrollBy({ left: offset, behavior: 'smooth' });
   };
 
   return (
@@ -55,233 +67,92 @@ const HeroSection = () => {
         </div>
       </section>
 
-      {/* Otic Internships section */}
-      <section className="page-section py-20">
+      {/* Research Dispatches section */}
+      <section className="dispatches-section page-section py-20">
         <div className="container mx-auto px-6 lg:px-12">
-          <div className="max-w-3xl mb-8">
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-              Otic <span className="text-cta italic">Internships</span>
-            </h2>
-            <p className="mt-4 text-muted-foreground font-body text-base sm:text-lg">
-              Launch your career with hands-on AI projects, mentorship, and real-world impact.
-            </p>
-          </div>
-
-          <div className="flex items-center justify-end gap-2 mb-4">
-            <button
-              type="button"
-              onClick={() => scrollInternshipsRail('left')}
-              className="h-9 w-9 rounded-full border border-border/60 bg-background/80 backdrop-blur-sm text-foreground hover:border-cta/60 hover:text-cta transition-colors"
-              aria-label="Scroll internships left"
-            >
-              <span className="sr-only">Scroll left</span>
-              <ArrowRight className="w-4 h-4 rotate-180 mx-auto" />
-            </button>
-            <button
-              type="button"
-              onClick={() => scrollInternshipsRail('right')}
-              className="h-9 w-9 rounded-full border border-border/60 bg-background/80 backdrop-blur-sm text-foreground hover:border-cta/60 hover:text-cta transition-colors"
-              aria-label="Scroll internships right"
-            >
-              <span className="sr-only">Scroll right</span>
-              <ArrowRight className="w-4 h-4 mx-auto" />
-            </button>
-          </div>
-
-          <div
-            ref={internshipsRailRef}
-            className="flex gap-6 overflow-x-auto scroll-smooth pb-2 snap-x snap-mandatory"
-          >
-            <a
-              href="https://forms.zohopublic.com/bobdstvgm1/form/UIUXDesignerInternApplicationForm/formperma/0BIwseDjX660OgxvHKGw7fZN7tIdbkBrS7WqNkRCQvU"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative block overflow-hidden rounded-3xl border border-white/10 bg-white/5 dark:bg-white/5 backdrop-blur-sm shadow-lg transition-all duration-300 ease-out hover:-translate-y-1 min-w-[320px] sm:min-w-[560px] lg:min-w-full snap-start"
-              data-internship-card
-            >
-              <div className="grid lg:grid-cols-12 gap-0">
-                <div className="lg:col-span-7 relative aspect-[16/9] lg:aspect-auto bg-black/5">
-                  <img
-                    src="/uiux%20landscape.jpg"
-                    alt="Intelligent Systems Design Intern application flyer"
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-                </div>
-                <div className="lg:col-span-5 p-6 sm:p-8 flex flex-col justify-center gap-6">
-                  <div>
-                    <p className="text-xs uppercase tracking-widest text-muted-foreground font-body">
-                      UI/UX Internship
-                    </p>
-                    <h3 className="mt-3 font-display text-2xl sm:text-3xl font-bold">
-                      Intelligent Systems Design Intern Application
-                    </h3>
-                    <p className="mt-4 text-muted-foreground font-body text-sm sm:text-base">
-                      Apply for the UI/UX intern role focused on designing AI-first experiences.
-                    </p>
-                  </div>
-                  <div>
-                    <span className="inline-flex items-center justify-center rounded-full bg-cta px-6 py-3 text-sm font-semibold text-white shadow-md transition-transform duration-300 group-hover:scale-[1.02]">
-                      Apply
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </a>
-
-            <a
-              href="https://forms.zohopublic.com/bobdstvgm1/form/InternApplicationForm/formperma/51MorMsVuuJyRFD3WuvnNg7XrTVlHIfxd9_4Ds2oQUo"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative block overflow-hidden rounded-3xl border border-white/10 bg-white/5 dark:bg-white/5 backdrop-blur-sm shadow-lg transition-all duration-300 ease-out hover:-translate-y-1 min-w-[320px] sm:min-w-[560px] lg:min-w-full snap-start"
-            >
-              <div className="grid lg:grid-cols-12 gap-0">
-                <div className="lg:col-span-7 relative aspect-[16/9] lg:aspect-auto bg-black/5">
-                  <img
-                    src="/agentic%20ai%20interns%20landscape.jpg"
-                    alt="Otic Internships flyer"
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-                </div>
-                <div className="lg:col-span-5 p-6 sm:p-8 flex flex-col justify-center gap-6">
-                  <div>
-                    <p className="text-xs uppercase tracking-widest text-muted-foreground font-body">
-                      Recruitment
-                    </p>
-                    <h3 className="mt-3 font-display text-2xl sm:text-3xl font-bold">
-                      Join the <span className="text-cta italic">Agentic AI</span> Internship Cohort
-                    </h3>
-                    <p className="mt-4 text-muted-foreground font-body text-sm sm:text-base">
-                      Apply for a structured internship program focused on AI, product, and research.
-                    </p>
-                  </div>
-                  <div>
-                    <span className="inline-flex items-center justify-center rounded-full bg-cta px-6 py-3 text-sm font-semibold text-white shadow-md transition-transform duration-300 group-hover:scale-[1.02]">
-                      Apply Now
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* "What's new with us" section */}
-      <section className="page-section py-20">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="mb-8">
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight">
-              What's new <span className="text-cta italic">with us</span>
-            </h2>
-          </div>
-
-          <div className="grid lg:grid-cols-12 gap-6">
-            {/* Featured Card - Left Column (60%, 7-8 cols) */}
-            <Link
-              to={'/research'}
-              className="lg:col-span-7 group relative block overflow-hidden rounded-3xl transition-all duration-300 ease-out"
-            >
-              <div className="relative aspect-[3/4] sm:aspect-[4/5] overflow-hidden rounded-3xl">
-                {/* Featured Image */}
-                <img
-                  src="/bank.jpg"
-                  alt="The Agentic AI Inflection Point In Banking"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.08]"
-                />
-
-                {/* Gradient Overlay - Stronger for light mode readability */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
-
-                {/* Glass Border Glow on Hover */}
-                <div className="absolute inset-0 rounded-3xl border border-white/20 group-hover:border-accent-luminous/40 transition-colors duration-300" />
-
-                {/* Content */}
-                <div className="absolute inset-0 flex flex-col justify-end p-8">
-                  <div className="transform transition-transform duration-300 ease-out group-hover:translate-y-[-8px]">
-                    <h3 className="font-display text-4xl lg:text-5xl font-bold mb-4 leading-tight" style={{ color: '#ffffff', textShadow: '0 4px 16px rgba(0, 0, 0, 0.6)' }}>
-                      The Agentic AI Inflection Point In Banking
-                    </h3>
-                    <div className="flex items-center gap-2 text-cta font-body font-medium text-sm group-hover:gap-3 transition-all duration-300" style={{ textShadow: '0 2px 6px rgba(0, 0, 0, 0.4)' }}>
-                      <span>Read more</span>
-                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Hover Lift Shadow */}
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-accent-luminous/0 to-accent-luminous/0 group-hover:from-accent-luminous/10 group-hover:to-accent-luminous/5 transition-all duration-300 pointer-events-none" />
-              </div>
-            </Link>
-
-            {/* Compact Rail - Right Column (40%, 4-5 cols) */}
-            <div className="lg:col-span-5">
-              <div className="hidden sm:flex items-center justify-end gap-2 mb-3">
-                <button
-                  type="button"
-                  onClick={() => scrollCompactRail('left')}
-                  className="h-8 w-8 rounded-full border border-border/60 bg-background/80 backdrop-blur-sm text-foreground hover:border-cta/60 hover:text-cta transition-colors"
-                  aria-label="Scroll cards left"
-                >
-                  <span className="sr-only">Scroll left</span>
-                  <ArrowRight className="w-4 h-4 rotate-180 mx-auto" />
-                </button>
-                <button
-                  type="button"
-                  onClick={() => scrollCompactRail('right')}
-                  className="h-8 w-8 rounded-full border border-border/60 bg-background/80 backdrop-blur-sm text-foreground hover:border-cta/60 hover:text-cta transition-colors"
-                  aria-label="Scroll cards right"
-                >
-                  <span className="sr-only">Scroll right</span>
-                  <ArrowRight className="w-4 h-4 mx-auto" />
-                </button>
-              </div>
-
-              <div
-                ref={compactRailRef}
-                className="flex gap-4 sm:gap-6 overflow-x-auto scroll-smooth pb-2 snap-x snap-mandatory px-1"
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between mb-12">
+            <div className="max-w-3xl space-y-4">
+              <p className="dispatch-eyebrow text-xs uppercase tracking-[0.35em] font-semibold">
+                Research Dispatches
+              </p>
+              <h2 className="dispatch-heading font-display text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight">
+                Research Dispatches <span className="text-cta italic">with us</span>
+              </h2>
+              <p className="dispatch-support text-base sm:text-lg font-body leading-relaxed">
+                Premium field notes, deployment playbooks, and live experiments across frontier sectors.
+                Built for quick scans, saved reads, and boardroom briefs.
+              </p>
+            </div>
+            <div className="flex items-center gap-3">
+              <button
+                type="button"
+                onClick={() => scrollWhatsNewRail('left')}
+                className="dispatches-nav-btn"
+                aria-label="Scroll dispatches left"
               >
-              {/* Compact Card 1 - Ecobank Uganda */}
-              <Link
-                to="/research"
-                className="group relative block overflow-hidden rounded-2xl transition-all duration-300 ease-out h-36 sm:h-40 min-w-[220px] sm:min-w-[300px] snap-start"
-                data-compact-card
+                <ArrowRight className="w-5 h-5 rotate-180" />
+              </button>
+              <button
+                type="button"
+                onClick={() => scrollWhatsNewRail('right')}
+                className="dispatches-nav-btn"
+                aria-label="Scroll dispatches right"
               >
-                <div className="relative w-full h-full overflow-hidden rounded-2xl bg-gradient-to-br from-secondary/60 to-accent/20 backdrop-blur-sm">
-                  {/* Gradient instead of video */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
-
-                  {/* Glass Border */}
-                  <div className="absolute inset-0 rounded-2xl border-2 border-orange-500 group-hover:border-orange-400 transition-colors duration-300" />
-
-                  {/* Content */}
-                  <div className="absolute inset-0 flex flex-col justify-end p-5 transform transition-transform duration-300 ease-out group-hover:translate-y-[-4px]">
-                    <h4 className="font-display text-lg font-bold mb-2 text-white light:text-black">
-                      A reimagined series: Ecobank Uganda
-                    </h4>
-                    <div className="flex items-center gap-2 text-cta font-body text-xs font-medium group-hover:gap-3 transition-all duration-300">
-                      <span>Read more</span>
-                      <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
-                    </div>
-                  </div>
-
-                  {/* Hover Glow */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent-luminous/0 to-accent-luminous/0 group-hover:from-accent-luminous/10 group-hover:to-accent-luminous/5 transition-all duration-300 pointer-events-none" />
-                </div>
-              </Link>
-              </div>
+                <ArrowRight className="w-5 h-5" />
+              </button>
             </div>
           </div>
 
-          {/* View All Updates Link */}
-          <div className="flex justify-end mt-8">
+          <div className="relative">
+            <div
+              ref={whatsNewRailRef}
+              className="dispatches-rail flex gap-8 overflow-x-auto scroll-smooth pb-6 snap-x snap-mandatory -mx-4 px-4 lg:mx-0 lg:px-0"
+            >
+              {whatsNewHighlights.map((item) => (
+                <Link
+                  key={item.id}
+                  to={item.link}
+                  className="dispatch-card group snap-start"
+                  data-update-card
+                >
+                  <div className="flex h-full flex-col md:flex-row">
+                    <div className="dispatch-card-media relative w-full h-[180px] md:h-full md:w-[42%] flex-shrink-0">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="absolute inset-0 h-full w-full object-cover"
+                      />
+                    </div>
+                    <div className="dispatch-card-body flex flex-col justify-between gap-6 w-full md:w-[58%] flex-1 p-8">
+                      <div className="space-y-3">
+                        <p className="dispatch-tag">
+                          {item.eyebrow}
+                        </p>
+                        <h3 className="dispatch-title font-display text-2xl lg:text-[32px] font-semibold leading-tight">
+                          {item.title}
+                        </h3>
+                        <p className="dispatch-copy text-sm sm:text-base font-body leading-relaxed">
+                          {item.description}
+                        </p>
+                      </div>
+                      <div className="dispatch-cta inline-flex items-center gap-2 font-medium">
+                        <span>{item.cta}</span>
+                        <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex justify-end mt-10">
             <Link
               to="/research"
-              className="flex items-center gap-2 text-cta font-body text-sm font-medium hover:gap-3 transition-all duration-300 group"
+              className="dispatch-view-all inline-flex items-center gap-2 text-sm font-semibold transition-all"
             >
-              <span>View all updates</span>
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              <span>Browse the full research library</span>
+              <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>

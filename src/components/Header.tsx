@@ -19,8 +19,10 @@ const Header = () => {
     const root = document.documentElement;
     if (light) {
       root.classList.add('light');
+      root.classList.remove('dark');
     } else {
       root.classList.remove('light');
+      root.classList.add('dark');
     }
     localStorage.setItem('theme', light ? 'light' : 'dark');
   };
