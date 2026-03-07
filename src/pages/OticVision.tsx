@@ -43,43 +43,12 @@ const OticVision = () => {
       <Header />
       <main className="flex-1">
         {/* Hero Section - Video Background */}
-        <section className="relative min-h-[90vh] overflow-hidden dark">
+        <section className="relative min-h-[90vh] overflow-hidden">
           <LazyVideo
             src="/shopkeeper.mp4"
             poster="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=1600&q=80"
             className="absolute inset-0 w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black/75 dark:bg-black/75" />
-          
-          <div className="container mx-auto px-6 lg:px-12 relative z-10">
-            <div className="max-w-4xl">
-              <div className="flex items-center gap-3 mb-6">
-                <span className="w-2 h-2 rounded-full bg-cta" />
-                <p className="text-xs uppercase tracking-widest !text-white font-body">
-                  Product
-                </p>
-              </div>
-              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8">
-                <span className="!text-white">OticVision</span>
-              </h1>
-              <p className="text-xl lg:text-2xl !text-white font-body leading-relaxed mb-8" style={{ color: '#ffffff' }}>
-                An operations platform built to give African SMEs enterprise grade visibility and 
-                control using nothing more than a smartphone. It brings together computer vision, 
-                automation, and real time analytics to help business owners understand what is 
-                happening in their business, reduce losses, and make confident, data driven decisions.
-              </p>
-              <a
-                href="https://oticvision.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-glow inline-flex items-center gap-2 px-8 py-4 rounded-lg font-body font-medium text-sm uppercase tracking-wider text-cta-foreground"
-              >
-                Explore Otic Vision
-                <ArrowRight className="w-4 h-4" />
-              </a>
-              <div className="divider-accent w-32 mt-8" />
-            </div>
-          </div>
         </section>
 
         {/* Why OticVision Exists */}
