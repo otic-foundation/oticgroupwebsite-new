@@ -14,6 +14,48 @@ export type Database = {
   }
   public: {
     Tables: {
+      dispatch_highlights: {
+        Row: {
+          created_at: string
+          cta_label: string
+          description: string
+          display_order: number | null
+          eyebrow: string
+          id: string
+          image_url: string | null
+          link: string
+          published: boolean
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          cta_label?: string
+          description: string
+          display_order?: number | null
+          eyebrow: string
+          id?: string
+          image_url?: string | null
+          link: string
+          published?: boolean
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          cta_label?: string
+          description?: string
+          display_order?: number | null
+          eyebrow?: string
+          id?: string
+          image_url?: string | null
+          link?: string
+          published?: boolean
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       research_posts: {
         Row: {
           category: string

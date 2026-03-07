@@ -1,8 +1,19 @@
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
 
-const whatsNewHighlights = [
+type DispatchCard = {
+  id: string;
+  eyebrow: string;
+  title: string;
+  description: string;
+  image: string;
+  link: string;
+  cta: string;
+};
+
+const defaultHighlights: DispatchCard[] = [
   {
     id: 'reimagined-banking',
     eyebrow: 'Research Playbook',
@@ -26,6 +37,7 @@ const whatsNewHighlights = [
 const HeroSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const whatsNewRailRef = useRef<HTMLDivElement>(null);
+  const [dispatches, setDispatches] = useState<DispatchCard[]>(defaultHighlights);
 
   const scrollWhatsNewRail = (direction: 'left' | 'right') => {
     if (!whatsNewRailRef.current) return;
@@ -34,6 +46,41 @@ const HeroSection = () => {
     const offset = direction === 'left' ? -step : step;
     whatsNewRailRef.current.scrollBy({ left: offset, behavior: 'smooth' });
   };
+
+  useEffect(() => {
+    let isMounted = true;
+    const fetchDispatches = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('dispatch_highlights')
+          .select('id, eyebrow, title, description, image_url, link, cta_label, display_order')
+          .eq('published', true)
+          .order('display_order', { ascending: true });
+
+        if (error) throw error;
+
+        if (data && data.length && isMounted) {
+          const formatted: DispatchCard[] = data.map((item, index) => ({
+            id: item.id ?? `dispatch-${index}`,
+            eyebrow: item.eyebrow,
+            title: item.title,
+            description: item.description,
+            image: item.image_url || defaultHighlights[index % defaultHighlights.length]?.image || '/reimaginedbanking.jpg',
+            link: item.link,
+            cta: item.cta_label || 'Read more',
+          }));
+          setDispatches(formatted);
+        }
+      } catch (error) {
+        console.error('Failed to load dispatch highlights', error);
+      }
+    };
+
+    fetchDispatches();
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   return (
     <>
@@ -108,7 +155,7 @@ const HeroSection = () => {
               ref={whatsNewRailRef}
               className="dispatches-rail flex gap-8 overflow-x-auto scroll-smooth pb-6 snap-x snap-mandatory -mx-4 px-4 lg:mx-0 lg:px-0"
             >
-              {whatsNewHighlights.map((item) => (
+              {dispatches.map((item) => (
                 <Link
                   key={item.id}
                   to={item.link}

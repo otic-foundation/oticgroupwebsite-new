@@ -26,12 +26,28 @@ interface ResearchPost {
   created_at: string;
 }
 
+interface DispatchHighlight {
+  id: string;
+  eyebrow: string;
+  title: string;
+  description: string;
+  image_url: string | null;
+  link: string;
+  cta_label: string;
+  published: boolean;
+  display_order: number;
+  created_at: string;
+}
+
 const ResearchAdmin = () => {
   const [posts, setPosts] = useState<ResearchPost[]>([]);
   const [isCreating, setIsCreating] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [uploading, setUploading] = useState(false);
+  const [dispatchItems, setDispatchItems] = useState<DispatchHighlight[]>([]);
+  const [isCreatingDispatch, setIsCreatingDispatch] = useState(false);
+  const [editingDispatchId, setEditingDispatchId] = useState<string | null>(null);
   const { toast } = useToast();
 
   const [formData, setFormData] = useState({
@@ -48,8 +64,20 @@ const ResearchAdmin = () => {
     display_order: 0,
   });
 
+  const [dispatchFormData, setDispatchFormData] = useState({
+    eyebrow: 'RESEARCH PLAYBOOK',
+    title: '',
+    description: '',
+    image_url: '',
+    link: '/research',
+    cta_label: 'Read the report',
+    published: true,
+    display_order: 0,
+  });
+
   useEffect(() => {
     fetchPosts();
+    fetchDispatches();
   }, []);
 
   const fetchPosts = async () => {
@@ -70,10 +98,10 @@ const ResearchAdmin = () => {
     setLoading(false);
   };
 
-  const handleFileUpload = async (file: File, type: 'image' | 'pdf') => {
+  const uploadAsset = async (file: File) => {
     setUploading(true);
     const fileName = `${Date.now()}-${file.name}`;
-    const { data, error } = await supabase.storage
+    const { error } = await supabase.storage
       .from('research-files')
       .upload(fileName, file);
 
@@ -84,24 +112,36 @@ const ResearchAdmin = () => {
         variant: 'destructive',
       });
       setUploading(false);
-      return;
+      return null;
     }
 
     const { data: { publicUrl } } = supabase.storage
       .from('research-files')
       .getPublicUrl(fileName);
 
-    if (type === 'image') {
-      setFormData(prev => ({ ...prev, cover_image_url: publicUrl }));
-    } else {
-      setFormData(prev => ({ ...prev, download_file_url: publicUrl }));
-    }
-    
     toast({
       title: 'File uploaded',
       description: 'File uploaded successfully.',
     });
     setUploading(false);
+    return publicUrl;
+  };
+
+  const handleFileUpload = async (file: File, type: 'image' | 'pdf') => {
+    const publicUrl = await uploadAsset(file);
+    if (!publicUrl) return;
+
+    if (type === 'image') {
+      setFormData(prev => ({ ...prev, cover_image_url: publicUrl }));
+    } else {
+      setFormData(prev => ({ ...prev, download_file_url: publicUrl }));
+    }
+  };
+
+  const handleDispatchImageUpload = async (file: File) => {
+    const publicUrl = await uploadAsset(file);
+    if (!publicUrl) return;
+    setDispatchFormData(prev => ({ ...prev, image_url: publicUrl }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
