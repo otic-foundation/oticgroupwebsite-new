@@ -61,7 +61,7 @@ const HeroSection = () => {
 
         if (data && data.length && isMounted) {
           const formatted: DispatchCard[] = data.map((item, index) => ({
-            id: item.id ?? `dispatch-${index}`,
+            id: item.id,
             eyebrow: item.eyebrow,
             title: item.title,
             description: item.description,

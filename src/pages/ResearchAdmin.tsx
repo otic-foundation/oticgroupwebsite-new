@@ -35,7 +35,7 @@ interface DispatchHighlight {
   link: string;
   cta_label: string;
   published: boolean;
-  display_order: number;
+  display_order: number | null;
   created_at: string;
 }
 
@@ -96,6 +96,23 @@ const ResearchAdmin = () => {
       setPosts(data || []);
     }
     setLoading(false);
+  };
+
+  const fetchDispatches = async () => {
+    const { data, error } = await supabase
+      .from('dispatch_highlights')
+      .select('*')
+      .order('display_order', { ascending: true });
+
+    if (error) {
+      toast({
+        title: 'Error fetching dispatch highlights',
+        description: error.message,
+        variant: 'destructive',
+      });
+    } else {
+      setDispatchItems(data || []);
+    }
   };
 
   const uploadAsset = async (file: File) => {
@@ -200,6 +217,68 @@ const ResearchAdmin = () => {
     }
   };
 
+  const handleDispatchSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!dispatchFormData.title || !dispatchFormData.description || !dispatchFormData.link) {
+      toast({
+        title: 'Missing required fields',
+        description: 'Please provide a title, description, and link.',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    const payload = {
+      ...dispatchFormData,
+      image_url: dispatchFormData.image_url || null,
+    };
+
+    if (editingDispatchId) {
+      const { error } = await supabase
+        .from('dispatch_highlights')
+        .update(payload)
+        .eq('id', editingDispatchId);
+
+      if (error) {
+        toast({
+          title: 'Update failed',
+          description: error.message,
+          variant: 'destructive',
+        });
+      } else {
+        toast({
+          title: 'Highlight updated',
+          description: 'Dispatch card updated successfully.',
+        });
+        setEditingDispatchId(null);
+        resetDispatchForm();
+        setIsCreatingDispatch(false);
+        fetchDispatches();
+      }
+    } else {
+      const { error } = await supabase
+        .from('dispatch_highlights')
+        .insert([payload]);
+
+      if (error) {
+        toast({
+          title: 'Creation failed',
+          description: error.message,
+          variant: 'destructive',
+        });
+      } else {
+        toast({
+          title: 'Highlight created',
+          description: 'Dispatch card created successfully.',
+        });
+        resetDispatchForm();
+        setIsCreatingDispatch(false);
+        fetchDispatches();
+      }
+    }
+  };
+
   const handleEdit = (post: ResearchPost) => {
     setFormData({
       title: post.title,
@@ -263,6 +342,63 @@ const ResearchAdmin = () => {
     resetForm();
   };
 
+  const handleDispatchEdit = (highlight: DispatchHighlight) => {
+    setDispatchFormData({
+      eyebrow: highlight.eyebrow,
+      title: highlight.title,
+      description: highlight.description,
+      image_url: highlight.image_url || '',
+      link: highlight.link,
+      cta_label: highlight.cta_label,
+      published: highlight.published,
+      display_order: highlight.display_order ?? 0,
+    });
+    setEditingDispatchId(highlight.id);
+    setIsCreatingDispatch(true);
+  };
+
+  const handleDispatchDelete = async (id: string) => {
+    if (!confirm('Are you sure you want to delete this highlight?')) return;
+
+    const { error } = await supabase
+      .from('dispatch_highlights')
+      .delete()
+      .eq('id', id);
+
+    if (error) {
+      toast({
+        title: 'Delete failed',
+        description: error.message,
+        variant: 'destructive',
+      });
+    } else {
+      toast({
+        title: 'Highlight deleted',
+        description: 'Dispatch card deleted successfully.',
+      });
+      fetchDispatches();
+    }
+  };
+
+  const resetDispatchForm = () => {
+    setDispatchFormData({
+      eyebrow: 'RESEARCH PLAYBOOK',
+      title: '',
+      description: '',
+      image_url: '',
+      link: '/research',
+      cta_label: 'Read the report',
+      published: true,
+      display_order: 0,
+    });
+  };
+
+  const cancelDispatchEdit = () => {
+    setIsCreatingDispatch(false);
+    setEditingDispatchId(null);
+    resetDispatchForm();
+  };
+
   return (
     <div className="flex flex-col min-h-screen noise-overlay">
       <Header />
@@ -271,6 +407,221 @@ const ResearchAdmin = () => {
           <div className="flex items-center justify-between mb-8">
             <div>
               <h1 className="font-display text-4xl font-bold text-white mb-2">
+            {/* Dispatch Highlights Management */}
+            <div className="mt-16">
+              <div className="flex items-center justify-between mb-8">
+                <div>
+                  <h2 className="font-display text-2xl font-bold text-white mb-2">
+                    Dispatch Highlights
+                  </h2>
+                  <p className="text-muted-foreground font-body max-w-2xl">
+                    Control the "What's new with us" rail on the homepage. Publish, edit, or retire cards without touching code.
+                  </p>
+                </div>
+                {!isCreatingDispatch && (
+                  <Button 
+                    onClick={() => setIsCreatingDispatch(true)}
+                    className="bg-cta text-cta-foreground hover:bg-cta/90"
+                  >
+                    <Plus className="w-4 h-4 mr-2" />
+                    Add Highlight
+                  </Button>
+                )}
+              </div>
+
+              {isCreatingDispatch && (
+                <Card className="mb-8 bg-card/80 border-white/10">
+                  <CardHeader>
+                    <CardTitle className="text-white">
+                      {editingDispatchId ? 'Edit Dispatch Highlight' : 'Create Dispatch Highlight'}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <form onSubmit={handleDispatchSubmit} className="space-y-6">
+                      <div className="grid md:grid-cols-2 gap-6">
+                        <div className="space-y-2">
+                          <Label htmlFor="dispatch_eyebrow" className="text-white">Category Label</Label>
+                          <Input
+                            id="dispatch_eyebrow"
+                            value={dispatchFormData.eyebrow}
+                            onChange={(e) => setDispatchFormData(prev => ({ ...prev, eyebrow: e.target.value }))}
+                            placeholder="RESEARCH PLAYBOOK"
+                            className="bg-secondary/50 border-white/10"
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="dispatch_display_order" className="text-white">Display Order</Label>
+                          <Input
+                            id="dispatch_display_order"
+                            type="number"
+                            value={dispatchFormData.display_order}
+                            onChange={(e) => setDispatchFormData(prev => ({ ...prev, display_order: parseInt(e.target.value) || 0 }))}
+                            className="bg-secondary/50 border-white/10"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label htmlFor="dispatch_title" className="text-white">Title *</Label>
+                        <Input
+                          id="dispatch_title"
+                          value={dispatchFormData.title}
+                          onChange={(e) => setDispatchFormData(prev => ({ ...prev, title: e.target.value }))}
+                          placeholder="Enter highlight title"
+                          className="bg-secondary/50 border-white/10"
+                        />
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label htmlFor="dispatch_description" className="text-white">Description *</Label>
+                        <Textarea
+                          id="dispatch_description"
+                          value={dispatchFormData.description}
+                          onChange={(e) => setDispatchFormData(prev => ({ ...prev, description: e.target.value }))}
+                          placeholder="Brief summary shown on the card"
+                          rows={4}
+                          className="bg-secondary/50 border-white/10"
+                        />
+                      </div>
+
+                      <div className="grid md:grid-cols-2 gap-6">
+                        <div className="space-y-2">
+                          <Label htmlFor="dispatch_link" className="text-white">Link *</Label>
+                          <Input
+                            id="dispatch_link"
+                            value={dispatchFormData.link}
+                            onChange={(e) => setDispatchFormData(prev => ({ ...prev, link: e.target.value }))}
+                            placeholder="/research/reimagined-banking"
+                            className="bg-secondary/50 border-white/10"
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="dispatch_cta" className="text-white">CTA Label</Label>
+                          <Input
+                            id="dispatch_cta"
+                            value={dispatchFormData.cta_label}
+                            onChange={(e) => setDispatchFormData(prev => ({ ...prev, cta_label: e.target.value }))}
+                            placeholder="Read the report"
+                            className="bg-secondary/50 border-white/10"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label className="text-white">Card Image *</Label>
+                        <div className="flex gap-2">
+                          <Input
+                            value={dispatchFormData.image_url}
+                            onChange={(e) => setDispatchFormData(prev => ({ ...prev, image_url: e.target.value }))}
+                            placeholder="Image URL or upload"
+                            className="bg-secondary/50 border-white/10 flex-1"
+                          />
+                          <div className="relative">
+                            <input
+                              type="file"
+                              accept="image/*"
+                              className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                              onChange={(e) => e.target.files?.[0] && handleDispatchImageUpload(e.target.files[0])}
+                            />
+                            <Button type="button" variant="outline" className="border-white/10 pointer-events-none" disabled={uploading}>
+                              <Upload className="w-4 h-4" />
+                            </Button>
+                          </div>
+                        </div>
+                        {dispatchFormData.image_url && (
+                          <img src={dispatchFormData.image_url} alt="Preview" className="w-32 h-32 object-cover rounded mt-2" />
+                        )}
+                      </div>
+
+                      <div className="flex items-center gap-2">
+                        <input
+                          type="checkbox"
+                          id="dispatch_published"
+                          checked={dispatchFormData.published}
+                          onChange={(e) => setDispatchFormData(prev => ({ ...prev, published: e.target.checked }))}
+                          className="w-4 h-4"
+                        />
+                        <Label htmlFor="dispatch_published" className="text-white">Published</Label>
+                      </div>
+
+                      <div className="flex gap-4">
+                        <Button type="submit" className="bg-cta text-cta-foreground hover:bg-cta/90" disabled={uploading}>
+                          <Save className="w-4 h-4 mr-2" />
+                          {editingDispatchId ? 'Update Highlight' : 'Create Highlight'}
+                        </Button>
+                        <Button type="button" variant="outline" onClick={cancelDispatchEdit} className="border-white/10">
+                          <X className="w-4 h-4 mr-2" />
+                          Cancel
+                        </Button>
+                      </div>
+                    </form>
+                  </CardContent>
+                </Card>
+              )}
+
+              <div className="space-y-4">
+                <h3 className="font-display text-2xl font-bold text-white">
+                  Existing Highlights ({dispatchItems.length})
+                </h3>
+                {dispatchItems.length === 0 ? (
+                  <p className="text-muted-foreground">No highlights yet. Create one to populate the homepage rail.</p>
+                ) : (
+                  dispatchItems.map((highlight) => (
+                    <Card key={highlight.id} className="bg-card/80 border-white/10">
+                      <CardContent className="p-6">
+                        <div className="flex items-start gap-6">
+                          {highlight.image_url && (
+                            <img
+                              src={highlight.image_url}
+                              alt={highlight.title}
+                              className="w-28 h-28 object-cover rounded"
+                            />
+                          )}
+                          <div className="flex-1">
+                            <div className="flex items-center gap-2 mb-2">
+                              <span className="text-xs uppercase tracking-wide text-cta">
+                                {highlight.eyebrow}
+                              </span>
+                              {!highlight.published && (
+                                <span className="text-xs px-2 py-1 bg-yellow-500/20 text-yellow-400 rounded">
+                                  Draft
+                                </span>
+                              )}
+                            </div>
+                            <h3 className="text-lg font-bold text-white mb-1">{highlight.title}</h3>
+                            <p className="text-sm text-muted-foreground mb-2 line-clamp-2">
+                              {highlight.description}
+                            </p>
+                            <p className="text-xs text-muted-foreground">
+                              CTA: {highlight.cta_label} • Order: {highlight.display_order ?? 0}
+                            </p>
+                          </div>
+                          <div className="flex gap-2">
+                            <Button 
+                              variant="outline" 
+                              size="sm" 
+                              onClick={() => handleDispatchEdit(highlight)}
+                              className="border-white/10"
+                            >
+                              <Edit2 className="w-4 h-4" />
+                            </Button>
+                            <Button 
+                              variant="outline" 
+                              size="sm" 
+                              onClick={() => handleDispatchDelete(highlight.id)}
+                              className="border-red-500/50 text-red-400 hover:bg-red-500/10"
+                            >
+                              <Trash2 className="w-4 h-4" />
+                            </Button>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))
+                )}
+              </div>
+            </div>
+
                 Research Admin
               </h1>
               <p className="text-muted-foreground font-body">
